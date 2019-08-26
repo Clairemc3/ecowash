@@ -1,0 +1,17 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+
+.main-header {
+   background-color: $cream;
+   border-bottom: 1px solid $light-grey;
+   box-shadow: 0 0 20px $black;
+}
+
+.main-header__logo {
+   text-align: center;
+   img {
+      width: 100%;
+   }
+}

@@ -1,0 +1,38 @@
+.promotion {
+    margin: 5px;
+    padding: 10px;
+    p{
+        color: $cream;
+        margin: 0 .5em;
+    }
+    p.small {
+        font-size: 1em;
+    }
+    p.medium {
+        font-size: 1.5em;
+    }
+    p.large {
+        font-size: 2em;
+    }
+    .title {
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 0;
+        letter-spacing: 1px;
+        font-size: 1em;
+    }
+}
+
+.promotion__green {
+    background-color: $lime-green;
+    .title {
+        color : $text-color;
+    }
+}
+
+.promotion__red {
+    background-color: $red;
+    .title {
+        color : $yellow;
+    }
+}

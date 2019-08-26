@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.footer {
+    background-color: $dark-grey;
+    border-top: 1px solid $light-grey;
+    text-align: center;
+ }
+
+ .footer__container {
+    max-width: 90%;
+    margin: 1em 1em 0 1em;
+    text-align: center;
+    padding-bottom: 1.5em;
+ }
+
+
+ .footer__address {
+    color: $cream;
+
+    span {
+        display: block;
+    }
+ }

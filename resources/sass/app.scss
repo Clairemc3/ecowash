@@ -1,8 +1,37 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@charset 'UTF-8';
 
-// Variables
-@import 'variables';
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// 2. Vendors
+@import
+  'vendors/normalize';
+
+// 3. Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography',
+  'base/helpers',
+  'base/utilities';
+
+// 4. Layout-related sections
+@import
+  'layout/header',
+  'layout/footer';
+
+// 5. Components
+@import
+  'components/button',
+  'components/callout',
+  'components/slider',
+  'components/price',
+  'components/promotion',
+  'components/map';
+
+// 6. Page-specific styles
+@import
+  'pages/home';
