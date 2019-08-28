@@ -7,11 +7,58 @@
    background-color: $cream;
    border-bottom: 1px solid $light-grey;
    box-shadow: 0 0 20px $black;
+   padding-top: 1em;
+   padding-right: 1em;
+   padding-left: 1em;
 }
 
 .main-header__logo {
-   text-align: center;
+   margin-right: auto;
    img {
-      width: 100%;
+      width: 80%;
+   }
+}
+
+.main-header__tagline {
+   display: block;
+   color: $black;
+   opacity: 0.8;
+   font-size: 13px;
+   margin-top: 0px;
+   margin-left: 0;
+}
+
+.main-header__top{
+   @include flexy( 
+      $dir: row,
+      $justify: space-between
+  );
+  align-items: center;
+}
+
+.main-header__navigation{
+   text-align: center;
+   ul {
+      list-style-type: none;
+      padding: 5px 0;
+   }
+   li {
+      margin: 5px 0;
+      background-color: $dark-blue;
+      transition: background-color .5s;
+      transition-timing-function: ease-in-out;
+      @include on-event {
+         background-color: $red;
+       }
+   }
+   li a {
+      display: block;
+      color: $cream;
+      text-transform: uppercase;
+      transition: font-size .5s;
+      transition-timing-function: ease-in-out;
+      @include on-event {
+         font-size: 1.5em;
+        }
    }
 }

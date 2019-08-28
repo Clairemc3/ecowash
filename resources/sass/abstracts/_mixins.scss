@@ -32,3 +32,54 @@
   }
 }
 
+
+// Center containers
+@mixin center($width) {
+  width: $width;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// Create a flex container
+@mixin flexy(
+$display: flex,
+$dir: null,
+$wrap: null,
+$justify: null) {
+display: $display;
+flex-direction: $dir;
+flex-wrap: $wrap;
+justify-content: $justify;
+}
+
+
+@mixin themeColors {
+padding: 10px;
+border-radius: 5px;
+font-size: 0.8em;
+font-weight: bold;
+}
+
+
+// Media queries 
+@mixin mediaQuery($break) {
+$value: map-get($breakpoints, $break);	
+$small: map-get($breakpoints, 'small');
+          
+@if $value == null {
+  @warn "#{$break} is not a valid breakpoint name";
+}
+@else if $value < $small {
+  @media (max-width: $value){
+    @content;
+  }
+}	
+@else {
+  @media (min-width: $value) {
+    @content;
+  }
+}
+}
+

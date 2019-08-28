@@ -10,12 +10,28 @@
 <body>
 
 
-    <header >
+    <header>
         <div class="main-header">
-        <div class="main-header__logo">
-            <img src="/images/ecowash-launderette-logo.png" alt="Ecowash launderette in Godalming">
+            <div class="main-header__top">
+                <div class="main-header__logo">
+                    <img src="/images/ecowash-launderette-logo.png" alt="Ecowash launderette in Godalming">
+                    <span class="main-header__tagline">a coin operated self service launderette</span>
+                </div>
+
+                <div>
+                    burger
+                </div>
+            </div>
+
+            <div class="main-header__navigation">
+                <ul class="main-nav__links">
+                    <li><a href="">Home</a> </li>
+                    <li><a href="">Find us</a></li>
+                    <li><a href="">Prices</a></li>
+                    <li><a href="">Service wash</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
     <div class="callout">Open daily from 7.30am to 8.30pm</div>
     </header>
 
