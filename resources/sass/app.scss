@@ -26,11 +26,13 @@
 // 5. Components
 @import
   'components/button',
+  'components/nav',
   'components/callout',
   'components/slider',
   'components/price',
   'components/promotion',
-  'components/map';
+  'components/map',
+  'components/returnToTop';
 
 // 6. Page-specific styles
 @import

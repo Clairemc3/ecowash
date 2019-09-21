@@ -1,4 +1,4 @@
-<div class="section section__page">
+<div id="prices" class="section section__page">
     <h2>Prices</h2>
 
     {{-- Small machines --}}

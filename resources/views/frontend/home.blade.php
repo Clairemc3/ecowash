@@ -10,6 +10,13 @@
 <body>
 
 
+<button id="scrollToTop" title="Go to top">Top</button>
+
+
+<!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
     <header>
         <div class="main-header">
             <div class="main-header__top">
@@ -18,17 +25,19 @@
                     <span class="main-header__tagline">a coin operated self service launderette</span>
                 </div>
 
-                <div>
-                    burger
+                <div id="menuToggle">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
                 </div>
             </div>
 
             <div class="main-header__navigation">
                 <ul class="main-nav__links">
                     <li><a href="">Home</a> </li>
-                    <li><a href="">Find us</a></li>
-                    <li><a href="">Prices</a></li>
-                    <li><a href="">Service wash</a></li>
+                    <li><a href="#findUs">Find us</a></li>
+                    <li><a href="#prices">Prices</a></li>
+                    <li><a href="#serviceWash">Service wash</a></li>
                 </ul>
             </div>
         </div>
@@ -59,6 +68,9 @@
     </div>
 
 
+    <div></div>
+
+
     {{-- Footer --}}
     <footer>
             <div class="footer">
@@ -73,6 +85,6 @@
                 </div>
             </div>
     </footer>
-
+    <script src="js/app.js"></script>
 </body>
 </html>

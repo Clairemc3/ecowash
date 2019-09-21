@@ -580,6 +580,9 @@ h3 {
 }
 
 .main-header__navigation {
+  max-height: 0;
+  overflow-y: hidden;
+  transition: max-height 0.5s ease-in-out;
   text-align: center;
 }
 
@@ -615,6 +618,10 @@ h3 {
   font-size: 1.5em;
 }
 
+.main-header__navigation-visible {
+  max-height: 10em;
+}
+
 .footer {
   background-color: #383838;
   border-top: 1px solid #707070;
@@ -634,6 +641,28 @@ h3 {
 
 .footer__address span {
   display: block;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-8px, -8px);
 }
 
 .callout {
@@ -718,5 +747,20 @@ h3 {
 
 .map iframe {
   width: 100%;
+}
+
+#scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: black;
+  background: rgba(0, 0, 0, 0.7);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  border-radius: 35px;
+  display: none;
+  transition: all 0.3s ease;
 }
 

@@ -1,4 +1,4 @@
-<div class="section section__page">
+<div id="serviceWash" class="section section__page">
     <h2>Service Washes</h2>
 
      <p class="uppercase red">Please ring first for availability</p>

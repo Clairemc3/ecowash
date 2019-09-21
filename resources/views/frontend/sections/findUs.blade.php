@@ -1,4 +1,4 @@
-<div class="section section__page">
+<div id="findUs" class="section section__page">
     <h2>Find us</h2>
 
     <div class="map">

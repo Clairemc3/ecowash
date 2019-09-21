@@ -37,7 +37,11 @@
 }
 
 .main-header__navigation{
+   max-height: 0;            
+   overflow-y: hidden;
+   transition: max-height 0.5s ease-in-out;
    text-align: center;
+
    ul {
       list-style-type: none;
       padding: 5px 0;
@@ -61,4 +65,8 @@
          font-size: 1.5em;
         }
    }
+}
+
+.main-header__navigation-visible {
+   max-height: 10em;
 }
