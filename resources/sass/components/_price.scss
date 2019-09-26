@@ -1,8 +1,29 @@
 .price__item{
+
+    h3, p {
+        margin-top: .7em;
+        margin-bottom: .7em;
+    }
     border-bottom: dotted $red 7px;
+    @include mediaQuery(large) {
+        max-width: 80%;
+        margin: auto;
+       h3 {
+           display: inline-block;
+       }
+       h3::after {
+           content : ' : ';
+       }
+    }
 }
 
 .price__cost{
     color: $lime-green;
     font-size: 1.2em;
+
+
+    @include mediaQuery(large) {
+        display: inline-block;
+        font-size: 1.5em;
+    }
 }

@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/app.css">
     <title>Ecowash Launderette in Godalming</title>
+    <script src="https://kit.fontawesome.com/82ef6072c7.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 
-<button id="scrollToTop" title="Go to top">Top</button>
+<button id="scrollToTop" title="Go to top"><i class="fas fa-chevron-up"></i></button>
 
 
 <!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
@@ -41,7 +42,20 @@
                 </ul>
             </div>
         </div>
-    <div class="callout">Open daily from 7.30am to 8.30pm</div>
+        <div class="topline container">
+            <div class="left">Open daily from 7.30am to 8.30pm</div>
+            <div class="right">
+                <span class="review-text">Rated 4.7 by our customers</span>
+                <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        </div>
+
+            </div>
+         </div>
     </header>
 
     {{-- Main body --}}
@@ -75,6 +89,11 @@
     <footer>
             <div class="footer">
                 <div class="footer__container">
+
+                    <div class="social-icons">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    
                     <div class="footer__address">
                         <span>Farncombe Street,</span>
                         <span>near Godalming,</span>

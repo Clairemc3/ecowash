@@ -47,19 +47,21 @@
 $display: flex,
 $dir: null,
 $wrap: null,
-$justify: null) {
+$justify: null,
+$align: null) {
 display: $display;
 flex-direction: $dir;
 flex-wrap: $wrap;
 justify-content: $justify;
+align-items: $align;
 }
 
 
 @mixin themeColors {
-padding: 10px;
-border-radius: 5px;
-font-size: 0.8em;
-font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
 }
 
 

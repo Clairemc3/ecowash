@@ -20,6 +20,11 @@
         margin-bottom: 0;
         letter-spacing: 1px;
         font-size: 1em;
+
+
+        @include mediaQuery(large) {
+            font-size: 1.5em;
+        }
     }
 }
 

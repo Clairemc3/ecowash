@@ -5,15 +5,23 @@
 .footer {
     background-color: $dark-grey;
     border-top: 1px solid $light-grey;
-    text-align: center;
  }
 
  .footer__container {
     max-width: 90%;
     margin: auto;
     margin-top: 1em;
-    text-align: center;
     padding-bottom: 1.5em;
+
+    @include flexy( 
+      $dir: row,
+      $justify: center,
+      $align: center,
+  );
+
+  @include mediaQuery(large) {
+      justify-content: space-between;
+   }
  }
 
 
@@ -24,4 +32,14 @@
     span {
         display: block;
     }
+
+    @include mediaQuery(large) {
+      text-align: right;
+   }
+ }
+
+
+ .social-icons{
+    font-size: 3em;
+    color: darkblue;
  }

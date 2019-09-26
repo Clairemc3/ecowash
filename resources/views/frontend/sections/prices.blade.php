@@ -38,6 +38,6 @@
             <p>(suitable for heavy duvets, family wash, curtains & medium rugs)</p>
      </div>
 
-     <p class="uppercase">Tumble drying starts fro 50 pence</p>
+     <p class="uppercase">Tumble drying starts from 50 pence</p>
 
 </div>
