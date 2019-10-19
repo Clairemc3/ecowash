@@ -12,3 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index');
+
+
+Route::get('/machines', 'MachineController@index');
+Route::put('/machines/{machine}', 'MachineController@update');
+
+Route::post('/machines', 'MachineController@store');
