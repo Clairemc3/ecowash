@@ -17,25 +17,3 @@
   'base/typography',
   'base/helpers',
   'base/utilities';
-
-// 4. Layout-related sections
-@import
-  'layout/header',
-  'layout/footer';
-
-// 5. Components
-@import
-  'components/button',
-  'components/reviewStars',
-  'components/topline',
-  'components/nav',
-  'components/callout',
-  'components/slider',
-  'components/price',
-  'components/promotion',
-  'components/map',
-  'components/returnToTop';
-
-// 6. Page-specific styles
-@import
-  'pages/home';
