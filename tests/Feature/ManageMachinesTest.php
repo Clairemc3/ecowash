@@ -6,25 +6,19 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class MachinesTest extends TestCase
+class ManageMachinesTest extends TestCase
 {
 
     use WithFaker, RefreshDatabase;
 
 
-
     /**  @test  */
-    public function guests_cannnot_view_machines()
+    public function guests_cannnot_manage_machines()
     {
+        $machine = factory('App\Machine')->create();
+
         $this->get('admin/machines')->assertRedirect('/login');
-    }
-
-    /**  @test  */
-    public function guests_cannnot_create_a_machine()
-    {
-        $attributes = factory('App\Machine')->raw();
-
-        $this->post('admin/machines', $attributes)->assertRedirect('/login');
+        $this->post('admin/machines', $machine->toArray())->assertRedirect('/login');
     }
 
 
