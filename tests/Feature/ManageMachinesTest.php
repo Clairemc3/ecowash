@@ -18,6 +18,7 @@ class ManageMachinesTest extends TestCase
         $machine = factory('App\Machine')->create();
 
         $this->get('admin/machines')->assertRedirect('/login');
+        $this->get('admin/machines/create')->assertRedirect('/login');
         $this->post('admin/machines', $machine->toArray())->assertRedirect('/login');
     }
 
@@ -38,6 +39,8 @@ class ManageMachinesTest extends TestCase
         $this->withoutExceptionHandling();
 
         $this->actingAs($this->authenticatedUser);
+
+        $this->get('admin/machines/create')->assertStatus(200);
 
         $attributes = factory('App\Machine')->raw();
 

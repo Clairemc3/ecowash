@@ -21,7 +21,16 @@ class MachineController extends Controller
         $machines = Machine::all();
 
         return view('backend.machines.index', compact('machines'));
+    }
 
+    /**
+     * Create a machines
+     *
+     * @return void
+     */
+    public function create()
+    {
+        return view('backend.machines.create');
     }
 
     /**

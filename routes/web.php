@@ -17,7 +17,8 @@ Route::get('/', 'HomeController@index')->name('home');;
 
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
-    Route::get('/machines', 'MachineController@index')->middleware('auth')->name('machine.index');
+    Route::get('/machines', 'MachineController@index')->name('machine.index');
+    Route::get('/machines/create', 'MachineController@create')->name('machine.create');
+    Route::post('/machines', 'MachineController@store')->name('machine.store');
     Route::put('/machines/{machine}', 'MachineController@update')->name('machine.update');
-    Route::post('/machines', 'MachineController@store')->middleware('auth')->name('machine.store');
 });
