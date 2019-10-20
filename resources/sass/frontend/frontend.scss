@@ -13,6 +13,9 @@
   '../base/helpers',
   '../base/utilities';
 
+  // Front end specific base
+  @import 'base/base';
+
 // Layout-related sections
 @import
   'layout/header',
@@ -21,6 +24,7 @@
 // Components
 @import
   'components/reviewStars',
+  'components/pageSection',
   'components/topline',
   'components/nav',
   'components/slider',

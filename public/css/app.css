@@ -416,24 +416,6 @@ a:focus {
   text-decoration: none;
 }
 
-body {
-  background-color: #435765;
-}
-
-.section {
-  background-color: #F4F6F3;
-  border: solid 1px #707070;
-  box-shadow: 0 0 20px #283640;
-  margin: 1.5em 0;
-  padding: 1px;
-  text-align: center;
-}
-
-.section__page {
-  margin: 3% 0;
-  padding: 1em;
-}
-
 /**
  * Basic typography style for copy text
  */
