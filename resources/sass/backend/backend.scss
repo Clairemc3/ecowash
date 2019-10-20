@@ -13,22 +13,14 @@
   '../base/helpers',
   '../base/utilities';
 
-  // Backend end specific base
-  @import 'base/base';
+// Backend end specific base
+@import 'base/base';
 
-// Layout-related sections
-// @import
-//   'layout/header',
-//   'layout/footer';
+// Bootstrap: Temp here until we finish styling the backend
+@import '~bootstrap/scss/bootstrap';
 
-// Components
-// @import
-//   'components/reviewStars',
-//   'components/pageSection',
-//   'components/topline',
-//   'components/nav',
-//   'components/slider',
-//   'components/price',
-//   'components/promotion',
-//   'components/map',
-//   'components/returnToTop';
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;

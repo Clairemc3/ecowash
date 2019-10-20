@@ -28,9 +28,7 @@ a {
   text-decoration: none;
 }
 
-a:hover,
-a:active,
-a:focus {
+a:hover, a:active, a:focus {
   color: #283640;
   text-decoration: none;
 }
@@ -44,9 +42,7 @@ body {
   font: normal 125%/1.4 "Secular One", "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   margin-top: 0.6em;
   margin-bottom: 0.6em;
 }
@@ -216,9 +212,7 @@ body {
   transition-timing-function: ease-in-out;
 }
 
-.main-header__navigation li:hover,
-.main-header__navigation li:active,
-.main-header__navigation li:focus {
+.main-header__navigation li:hover, .main-header__navigation li:active, .main-header__navigation li:focus {
   background-color: #B24240;
 }
 
@@ -230,9 +224,7 @@ body {
   transition-timing-function: ease-in-out;
 }
 
-.main-header__navigation li a:hover,
-.main-header__navigation li a:active,
-.main-header__navigation li a:focus {
+.main-header__navigation li a:hover, .main-header__navigation li a:active, .main-header__navigation li a:focus {
   font-size: 1.5em;
 }
 
@@ -318,8 +310,7 @@ body {
   }
 }
 
-.left,
-.right {
+.left, .right {
   color: #F4F6F3;
   font-size: 1.25em;
   margin-top: 0.5em;
@@ -335,9 +326,7 @@ body {
   }
 }
 
-.bar1,
-.bar2,
-.bar3 {
+.bar1, .bar2, .bar3 {
   width: 35px;
   height: 5px;
   background-color: #333;
@@ -375,8 +364,7 @@ body {
   border-bottom: dotted #B24240 7px;
 }
 
-.price__item h3,
-.price__item p {
+.price__item h3, .price__item p {
   margin-top: 0.7em;
   margin-bottom: 0.7em;
 }
@@ -484,4 +472,3 @@ body {
   border: 0;
   outline: none;
 }
-
