@@ -14,7 +14,13 @@ class MachinesTest extends TestCase
 
 
     /**  @test  */
-    public function unauthenticated_users_cannnot_create_a_machine()
+    public function guests_cannnot_view_machines()
+    {
+        $this->get('admin/machines')->assertRedirect('/login');
+    }
+
+    /**  @test  */
+    public function guests_cannnot_create_a_machine()
     {
         $attributes = factory('App\Machine')->raw();
 
@@ -23,7 +29,7 @@ class MachinesTest extends TestCase
 
 
     /**  @test  */
-    public function users_can_view_machines()
+    public function a_user_can_view_machines()
     {
         $this->actingAs($this->authenticatedUser);
 

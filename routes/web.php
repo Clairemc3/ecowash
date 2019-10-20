@@ -16,7 +16,7 @@ Auth::routes(['register' => false]);
 Route::get('/', 'HomeController@index')->name('home');;
 
 
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::get('/machines', 'MachineController@index')->middleware('auth')->name('machine.index');
     Route::put('/machines/{machine}', 'MachineController@update')->name('machine.update');
     Route::post('/machines', 'MachineController@store')->middleware('auth')->name('machine.store');
