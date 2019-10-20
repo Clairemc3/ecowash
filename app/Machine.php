@@ -11,7 +11,7 @@ class Machine extends Model
 
 
     /**
-     * FDefines the path for this model
+     * Defines the path for this model
      *
      * @return string
      */

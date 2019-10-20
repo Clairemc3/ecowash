@@ -12,17 +12,34 @@ class MachinesTest extends TestCase
     use WithFaker, RefreshDatabase;
 
 
+
+    /**  @test  */
+    public function unauthenticated_users_cannnot_create_a_machine()
+    {
+        $attributes = factory('App\Machine')->raw();
+
+        $this->post('/machines', $attributes)->assertRedirect('/login');
+    }
+
+
+    /**  @test  */
+    public function users_can_view_machines()
+    {
+        $this->actingAs($this->authenticatedUser);
+
+        factory('App\Machine', 5)->create();
+
+        $this->get('/machines')->assertSee('Machines')->assertStatus(200);
+    }
+
     /**  @test  */
     public function a_user_can_create_a_machine()
     {
-
         $this->withoutExceptionHandling();
 
-        $attributes = [
-            'name' => $this->faker->sentence(3),
-            'price' => $this->faker->sentence(4), 
-            'description' => $this->faker->sentence(5),
-        ];
+        $this->actingAs($this->authenticatedUser);
+
+        $attributes = factory('App\Machine')->raw();
 
         $this->post('/machines', $attributes)->assertRedirect('/machines');
 
@@ -36,10 +53,11 @@ class MachinesTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
+        $this->actingAs($this->authenticatedUser);
+
         $machine = factory('App\Machine')->create();
 
         $updatedMachine = factory('App\Machine')->raw();
-
 
         $this->put($machine->path() , $updatedMachine )->assertRedirect('/machines');
 
@@ -50,6 +68,7 @@ class MachinesTest extends TestCase
     /**  @test  */
     public function a_machine_requires_a_name()
     {
+        $this->actingAs($this->authenticatedUser);
 
         $attributes = factory('App\Machine')->raw(['name' => '']);
         
@@ -59,6 +78,8 @@ class MachinesTest extends TestCase
     /**  @test  */
     public function a_machine_requires_a_price()
     {
+        $this->actingAs($this->authenticatedUser);
+
         $attributes = factory('App\Machine')->raw(['price' => '']);
 
         $this->post('/machines', $attributes)->assertSessionHasErrors('price');

@@ -14,13 +14,9 @@ class MachineTest extends TestCase
     /** @test */
     public function it_has_a_path()
     {
-
         $machine = factory('App\Machine')->create();
 
-
         $this->assertEquals('/machines/'. $machine->id, $machine->path());
-
-
 
     }
 }

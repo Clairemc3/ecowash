@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 
 class MachineController extends Controller
 {
+
+    /**
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Show all machines
      *

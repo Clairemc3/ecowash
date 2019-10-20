@@ -11,10 +11,15 @@
 |
 */
 
+Auth::routes(['register' => false]);
+
 Route::get('/', 'HomeController@index');
 
 
-Route::get('/machines', 'MachineController@index');
+Route::get('/machines', 'MachineController@index')->middleware('auth');
 Route::put('/machines/{machine}', 'MachineController@update');
 
-Route::post('/machines', 'MachineController@store');
+Route::post('/machines', 'MachineController@store')->middleware('auth');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
