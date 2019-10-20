@@ -18,7 +18,7 @@ class MachinesTest extends TestCase
     {
         $attributes = factory('App\Machine')->raw();
 
-        $this->post('/machines', $attributes)->assertRedirect('/login');
+        $this->post('admin/machines', $attributes)->assertRedirect('/login');
     }
 
 
@@ -29,7 +29,7 @@ class MachinesTest extends TestCase
 
         factory('App\Machine', 5)->create();
 
-        $this->get('/machines')->assertSee('Machines')->assertStatus(200);
+        $this->get('admin/machines')->assertSee('Machines')->assertStatus(200);
     }
 
     /**  @test  */
@@ -41,11 +41,11 @@ class MachinesTest extends TestCase
 
         $attributes = factory('App\Machine')->raw();
 
-        $this->post('/machines', $attributes)->assertRedirect('/machines');
+        $this->post('admin/machines', $attributes)->assertRedirect('/admin/machines');
 
         $this->assertDatabaseHas('machines', $attributes);
 
-        $this->get('/machines')->assertSee($attributes['name']);
+        $this->get('admin/machines')->assertSee($attributes['name']);
     }
 
     /**  @test  */
@@ -59,7 +59,7 @@ class MachinesTest extends TestCase
 
         $updatedMachine = factory('App\Machine')->raw();
 
-        $this->put($machine->path() , $updatedMachine )->assertRedirect('/machines');
+        $this->put($machine->path() , $updatedMachine )->assertRedirect('/admin/machines');
 
         $this->assertDatabaseHas('machines', array_merge(['id' => $machine->id], $updatedMachine ));
     }
@@ -72,7 +72,7 @@ class MachinesTest extends TestCase
 
         $attributes = factory('App\Machine')->raw(['name' => '']);
         
-        $this->post('/machines', $attributes)->assertSessionHasErrors('name');
+        $this->post('admin/machines', $attributes)->assertSessionHasErrors('name');
     }
 
     /**  @test  */
@@ -82,7 +82,7 @@ class MachinesTest extends TestCase
 
         $attributes = factory('App\Machine')->raw(['price' => '']);
 
-        $this->post('/machines', $attributes)->assertSessionHasErrors('price');
+        $this->post('admin/machines', $attributes)->assertSessionHasErrors('price');
     }
 
 }

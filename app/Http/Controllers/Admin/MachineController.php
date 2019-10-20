@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreMachineRequest;
 use App\Http\Requests\UpdateMachineRequest;
 use App\Machine;
+use  App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 
 class MachineController extends Controller
@@ -41,7 +43,7 @@ class MachineController extends Controller
     {   
         Machine::create($request->all());
 
-        return redirect('/machines');
+        return redirect()->route('admin.machine.index');
 
     }
 
@@ -54,7 +56,7 @@ class MachineController extends Controller
     {
         $machine->update($request->all());
 
-        return redirect('/machines');
+        return redirect()->route('admin.machine.index');
     }
 
 

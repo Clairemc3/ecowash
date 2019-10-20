@@ -16,7 +16,7 @@ class MachineTest extends TestCase
     {
         $machine = factory('App\Machine')->create();
 
-        $this->assertEquals('/machines/'. $machine->id, $machine->path());
+        $this->assertEquals('/admin/machines/'. $machine->id, $machine->path());
 
     }
 }

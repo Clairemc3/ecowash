@@ -17,6 +17,6 @@ class Machine extends Model
      */
     public function path()
     {
-        return "/machines/{$this->id}";
+        return "/admin/machines/{$this->id}";
     }
 }
