@@ -21,14 +21,14 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($machines as $machine)
-        <tr>
-        <th scope="row">{{$loop->iteration}}</th>
-            <td>{{$machine->name}}</td>
-            <td>{{$machine->price}}</td>
-            <td>Edit Delete</td>
-        </tr>
-        @endforeach
+            @foreach ($machines as $machine)
+            <tr>
+            <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$machine->name}}</td>
+                <td>{{$machine->price}}</td>
+                <td>Edit Delete</td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 @endif
