@@ -2,7 +2,8 @@ console.log('fgfg');
 const burgerMenu = document.getElementById('menuToggle');
 
 burgerMenu.addEventListener('click', () => {
-    menu = document.querySelector('.main-header__navigation');
+    target = burgerMenu.dataset.target;
+    menu = document.querySelector(target);
     burgerMenu.classList.toggle("change");
     menu.classList.toggle("main-header__navigation-visible");
 });

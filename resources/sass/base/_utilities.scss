@@ -14,3 +14,11 @@
     font-weight: 100;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.shadow-small {
+    box-shadow: 0 0.125rem 0.25rem rgba(40, 54, 64, 0.075) !important;
+}
+
+.admin-font-family {
+    font-family: $admin-font-stack;
+}

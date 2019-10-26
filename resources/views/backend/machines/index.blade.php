@@ -11,26 +11,11 @@
     <p> You have no machines.</p>
     <p>Please add a machine with price detailss</p>
 @else
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Edit</th>
-        </tr>
-        </thead>
-        <tbody>
-            @foreach ($machines as $machine)
-            <tr>
-            <th scope="row">{{$loop->iteration}}</th>
-                <td>{{$machine->name}}</td>
-                <td>{{$machine->price}}</td>
-                <td>Edit Delete</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+@include('backend.tables.table-responsive', [
+    'includeActions' => true,
+    'headings' => ['Name', 'Price'],
+    'models' => $machines,
+    'properties' => ['name', 'price']])
 @endif
     
 @endSection

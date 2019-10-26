@@ -30,3 +30,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+require('./components/toggleTransition.js');
+require('./components/toggle.js');
+require('./components/mainNavToggle.js');
+require('./components/scrollToTop.js');

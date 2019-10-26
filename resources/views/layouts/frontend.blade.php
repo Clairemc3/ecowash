@@ -18,6 +18,10 @@
 <!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
+@auth
+    @include('backend.partials.navbar', ['withoutMenu' => true])
+@endauth
+
 
 @section('mainMenu')
     <header>
@@ -28,14 +32,14 @@
                     <span class="main-header__tagline">a coin operated self service launderette</span>
                 </div>
 
-                <div id="menuToggle">
+                <div id="menuToggle" data-target="#mainNavMenu">
                     <div class="bar1"></div>
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </div>
             </div>
 
-            <div class="main-header__navigation">
+            <div class="main-header__navigation" id="mainNavMenu">
                 <ul class="main-nav__links">
                     <li><a href="">Home</a> </li>
                     <li><a href="#findUs">Find us</a></li>

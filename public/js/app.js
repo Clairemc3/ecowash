@@ -49360,6 +49360,14 @@ var app = new Vue({
   el: '#app'
 });
 
+__webpack_require__(/*! ./components/toggleTransition.js */ "./resources/js/components/toggleTransition.js");
+
+__webpack_require__(/*! ./components/toggle.js */ "./resources/js/components/toggle.js");
+
+__webpack_require__(/*! ./components/mainNavToggle.js */ "./resources/js/components/mainNavToggle.js");
+
+__webpack_require__(/*! ./components/scrollToTop.js */ "./resources/js/components/scrollToTop.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -49473,6 +49481,105 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/mainNavToggle.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/mainNavToggle.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+console.log('fgfg');
+var burgerMenu = document.getElementById('menuToggle');
+burgerMenu.addEventListener('click', function () {
+  target = burgerMenu.dataset.target;
+  menu = document.querySelector(target);
+  burgerMenu.classList.toggle("change");
+  menu.classList.toggle("main-header__navigation-visible");
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/scrollToTop.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/scrollToTop.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//Get the button:
+scrollToTopButton = document.getElementById("scrollToTop"); // When the user scrolls down 20px from the top of the document, show the button
+
+scrollToTopButton.addEventListener('click', function () {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
+});
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollToTopButton.style.display = "block";
+  } else {
+    scrollToTopButton.style.display = "none";
+  }
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/toggle.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/toggle.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var toggleTrigger = document.querySelector('.js-toggle');
+
+if (toggleTrigger) {
+  toggleTrigger.addEventListener('click', function () {
+    target = toggleTrigger.dataset.toggletarget;
+    toggleable = document.querySelector(target);
+    console.log(toggleable);
+    toggleable.classList.toggle('hidden');
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/toggleTransition.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/toggleTransition.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var toggleTrigger = document.querySelector('.js-toggleTrigger');
+
+if (toggleTrigger) {
+  toggleTrigger.addEventListener('click', function () {
+    target = toggleTrigger.dataset.toggletarget;
+    toggleable = document.querySelector(target);
+    transition = toggleable.dataset.transition;
+    transitionIn = toggleable.dataset.transitionin;
+    transitionOut = toggleable.dataset.transitionout;
+
+    if (toggleable.classList.contains(transitionIn)) {
+      toggleable.classList.remove(transitionIn);
+      toggleable.classList.toggle(transitionOut);
+    } else {
+      toggleable.classList.remove(transitionOut);
+      toggleable.classList.toggle(transitionIn);
+    }
+  });
+}
 
 /***/ }),
 
