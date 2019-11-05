@@ -177,7 +177,7 @@ body {
 .main-header {
   background-color: #F4F6F3;
   border-bottom: 1px solid #707070;
-  box-shadow: 0 0 20px #283640;
+  box-shadow: 0 20 20px #283640;
   padding-top: 1em;
   padding-right: 1em;
   padding-left: 1em;
