@@ -25,8 +25,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Register components
-        Blade::include('components.hamburger', 'hamburger');
-        Blade::include('components.caret', 'caret');
+        Blade::include('icons.hamburger', 'hamburger');
+        Blade::include('icons.trash', 'trashIcon');
+        Blade::include('icons.edit', 'editIcon');
+        Blade::include('icons.caret', 'caret');
         Blade::include('backend.partials.authenticationLinks', 'authenticationLinks');
     }
 }

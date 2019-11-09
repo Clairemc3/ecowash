@@ -9,9 +9,9 @@
 
 @if ($machines->isEmpty())
     <p> You have no machines.</p>
-    <p>Please add a machine with price detailss</p>
+    <p>Please add a machine with price details</p>
 @else
-@include('backend.tables.table-responsive', [
+@include('backend.tables.table', [
     'includeActions' => true,
     'headings' => ['Name', 'Price'],
     'models' => $machines,

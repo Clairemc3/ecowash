@@ -11,4 +11,11 @@ class HomeController extends Controller
         return view('frontend.home');
 
     }
+
+
+    public function cssPractice() 
+    {
+        return view('backend.cssPractice');
+
+    }
 }

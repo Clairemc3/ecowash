@@ -1,4 +1,4 @@
-<li class="dropdown relative">
+<li class="relative">
     {{-- <a id="navbarDropdown" class="px-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
     Logged in as {{ Auth::user()->name }} <span class="caret"></span>
     </a> --}}

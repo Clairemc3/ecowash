@@ -1,4 +1,4 @@
-<nav class="bg-yellow shadow-small admin-font-family relative flex flex-wrap items-center md:flex-row md:justify-start py-2 px-4">
+<nav class="bg-yellow-bright shadow-small admin-font-family relative flex flex-wrap items-center md:flex-row md:justify-start py-2 px-4">
         <div class="container flex flex-row justify-between">
             <a class="text-grey-900 inline-block text-lg" href="{{ url('/admin') }}">
                 {{ config('app.name', 'Ecowash') . ' admin' }}

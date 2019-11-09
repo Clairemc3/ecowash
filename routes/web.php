@@ -13,7 +13,9 @@
 
 Auth::routes(['register' => false]);
 
-Route::get('/', 'HomeController@index')->name('home');;
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/backend-css', 'HomeController@cssPractice')->name('becss');
 
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
