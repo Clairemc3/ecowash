@@ -11,6 +11,10 @@
         @else
             <a href="/admin/machines" class="dropdown-menu-link">Admin</a>
         @endif
-        <a href="" class="dropdown-menu-link">Logout</a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="dropdown-menu-link">Logout</button>
+        </form>
     </dropdown>
 {{-- </li> --}}
