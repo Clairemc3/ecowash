@@ -22,19 +22,15 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="md:flex text-grey-400 navbar-nav ml-auto text-base">
                         <!-- Authentication Links -->
-                        @guest
-                            <li class="">
-                                <a class="px-2" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @else
-                            <li class="">
+                        @auth
+                            {{-- <li class="">
                             <a class="px-2" href="{{ route('admin.machine.index') }}">Machines</a>
                             </li>
                             <li class="">
                                 <a class="px-2" href="{{ route('home') }}">View front end</a>
-                            </li>
+                            </li> --}}
                             @authenticationLinks
-                            @endguest
+                        @endauth
 
                     </ul>
                 </div>

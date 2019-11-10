@@ -169,6 +169,23 @@ h3 {
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+.dropdown-toggle > button:focus {
+  outline: 0;
+}
+
+.dropdown-menu-link {
+  display: block;
+  line-height: 2;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.dropdown-menu-link:hover {
+  color: #fffff0;
+}
+
 body {
   background-color: #F4F6F3;
   font: normal 125%/1.4 "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;

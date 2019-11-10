@@ -1,0 +1,15 @@
+.dropdown-toggle {
+    > button:focus {
+        outline: 0;
+    }
+
+}
+
+
+.dropdown-menu-link {
+    @apply .block .leading-loose .my-2 .px-4;
+
+    &:hover {
+        @apply .text-yellow-100; 
+    }
+}

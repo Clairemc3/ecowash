@@ -14,11 +14,17 @@
   '../base/helpers',
   '../base/utilities';
 
+
+// Components
+@import
+'components/dropdown';
+
 // Backend end specific base
 @import 'base/base';
 
 // Bootstrap: Temp here until we finish styling the backend
 // @import '~bootstrap/scss/bootstrap';
+
 
 @tailwind base;
 
