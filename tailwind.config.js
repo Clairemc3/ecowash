@@ -60,6 +60,11 @@ module.exports = {
         900: '#744210',
         bright:'#ffde00',
       },
+      teal: {
+        900: '#092C2C',
+        700: '#21A0A0',
+        500: '#85CBCB',
+      },
       green: {
         100: '#f0fff4',
         200: '#c6f6d5',

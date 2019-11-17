@@ -4,7 +4,11 @@
 
 @section('content')
 
+<div class="flex flex-row items-center justify-between">
 <h1>Machines</h1>
+<button class="btn btn-teal inline-block">Add a machine</button>
+</div>
+
 
 
 @if ($machines->isEmpty())

@@ -1,16 +1,16 @@
 <div class="mx-auto w-full">
-  <div class="bg-white my-4 p-6">
+  <div class="bg-white my-4 p-6 rounded-lg">
     <table class="w-full">
-      <thead class="text-left bg-yellow-300">
-        <tr>
-            @foreach($headings as $heading)
-              <th scope="col" class="py-4 px-6">{{$heading}}</th>
-            @endforeach
-            @if ($includeActions ?? false)
-              <th scope="col" class="py-4 px-6" ></th>
-            @endif
-        </tr>
-      </thead>
+        <thead class="text-left bg-gray-200">
+          <tr>
+              @foreach($headings as $heading)
+                <th scope="col" class="py-4 px-6">{{$heading}}</th>
+              @endforeach
+              @if ($includeActions ?? false)
+                <th scope="col" class="py-4 px-6" ></th>
+              @endif
+          </tr>
+        </thead>
       <tbody>
           @foreach ($models as $model)
               <tr class="border-b-2 last:border-b-0">

@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@tailwind base;
+
 @import
   '../abstracts/variables',
   '../abstracts/functions',
@@ -10,23 +12,24 @@
 @import
   '../base/base',
   '../base/fonts',
-  '../base/typography',
+ 
   '../base/helpers',
   '../base/utilities';
 
 
 // Components
 @import
-'components/dropdown';
+'components/dropdown',
+'components/buttons';
 
 // Backend end specific base
-@import 'base/base';
+@import 
+'base/base',
+'base/typography';
 
 // Bootstrap: Temp here until we finish styling the backend
 // @import '~bootstrap/scss/bootstrap';
 
-
-@tailwind base;
 
 @tailwind components;
 
