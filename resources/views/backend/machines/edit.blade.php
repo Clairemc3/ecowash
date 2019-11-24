@@ -3,9 +3,10 @@
 @section('title', 'Machines')
 
 @section('content')
-  <h1>Add a machine type</h1>
 
-  @if ($errors->any())
+<h1>Edit this machine</h1>
+
+@if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -15,14 +16,18 @@
     </div>
 @endif
 
-  <div class="bg-white rounded">
-    <form action={{ route('admin.machine.store')}} method="POST" class="p-8">
-        @csrf
-        @include('backend.partials.machineFormFields')
-        <div class="button-group">
+<div class="bg-white rounded">
+  <form action="{{ $machine->path() }}" method="POST" class="p-8">
+      @csrf
+      @method('PUT')
+      @include('backend.partials.machineFormFields')
+      <div class="button-group">
           <button type="submit" class="btn btn-teal">Submit</button>
           <button class="btn btn-white"> <a href="{{route('admin.machine.index')}}">Cancel</a></button>
         </div>
-      </form>
-  </div> 
+    </form>
+</div>
+
+
+    
 @endSection

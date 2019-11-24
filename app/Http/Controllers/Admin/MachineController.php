@@ -51,6 +51,21 @@ class MachineController extends Controller
      *
      * @return void
      */
+    public function edit(Machine $machine)
+    {
+        $viewBag = [
+            'machine' => $machine
+        ];
+
+        return view('backend.machines.edit', $viewBag);
+    }
+
+
+    /**
+     * Update a machine
+     *
+     * @return void
+     */
     public function update(UpdateMachineRequest $request, Machine $machine)
     {
         $machine->update($request->all());

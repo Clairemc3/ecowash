@@ -64,6 +64,9 @@ class ManageMachinesTest extends TestCase
 
         $updatedMachine = factory('App\Machine')->raw();
 
+        // Check the edit route is working
+        $this->get($machine->path())->assertStatus(200);
+
         $this->put($machine->path() , $updatedMachine )->assertRedirect('/admin/machines');
 
         $this->assertDatabaseHas('machines', array_merge(['id' => $machine->id], $updatedMachine ));

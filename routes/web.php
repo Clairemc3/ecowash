@@ -22,6 +22,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
     Route::get('/machines', 'MachineController@index')->name('machine.index');
     Route::get('/machines/create', 'MachineController@create')->name('machine.create');
     Route::post('/machines', 'MachineController@store')->name('machine.store');
+    Route::get('/machines/{machine}', 'MachineController@edit')->name('machine.edit');
     Route::put('/machines/{machine}', 'MachineController@update')->name('machine.update');
     Route::delete('/machines/{machine}', 'MachineController@destroy')->name('machine.destroy');
 });

@@ -20,15 +20,14 @@
                   <td>
                       @if ($includeActions ?? false)
                           {{-- @can('update', $model) --}}
-                            <a class="inline-block mr-3" href="#">@editIcon</a>
+                            <a class="inline-block mr-3" href="{{$model->path()}}">@editIcon</a>
                           {{-- @endcan  --}}
                           {{-- @can('delete', $model) --}}
-                    <form method="POST" action="{{ $model->path()}}" class="inline-block">
-                      @method('DELETE')
-                      @csrf
+                      <form method="POST" action="{{ $model->path()}}" class="inline-block">
+                        @method('DELETE')
+                        @csrf
                         <button type="submit">@trashIcon</button>
-                    </form>
-                 
+                      </form>
                         {{-- @endcan  --}}
                       @endif
                   </td>
