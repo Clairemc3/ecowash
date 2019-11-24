@@ -6,7 +6,7 @@
 
 <div class="flex flex-row items-center justify-between">
 <h1>Machines</h1>
-<button class="btn btn-teal inline-block">Add a machine</button>
+<button class="btn btn-teal inline-block"><a href="{{ route('admin.machine.create') }}">Add a machine</a></button>
 </div>
 
 

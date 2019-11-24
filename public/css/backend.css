@@ -776,6 +776,10 @@ a:hover, a:active, a:focus {
   border-radius: 0.25rem;
 }
 
+.btn a {
+  color: #F4F6F3;
+}
+
 .btn-teal {
   background-color: #2c7a7b;
   color: #fff;
@@ -783,6 +787,72 @@ a:hover, a:active, a:focus {
 
 .btn-teal:hover {
   background-color: #234e52;
+}
+
+.btn-white {
+  border: solid #707070;
+}
+
+.btn-white a {
+  color: #383838;
+}
+
+.btn-white:hover {
+  background-color: #edf2f7;
+}
+
+.button-group {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-group button {
+  margin: 0.2em 0;
+  padding: 1em 0;
+}
+
+@media (min-width: 992px) {
+  .button-group {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .button-group button {
+    margin: 0 1em 0 0;
+    padding: 0.5rem 2rem;
+  }
+}
+
+form input {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  color: #4a5568;
+  line-height: 1.25;
+}
+
+form input:hover {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+form .form-group {
+  margin-bottom: 1em;
+}
+
+form .input-help {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
 }
 
 body {

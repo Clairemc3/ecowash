@@ -1,5 +1,9 @@
 .btn {
     @apply font-bold py-2 px-4 rounded;
+
+    a {
+        color: $cream;
+    }
 }
 
 .btn-teal {
@@ -8,4 +12,40 @@
 
 .btn-teal:hover {
     @apply bg-teal-900;
+}
+
+.btn-white {
+    a {
+        color: $dark-grey;
+    }
+    
+    border: solid $light-grey;
+}
+
+.btn-white:hover {
+    @apply bg-gray-200;
+}
+
+
+
+.button-group {
+    margin-top: 2em;
+    @include flexy( 
+        $dir: column,
+        $justify: center,
+    );
+    button {
+        margin: 0.2em 0;
+        padding: 1em 0;
+    }
+
+    @include mediaQuery(large) {
+        flex-direction: row;
+        justify-content: flex-start;
+
+        button {
+            margin: 0 1em 0 0;
+            padding: 0.5rem 2rem;
+        }
+    }
 }
