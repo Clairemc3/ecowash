@@ -4,11 +4,12 @@
 
 @section('content')
 
-<div class="flex flex-row items-center justify-between">
-<h1>Machines</h1>
-<button class="btn btn-teal inline-block"><a href="{{ route('admin.machine.create') }}">Add a machine</a></button>
-</div>
-
+{{-- Resource index header --}}
+@component('backend.components.resourceIndexHeader')
+    @slot('title')Machines @endslot
+    @slot('createRoute') {{ route('admin.machine.create') }} @endslot
+    @slot('addResourceText') machine @endslot
+@endcomponent
 
 
 @if ($machines->isEmpty())
