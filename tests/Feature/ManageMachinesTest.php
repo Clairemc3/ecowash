@@ -89,7 +89,6 @@ class ManageMachinesTest extends TestCase
     }
 
 
-
     /**  @test  */
     public function machines_should_be_visible_on_the_front_end()
     {
@@ -97,8 +96,7 @@ class ManageMachinesTest extends TestCase
 
         $machines = factory('App\Machine', 5)->create();
 
-       $homePage = $this->get('/');
-
+        $homePage = $this->get('/');
 
         foreach ($machines as $machine)
         {
@@ -107,8 +105,5 @@ class ManageMachinesTest extends TestCase
 
         }
     }
-    
-
-    
 
 }
