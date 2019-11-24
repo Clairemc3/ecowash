@@ -59,5 +59,18 @@ class MachineController extends Controller
     }
 
 
+    /**
+     * Destroy a machine
+     *
+     * @return void
+     */
+    public function destroy(Machine $machine)
+    {
+        $machine->delete();
+
+        return redirect()->route('admin.machine.index');
+    }
+
+
 
 }

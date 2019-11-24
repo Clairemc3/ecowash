@@ -23,7 +23,12 @@
                             <a class="inline-block mr-3" href="#">@editIcon</a>
                           {{-- @endcan  --}}
                           {{-- @can('delete', $model) --}}
-                          <a class="inline-block" href="#">@trashIcon</a>
+                    <form method="POST" action="{{ $model->path()}}" class="inline-block">
+                      @method('DELETE')
+                      @csrf
+                        <button type="submit">@trashIcon</button>
+                    </form>
+                 
                         {{-- @endcan  --}}
                       @endif
                   </td>
