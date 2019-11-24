@@ -102,7 +102,7 @@ class ManageMachinesTest extends TestCase
         {
             $homePage->assertSeeText($machine->name);
             $homePage->assertSeeText($machine->price);
-
+            $homePage->assertSeeText($machine->description);
         }
     }
 
