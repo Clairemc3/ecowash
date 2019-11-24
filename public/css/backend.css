@@ -825,7 +825,35 @@ a:hover, a:active, a:focus {
   }
 }
 
-form input {
+.card {
+  background-color: #fff;
+  max-width: 24rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card .card-header {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card .card-content {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+form {
+  background-color: #fff;
+  border-radius: 0.25rem;
+}
+
+form input[type=text],
+form input[type=password],
+form input[type=email] {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -841,7 +869,9 @@ form input {
   line-height: 1.25;
 }
 
-form input:hover {
+form input[type=text]:hover,
+form input[type=text]:hover,
+form input[type=password]:hover {
   outline: 0;
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
 }
@@ -853,6 +883,17 @@ form .form-group {
 form .input-help {
   font-size: 0.75rem;
   margin-bottom: 0.25rem;
+}
+
+form input[type=checkbox] {
+  /* Double-sized Checkboxes */
+  /* IE */
+  /* FF */
+  /* Safari and Chrome */
+  /* Opera */
+  transform: scale(2);
+  padding: 10px;
+  margin-right: 0.5em;
 }
 
 body {

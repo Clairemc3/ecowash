@@ -1,0 +1,12 @@
+.card {
+    @apply bg-white max-w-sm rounded overflow-hidden shadow-lg;
+
+    .card-header {
+        @apply font-bold text-xl mb-2;
+    }
+
+    .card-content {
+        @apply px-6 py-4;
+    }    
+
+}
