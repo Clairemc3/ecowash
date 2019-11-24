@@ -88,4 +88,27 @@ class ManageMachinesTest extends TestCase
         $this->post('admin/machines', $attributes)->assertSessionHasErrors('price');
     }
 
+
+
+    /**  @test  */
+    public function machines_should_be_visible_on_the_front_end()
+    {
+        $this->actingAs($this->authenticatedUser);
+
+        $machines = factory('App\Machine', 5)->create();
+
+       $homePage = $this->get('/');
+
+
+        foreach ($machines as $machine)
+        {
+            $homePage->assertSeeText($machine->name);
+            $homePage->assertSeeText($machine->price);
+
+        }
+    }
+    
+
+    
+
 }
