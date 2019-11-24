@@ -21,10 +21,10 @@
 <div class="form-group">
     <label for="description" class="block">Description</label>
     <div id="descriptionHelp" class="input-help">Optional description</div>
-    <input name="description" type="text" id="description" aria-describedby="description" placeholder="e.g. suitable for heavy duvets" value="{{ old('description', $machine->description ?? '')}}"">
+    <input name="description" type="text" id="description" aria-describedby="description" placeholder="e.g. suitable for heavy duvets" value="{{ old('description', $machine->description ?? '')}}">
+    @error('desription')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
 </div>
-@error('desription')
-<span class="invalid-feedback" role="alert">
-    <strong>{{ $message }}</strong>
-</span>
-@enderror
