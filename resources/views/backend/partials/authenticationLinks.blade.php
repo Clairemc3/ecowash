@@ -12,7 +12,7 @@
             <a href="/admin/machines" class="dropdown-menu-link">Admin</a>
         @endif
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        <form class="form__logout" id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="dropdown-menu-link">Logout</button>
         </form>

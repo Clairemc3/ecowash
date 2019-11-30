@@ -896,6 +896,10 @@ form input[type=checkbox] {
   margin-right: 0.5em;
 }
 
+.form__logout {
+  background-color: inherit;
+}
+
 body {
   background-color: #F4F6F3;
   font: normal 125%/1.4 "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;

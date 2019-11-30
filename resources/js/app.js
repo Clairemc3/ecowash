@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 
 Vue.component('dropdown', require('./components/Dropdown.vue').default);
+Vue.component('modal', require('./components/Modal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,7 +33,7 @@ const app = new Vue({
     el: '#app',
 });
 
-require('./components/toggleTransition.js');
-require('./components/toggle.js');
-require('./components/mainNavToggle.js');
-require('./components/scrollToTop.js');
+// require('./components/toggleTransition.js');
+// require('./components/toggle.js');
+// require('./components/mainNavToggle.js');
+// require('./components/scrollToTop.js');

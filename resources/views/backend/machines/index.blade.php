@@ -21,5 +21,21 @@
     'models' => $machines,
     'properties' => ['name', 'price']])
 @endif
-    
+
+
+    {{-- <p><a href="#cancel-modal">Open modal</a></p> --}}
+
+    {{-- <modal name="cancel-modal">
+        <h1>Leaving so soon</h1>
+
+        <p>kgvbrfbj</p>
+    </modal>  --}}
+
+
+    <my-modal>
+            <template v-slot:trigger>
+                <button>@trashIcon</button>
+            </template>
+    </my-modal>
+
 @endSection
