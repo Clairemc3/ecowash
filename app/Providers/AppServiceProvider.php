@@ -24,11 +24,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Register components
+        // Register components and includes
+
+        // Icons
         Blade::include('icons.hamburger', 'hamburger');
         Blade::include('icons.trash', 'trashIcon');
         Blade::include('icons.edit', 'editIcon');
         Blade::include('icons.caret', 'caret');
+
+
+        // Resources
+        Blade::include('backend.partials.resourceIndexHeader', 'resourceIndexHeader');
+        Blade::include('backend.tables.resourceTable', 'resourceTable');
+
+        // Menus
         Blade::include('backend.partials.authenticationLinks', 'authenticationLinks');
     }
 }

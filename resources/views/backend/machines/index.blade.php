@@ -5,18 +5,17 @@
 @section('content')
 
 {{-- Resource index header --}}
-@component('backend.components.resourceIndexHeader')
-    @slot('title')Machines @endslot
-    @slot('createRoute') {{ route('admin.machine.create') }} @endslot
-    @slot('addResourceText') machine @endslot
-@endcomponent
+@resourceIndexHeader([
+    'title' => 'Machines',
+    'createRoute' => route('admin.machine.create'),
+    'addResourceText' => 'Add a machine'])
 
 
 @if ($machines->isEmpty())
     <p> You have no machines.</p>
     <p>Please add a machine with price details</p>
 @else
-@include('backend.tables.table', [
+@resourceTable([
     'includeActions' => true,
     'headings' => ['Name', 'Price'],
     'models' => $machines,
