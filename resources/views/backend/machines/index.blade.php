@@ -23,19 +23,35 @@
 @endif
 
 
-    {{-- <p><a href="#cancel-modal">Open modal</a></p> --}}
+<h2>Regular modal</h2>
 
-    {{-- <modal name="cancel-modal">
-        <h1>Leaving so soon</h1>
-
-        <p>kgvbrfbj</p>
-    </modal>  --}}
+<p>
+    <a href="#cancel">Open Modal</a>
+</p>
 
 
-    <my-modal>
-            <template v-slot:trigger>
-                <button>@trashIcon</button>
-            </template>
-    </my-modal>
+<modal :open="modalOpen" name="cancel">
+<h1 class="font-bold">Leaving so soon</h1>
+
+<p>gbrfgrudfje rgvrhy</p>
+
+<template v-slot:footer>
+    <div class="button-group">
+        {{-- <a class= "btn btn-teal" href="#">Continue</a>
+        <button @click=$modal.close('cancel') class= "btn btn-teal">Cancel</button> --}}
+        <button @click="$modal.shut()" class="btn btn-teal">Change the prop</button>
+    </div>
+</template>
+
+</modal>
+
+
+
+<h2>Confirm dialog</h2>
+
+<confirm-dialog>
+</confirm-dialog>
+
+
 
 @endSection
