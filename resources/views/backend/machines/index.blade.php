@@ -30,16 +30,16 @@
 </p>
 
 
-<modal :open="modalOpen" name="cancel">
+<modal name="cancel">
 <h1 class="font-bold">Leaving so soon</h1>
 
 <p>gbrfgrudfje rgvrhy</p>
 
 <template v-slot:footer>
     <div class="button-group">
-        {{-- <a class= "btn btn-teal" href="#">Continue</a>
-        <button @click=$modal.close('cancel') class= "btn btn-teal">Cancel</button> --}}
-        <button @click="$modal.shut()" class="btn btn-teal">Change the prop</button>
+        <a class= "btn btn-teal" href="#">Continue</a>
+        <button @click=$modal.close('cancel') class= "btn btn-teal">Cancel</button>
+        {{-- <button @click="$modal.shut()" class="btn btn-teal">Change the prop</button> --}}
     </div>
 </template>
 
@@ -51,6 +51,17 @@
 
 <confirm-dialog>
 </confirm-dialog>
+
+<h2>Confirm Button</h2>
+
+<form method="POST">
+    <confirm-button 
+        message = "Are you sure you want to delete this item?"
+        cancel-button = "Dont delete it" 
+        proceed-button = "Yes, delete it"
+        class="btn btn-teal">Submit
+    </confirm-button>
+</form>
 
 
 

@@ -10,29 +10,40 @@ let Plugin = {
 
 
        Vue.prototype.$modal = {
-           open(name, params = {}) {
+           show(name, params = {}) {
             location.hash = name;
 
             // fire an event on the plugin to include the params
-            Plugin.events.$emit('open', params);
+            Plugin.events.$emit('show', params);
 
            },
 
-           close(name) {
+           hide(name) {
             location.hash = '#';
            },
 
-           confirm(message) { // this.$modal.confirm ('Are you sure?')
-               this.open('confirm', {message});
+           dialog(message, params = {}) {
+
+                // Dialog can be created with a string, an object or both
+                if (typeof message === 'string') {
+                    params.message = message;
+                } else {
+                    params = message;
+                }
+
+                return new Promise((resolve, reject ) => {
+
+                // Open the modal with a custom message
+                this.show('dialog', params );
+
+                Plugin.events.$on('selected', confirmed => {
+                    resolve(confirmed);
+                });
+
+            });
+               
            },
 
-           shut(params = {}) {
-            // location.hash = name;
-
-            // fire an event on the plugin to include the params
-            Plugin.events.$emit('shut', params);
-
-           },
        }
     }
 

@@ -5,9 +5,6 @@
             <!-- menu -->
 
         <div class="modal">
-                <div v-show="controller">
-       <p>This is what we are trying to control</p>
-    </div>
             <slot></slot>
             <footer>
                 <slot name="footer"></slot>
@@ -30,16 +27,15 @@ import Modal from './ModalPlugin';
          } 
         },
 
-        mounted() {
-            alert('mounted');
-            // this.controller = false;
-            // listen for plugin event
-            // fetch the assicated params
-            // assign them to data object
-            Modal.events.$on('shut', params => {
-                this.controller = false;
-            })
-        },
+        // mounted() {
+        //     // this.controller = false;
+        //     // listen for plugin event
+        //     // fetch the assicated params
+        //     // assign them to data object
+        //     Modal.events.$on('shut', params => {
+        //         this.controller = false;
+        //     })
+        // },
 
 
         props: ['name'],

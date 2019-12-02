@@ -3,6 +3,7 @@ import Vue from 'vue';
 import Modal from './plugins/modal/ModalPlugin';
 import Dropdown from './components/Dropdown'
 import ConfirmDialog from './components/ConfirmDialog'
+import ConfirmButton from './components/ConfirmButton'
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -29,6 +30,7 @@ Vue.use(Modal);
 
 Vue.component('dropdown', Dropdown);
 Vue.component('confirm-dialog', ConfirmDialog);
+Vue.component('confirm-button', ConfirmButton);
 
 
 /**
@@ -39,6 +41,15 @@ Vue.component('confirm-dialog', ConfirmDialog);
 
 new Vue({
     el: '#app',
+
+    methods: {
+        confirm(message) {
+           this.$modal.dialog(message)
+            .then(confirmed => {
+                confirmed  ? alert('Proceed') : alert('cancel');
+            })
+        }
+    }
 });
 
 // require('./components/toggleTransition.js');

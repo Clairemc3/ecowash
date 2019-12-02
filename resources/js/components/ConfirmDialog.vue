@@ -1,13 +1,12 @@
 <template>
 
+    <modal name="dialog">
 
-    <modal name="confirm">
-
-        {{ message }}
+        {{params.message }}
 
         <template v-slot:footer>
-             <button class="btn btn-teal" @click.prevent="handleClick(true)">Proceed</button>
-             <button class="btn btn-teal" @click.prevent="handleClick(false)">Cancel</button>
+             <button class="btn btn-teal" @click.prevent="handleClick(true)" v-text="params.proceedButton"></button>
+             <button class="btn btn-white" @click.prevent="handleClick(false)" v-text="params.cancelButton"></button>
         </template>
 
     </modal>
@@ -20,16 +19,20 @@ import Modal from '../plugins/modal/ModalPlugin';
 
         data() {
             return {
-                message: 'Are you sure?'
+                params: {
+                     message: 'Are you sure?',
+                     proceedButton: 'Confirm',
+                     cancelButton: 'Cancel'
+                }
                } 
         },
 
         beforeMount () {
             // listen for plugin event
-            // fetch the assicated params
+            // fetch the assoicated params
             // assign them to data object
-            Modal.events.$on('open', params => {
-                this.message = params.message;
+            Modal.events.$on('show', params => {
+               Object.assign(this.params, params)
             })
 
 
@@ -37,14 +40,10 @@ import Modal from '../plugins/modal/ModalPlugin';
 
         methods: {
             handleClick(confirmed) {
-                this.$emit('clicked', comfirmed);
+                Modal.events.$emit('selected', confirmed);
                 this.$modal.hide();
             }
         }
         
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
