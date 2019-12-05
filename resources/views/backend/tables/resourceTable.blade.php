@@ -26,9 +26,14 @@
                       <form method="POST" action="{{ $model->path()}}" class="inline-block">
                         @method('DELETE')
                         @csrf
-                        <button type="submit">@trashIcon</button>
+                        <confirm-button
+                         message="Are you sure you want to delete this {{$model->modelName}}?">
+                         @trashIcon
+                        </confirm-button> --}}
+                        {{-- <button type="submit">@trashIcon</button>
                       </form>
-                        {{-- @endcan  --}}
+                      <confirm-dialog></confirm-dialog> --}}
+                        {{-- @endcan
                       @endif
                   </td>
               </tr>

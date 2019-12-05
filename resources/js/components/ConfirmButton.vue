@@ -1,13 +1,15 @@
 <template>
-    <button @click="confirm"><slot></slot></button>
+    <button @click="confirm">
+        <slot></slot>
+    </button>
 </template>
 
 <script>
     export default {
 
         props: {
-            message: {},
-            proceedButton: {default: 'Continue'},
+            message: {default: 'Are you sure?'},
+            proceedButton: {default: 'Confirm'},
             cancelButton: {default: 'Cancel'},
         },
 
@@ -18,10 +20,9 @@
 
         methods: {
             confirm(e) {
-            
-            if (this.confirmed) {
-                return;
-            }
+                if (this.confirmed) {
+                    return;
+                }
 
             e.preventDefault();
 
@@ -30,10 +31,10 @@
                     this.confirmed = confirmed;
                     if (confirmed) {
                         this.$el.click();
-                    } 
+                    }
                 })
             }
         }
-        
+
     }
 </script>

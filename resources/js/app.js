@@ -44,10 +44,7 @@ new Vue({
 
     methods: {
         confirm(message) {
-           this.$modal.dialog(message)
-            .then(confirmed => {
-                confirmed  ? alert('Proceed') : alert('cancel');
-            })
+           this.$modal.dialog(message);
         }
     }
 });

@@ -19,4 +19,9 @@ class Machine extends Model
     {
         return "/admin/machines/{$this->id}";
     }
+
+    public function getModelNameAttribute()
+    {
+        return 'machine';
+    }
 }

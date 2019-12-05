@@ -55,9 +55,9 @@
 <h2>Confirm Button</h2>
 
 <form method="POST">
-    <confirm-button 
+    <confirm-button
         message = "Are you sure you want to delete this item?"
-        cancel-button = "Dont delete it" 
+        cancel-button = "Dont delete it"
         proceed-button = "Yes, delete it"
         class="btn btn-teal">Submit
     </confirm-button>
