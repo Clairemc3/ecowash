@@ -1,16 +1,20 @@
 <template>
-    <div :id="name" class="overlay text-left">
-        <a href="#" class="cancel"></a>
+    <div>
+        <!-- Trigger -->
+        <div @click="isOpen = !isOpen">
+            <slot name="trigger"></slot>
+        </div>
 
-            <!-- menu -->
-
-        <div class="modal">
-            <slot></slot>
-            <footer>
-                <slot name="footer"></slot>
-            </footer>
-
-            <a href="#" class="close text-3xl">&times</a>
+        <!-- Modal -->
+         <div v-show="isOpen" class="overlay text-left">
+            <a @click.prevent="isOpen = !isOpen" href="#" class="cancel"></a>
+            <div class="modal">
+                <slot></slot>
+                <footer>
+                    <slot name="footer"></slot>
+                </footer>
+                <a @click.prevent="isOpen = !isOpen" href="#" class="close text-3xl">&times</a>
+            </div>
         </div>
     </div>
 </template>
@@ -23,22 +27,25 @@ import Modal from './ModalPlugin';
 
        data() {
          return {
-            controller: true
+            isOpen: false,
+            openOnLoad: this.openOnLoad
          }
         },
 
-        // mounted() {
-        //     // this.controller = false;
-        //     // listen for plugin event
-        //     // fetch the assicated params
-        //     // assign them to data object
-        //     Modal.events.$on('shut', params => {
-        //         this.controller = false;
-        //     })
-        // },
+        mounted() {
+            Modal.events.$on('close', params => {
+                this.isOpen = false;
+            });
 
+        },
 
-        props: ['name'],
+        beforeMount() {
+            if (this.openOnLoad) {
+                this.isOpen = true;
+            }
+        },
+
+        props: ['name', 'openOnLoad'],
 
     }
 </script>
@@ -46,7 +53,6 @@ import Modal from './ModalPlugin';
 <style type="text/css">
 
   .overlay {
-        visibility: hidden;
         position: absolute;
         top: 0;
         right: 0;
@@ -57,7 +63,6 @@ import Modal from './ModalPlugin';
         justify-content: center;
         background: rgba(0, 0, 0, .4);
         transition: opacity .7s;
-        opacity: 0;
     }
     .overlay:target {
         visibility: visible;

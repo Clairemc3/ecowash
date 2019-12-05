@@ -1,6 +1,6 @@
 <template>
 
-    <modal name="dialog">
+    <modal>
 
         {{params.message }}
 
@@ -24,7 +24,7 @@ import Modal from '../plugins/modal/ModalPlugin';
                      proceedButton: 'Confirm',
                      cancelButton: 'Cancel'
                 }
-               } 
+               }
         },
 
         beforeMount () {
@@ -44,6 +44,6 @@ import Modal from '../plugins/modal/ModalPlugin';
                 this.$modal.hide();
             }
         }
-        
+
     }
 </script>

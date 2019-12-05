@@ -18,6 +18,14 @@ let Plugin = {
 
            },
 
+           close() {
+            Plugin.events.$emit('close');
+           },
+
+           open() {
+            Plugin.events.$emit('open');
+           },
+
            hide(name) {
             location.hash = '#';
            },
@@ -41,7 +49,7 @@ let Plugin = {
                 });
 
             });
-               
+
            },
 
        }
