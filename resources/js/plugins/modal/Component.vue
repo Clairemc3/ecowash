@@ -24,7 +24,7 @@ import Modal from './ModalPlugin';
        data() {
          return {
             controller: true
-         } 
+         }
         },
 
         // mounted() {
@@ -39,7 +39,7 @@ import Modal from './ModalPlugin';
 
 
         props: ['name'],
-        
+
     }
 </script>
 
@@ -94,7 +94,7 @@ import Modal from './ModalPlugin';
         text-align: center;
         min-width: 40%;
         margin-top: 1em;
-        
+
     }
 
     .overlay .btn:nth-child(2n) {

@@ -38,14 +38,13 @@
 <template v-slot:footer>
     <div class="button-group">
         <a class= "btn btn-teal" href="#">Continue</a>
-        <button @click=$modal.close('cancel') class= "btn btn-teal">Cancel</button>
-        {{-- <button @click="$modal.shut()" class="btn btn-teal">Change the prop</button> --}}
+        <button @click=$modal.hide('cancel') class= "btn btn-teal">Cancel</button>
     </div>
 </template>
 
 </modal>
 
-
+{{--
 
 <h2>Confirm dialog</h2>
 
@@ -62,7 +61,7 @@
         class="btn btn-teal">Submit
     </confirm-button>
 </form>
-
+ --}}
 
 
 @endSection
