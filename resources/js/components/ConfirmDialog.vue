@@ -1,8 +1,10 @@
 <template>
 
     <modal>
-
-        {{params.message }}
+        <template v-slot:trigger>
+            <slot name="trigger"></slot>
+        </template>
+        {{ params.message }}
 
         <template v-slot:footer>
              <button class="btn btn-teal" @click.prevent="handleClick(true)" v-text="params.proceedButton"></button>
@@ -31,17 +33,15 @@ import Modal from '../plugins/modal/ModalPlugin';
             // listen for plugin event
             // fetch the assoicated params
             // assign them to data object
-            Modal.events.$on('show', params => {
+            Modal.events.$on('open', params => {
                Object.assign(this.params, params)
             })
-
-
         },
 
         methods: {
             handleClick(confirmed) {
                 Modal.events.$emit('selected', confirmed);
-                this.$modal.hide();
+                this.$modal.close();
             }
         }
 

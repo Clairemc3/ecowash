@@ -26,7 +26,7 @@
 {{-- <h2>Regular modal</h2> --}}
 
 
-<modal open-on-load="true">
+{{-- <modal open-on-load="true">
 
 <h1 class="font-bold">Leaving so soon</h1>
 
@@ -39,32 +39,30 @@
     </div>
 </template>
 
-</modal>
+</modal> --}}
 
 
 {{-- <modal>
-        <template v-slot:trigger>
-            <a @click.prevent href="#">Click this</a>
-        </template>
-        <h1 class="font-bold">Second one</h1>
+    <template v-slot:trigger>
+        <a @click.prevent href="#">Click this to open modal</a>
+    </template>
+    <h1 class="font-bold">Modal header</h1>
 
-        <p>gbrfgrudfje rgvrhy</p>
-        <p>ghtjr</p>
+    <p>Modal text</p>
 
-        <template v-slot:footer>
-            <div class="button-group">
-                <a class= "btn btn-teal" href="www.somthing.com">Continue</a>
-                <button @click=$modal.close() class= "btn btn-teal">Cancel</button>
-            </div>
-        </template>
-
+    <template v-slot:footer>
+        <div class="button-group">
+            <a class= "btn btn-teal" href="www.something.com">Continue</a>
+            <button @click=$modal.close() class= "btn btn-teal">Cancel</button>
+        </div>
+    </template>
 </modal> --}}
 
 
 
 <h2>Confirm dialog</h2>
 
-<confirm-dialog>
+<confirm-dialog open-on-load="true">
         <template v-slot:trigger>
                 <button>
                     Modal 1

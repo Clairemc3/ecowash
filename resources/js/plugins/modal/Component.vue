@@ -27,14 +27,16 @@ import Modal from './ModalPlugin';
 
        data() {
          return {
-            isOpen: false,
-            openOnLoad: this.openOnLoad
+            isOpen: false
          }
         },
 
         mounted() {
             Modal.events.$on('close', params => {
                 this.isOpen = false;
+            });
+            Modal.events.$on('open', params => {
+                this.isOpen = true;
             });
 
         },

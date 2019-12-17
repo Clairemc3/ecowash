@@ -25,7 +25,6 @@
                 }
 
             e.preventDefault();
-
              this.$modal.dialog(this._props)
                 .then(confirmed => {
                     this.confirmed = confirmed;
