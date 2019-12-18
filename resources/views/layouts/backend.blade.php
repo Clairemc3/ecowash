@@ -22,7 +22,11 @@
 </head>
 <body>
     <div id="app">
+        @include('backend.sidebar')
         @include('backend.partials.navbar')
+
+
+        <div class="ml-48 mt-6">
 
         <main class="py-4 container">
                 @foreach ($errors->all() as $error)
@@ -30,6 +34,8 @@
                 @endforeach
             @yield('content')
         </main>
+    </div>
+
     </div>
 </body>
 </html>
