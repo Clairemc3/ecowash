@@ -53,4 +53,39 @@ The basic modal can also be triggered from a button/link or anything else like t
 ```
 
 ### Confirm dialog
-The basic modal can be used to a modal with any content.
+The modal can be used to display a modal with any content.
+
+#### Options
+-  proceed-button(optional) : defaults to 'Confirm'
+- cancel-button(optional) : defaults to 'Cancel'
+- message(optional) : defaults to 'Are tyou are?'
+
+
+```
+<confirm-dialog>
+        <template v-slot:trigger>
+                <button>
+                    Modal 1
+                </button>
+            </template>
+</confirm-dialog>
+```
+
+### Confirm button
+The modal can be used display a modal with custom messaging to allow a user to confirm/can an action
+
+#### Options
+-  proceed-button(optional) : defaults to 'Confirm'
+- cancel-button(optional) : defaults to 'Cancel'
+- message(optional) : defaults to 'Are tyou are?'
+
+```
+<form method="POST">
+    <confirm-button
+        message = "Are you sure you want to delete this item?"
+        cancel-button = "Dont delete it"
+        proceed-button = "Yes, delete it"
+        class="btn btn-teal">Submit
+    </confirm-button>
+</form>
+```
