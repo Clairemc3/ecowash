@@ -17,6 +17,7 @@
             <div class="md:flex collapse" id="navBarToggleable">
                 <!-- Left Side Of Navbar -->
                 <ul class="md:flex mr-auto list-none text-base">
+                        <claire></claire>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

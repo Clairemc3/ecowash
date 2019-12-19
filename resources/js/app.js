@@ -4,6 +4,9 @@ import Modal from './plugins/modal/ModalPlugin';
 import Dropdown from './components/Dropdown';
 import ConfirmDialog from './components/ConfirmDialog';
 import ConfirmButton from './components/ConfirmButton';
+import TestComponent from './components/TestComp';
+import Vuecidity from 'vuecidity';
+import 'vuecidity/dist/lib/vuecidity.min.css';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -16,6 +19,7 @@ require('./bootstrap');
 window.Vue = Vue;
 
 Vue.use(Modal);
+Vue.use(Vuecidity)
 
 /**
  * The following block of code may be used to automatically register your
@@ -33,6 +37,7 @@ Vue.component('dropdown', Dropdown);
 Vue.component('confirm-dialog', ConfirmDialog);
 Vue.component('confirm-button', ConfirmButton);
 Vue.component('confirm-button', ConfirmButton);
+Vue.component('claire', TestComponent);
 
 
 /**

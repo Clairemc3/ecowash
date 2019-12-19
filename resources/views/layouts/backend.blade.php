@@ -19,10 +19,20 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backend.css') }}" rel="stylesheet">
+
+
+    {{-- Extra --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.0.46/css/materialdesignicons.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css" />
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+<link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css" />
 </head>
 <body>
     <div id="app">
-        @include('backend.sidebar')
+        {{-- @include('backend.sidebar') --}}
         @include('backend.partials.navbar')
 
 
@@ -32,6 +42,7 @@
                 @foreach ($errors->all() as $error)
                     <div>{{ $error }}</div>
                 @endforeach
+
             @yield('content')
         </main>
     </div>
