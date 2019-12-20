@@ -5,8 +5,7 @@ import Dropdown from './components/Dropdown';
 import ConfirmDialog from './components/ConfirmDialog';
 import ConfirmButton from './components/ConfirmButton';
 import TestComponent from './components/TestComp';
-import Vuecidity from 'vuecidity';
-import 'vuecidity/dist/lib/vuecidity.min.css';
+import vuetify from './plugins/vuetify';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -19,7 +18,6 @@ require('./bootstrap');
 window.Vue = Vue;
 
 Vue.use(Modal);
-Vue.use(Vuecidity)
 
 /**
  * The following block of code may be used to automatically register your
@@ -48,15 +46,16 @@ Vue.component('claire', TestComponent);
 
 new Vue({
     el: '#app',
+    vuetify,
 
     methods: {
         confirm(message) {
            this.$modal.dialog(message);
-        }
+        },
     }
 });
 
-// require('./components/toggleTransition.js');
-// require('./components/toggle.js');
-// require('./components/mainNavToggle.js');
-// require('./components/scrollToTop.js');
+require('./components/toggleTransition.js');
+require('./components/toggle.js');
+require('./components/mainNavToggle.js');
+require('./components/scrollToTop.js');

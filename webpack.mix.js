@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 /*
  |--------------------------------------------------------------------------
@@ -18,5 +19,19 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/backend/backend.scss', 'public/css')
     .sourceMaps()
     .options({
+        extractVueStyles: true,
         processCssUrls: false,
         postCss: [ tailwindcss('./tailwind.config.js') ]});
+
+mix.webpackConfig({
+    resolve: {
+        extensions: ['.js', '.json', '.vue'],
+        alias: {
+        '~': path.join(__dirname, './resources/js'),
+        '$comp': path.join(__dirname, './resources/js/components')
+        }
+    },
+    plugins: [
+        new VuetifyLoaderPlugin()
+    ]
+    });

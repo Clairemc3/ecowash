@@ -33,10 +33,10 @@
 <body>
     <div id="app">
         {{-- @include('backend.sidebar') --}}
-        @include('backend.partials.navbar')
+        @include('backend.partials.navbar', ['withAdminSidebar' => true])
 
 
-        <div class="ml-48 mt-6">
+        <div class="mt-10">
 
         <main class="py-4 container">
                 @foreach ($errors->all() as $error)

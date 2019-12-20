@@ -1,6 +1,7 @@
 @charset 'UTF-8';
 
 @tailwind base;
+@import '~vuetify/dist/vuetify.min.css';
 
 @import
   '../abstracts/variables',
@@ -12,7 +13,7 @@
 @import
   '../base/base',
   '../base/fonts',
- 
+
   '../base/helpers',
   '../base/utilities';
 
@@ -25,7 +26,7 @@
 'components/forms';
 
 // Backend end specific base
-@import 
+@import
 'base/base',
 'base/typography';
 
