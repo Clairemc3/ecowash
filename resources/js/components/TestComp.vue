@@ -20,13 +20,22 @@
       absolute
       temporary
     >
-      <v-list-item>
-        <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-        </v-list-item-avatar>
+      <v-list-item class="navbar__item bg-yellow-bright pb-2">
 
         <v-list-item-content>
-          <v-list-item-title>John Leider</v-list-item-title>
+            <!-- <v-list-item-icon>
+            <div class="change inline-block"><div class="bar1"></div> <div class="bar2"></div> <div class="bar3"></div></div>
+          </v-list-item-icon> -->
+        <div  @click.stop="drawer = !drawer" class="change inline flex-none pr-3 mt-4 cursor-pointer">
+             <div class="bar1"></div>
+             <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div class="inline flex-none">
+            <a class="text-grey-900 inline-block text-lg align-middle pt-2 pb-2 inline" href="/admin'">
+           Ecowash admin </a>
+        </div>
+
         </v-list-item-content>
       </v-list-item>
 
@@ -78,5 +87,32 @@
 </script>
 
 <style lang="scss" scoped>
+
+.navbar__item {
+    height: 62px;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 25px;
+  height: 4px;
+  background-color: #333;
+  margin: 4px 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+          transform: rotate(-45deg) translate(-4px, 4px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-7px, -8px);
+          transform: rotate(45deg) translate(-7px, -8px);
+}
 
 </style>

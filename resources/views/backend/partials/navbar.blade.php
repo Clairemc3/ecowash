@@ -2,7 +2,6 @@
 
         @auth
             @if ($withAdminSidebar ?? true)
-
                 <button v-on:click="$emit('openSidebar')">
                     <span class="outline-none">
                         @hamburger
