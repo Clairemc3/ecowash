@@ -6,6 +6,7 @@ import ConfirmDialog from './components/ConfirmDialog';
 import ConfirmButton from './components/ConfirmButton';
 import SidebarAdmin from './components/SidebarAdmin';
 import vuetify from './plugins/vuetify';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -59,3 +60,5 @@ require('./components/toggleTransition.js');
 require('./components/toggle.js');
 require('./components/mainNavToggle.js');
 require('./components/scrollToTop.js');
+require('./components/WYSIWYGInput.js');
+
