@@ -26,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         // Register components and includes
 
+        $this->registerInputComponents();
+
         // Icons
         Blade::include('icons.hamburger', 'hamburger');
         Blade::include('icons.trash', 'trashIcon');
@@ -39,5 +41,16 @@ class AppServiceProvider extends ServiceProvider
 
         // Menus
         Blade::include('backend.partials.authenticationLinks', 'authenticationLinks');
+    }
+
+
+    /**
+     * Registers all input components
+     *
+     * @return void
+     */
+    private function registerInputComponents()
+    {
+        Blade::component('components.inputs.text', 'inputText');
     }
 }

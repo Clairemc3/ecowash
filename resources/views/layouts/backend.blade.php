@@ -38,10 +38,6 @@
         <div class="mt-10">
 
         <main class="py-4 container">
-                @foreach ($errors->all() as $error)
-                    <div>{{ $error }}</div>
-                @endforeach
-
             @yield('content')
         </main>
     </div>
