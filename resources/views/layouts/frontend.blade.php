@@ -30,7 +30,7 @@
         @endauth
 
 
-        <div @auth class="mt-10" @endauth>
+        <div @auth class="mt-65px" @endauth>
             @section('mainMenu')
                 <header>
                     <div class="main-header">

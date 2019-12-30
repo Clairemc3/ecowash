@@ -4,7 +4,7 @@ import Modal from './plugins/modal/ModalPlugin';
 import Dropdown from './components/Dropdown';
 import ConfirmDialog from './components/ConfirmDialog';
 import ConfirmButton from './components/ConfirmButton';
-import TestComponent from './components/TestComp';
+import SidebarAdmin from './components/SidebarAdmin';
 import vuetify from './plugins/vuetify';
 
 /**
@@ -35,7 +35,7 @@ Vue.component('dropdown', Dropdown);
 Vue.component('confirm-dialog', ConfirmDialog);
 Vue.component('confirm-button', ConfirmButton);
 Vue.component('confirm-button', ConfirmButton);
-Vue.component('claire', TestComponent);
+Vue.component('sidebar-admin', SidebarAdmin);
 
 
 /**

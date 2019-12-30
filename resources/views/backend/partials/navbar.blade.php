@@ -24,5 +24,5 @@
         </div>
     </div>
 </nav>
-<claire>
-</claire>
+<sidebar-admin>
+</sidebar-admin>
