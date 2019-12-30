@@ -37,7 +37,9 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Content::create($request->all());
+
+        return redirect()->route('admin.content.index');
     }
 
     /**
@@ -59,7 +61,11 @@ class ContentController extends Controller
      */
     public function edit(Content $content)
     {
-        //
+        $viewBag = [
+            'content' => $content
+        ];
+
+        return view('backend.content.edit', $viewBag);
     }
 
     /**
@@ -71,7 +77,9 @@ class ContentController extends Controller
      */
     public function update(Request $request, Content $content)
     {
-        //
+        $content->update($request->all());
+
+        return redirect()->route('admin.content.index');
     }
 
     /**
@@ -82,6 +90,8 @@ class ContentController extends Controller
      */
     public function destroy(Content $content)
     {
-        //
+        $content->delete();
+
+        return redirect()->route('admin.content.index');
     }
 }

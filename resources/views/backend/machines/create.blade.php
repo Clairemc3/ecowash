@@ -5,7 +5,8 @@
 @section('content')
   <h1>Add a machine type</h1>
 
-  @if ($errors->any())
+{{--  These need styling --}}
+@if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -24,5 +25,5 @@
           <button class="btn btn-white"> <a href="{{route('admin.machine.index')}}">Cancel</a></button>
         </div>
       </form>
-  </div> 
+  </div>
 @endSection

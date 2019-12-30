@@ -72,21 +72,19 @@ class ManageMachinesTest extends TestCase
         $this->assertDatabaseHas('machines', array_merge(['id' => $machine->id], $updatedMachine ));
     }
 
-        /**  @test  */
-        public function a_user_can_delete_a_machine()
-        {
-            $this->withoutExceptionHandling();
-    
-            $this->actingAs($this->authenticatedUser);
-    
-            $machine = factory('App\Machine')->create();
-    
-            $this->delete($machine->path())->assertRedirect('/admin/machines');
+    /**  @test  */
+    public function a_user_can_delete_a_machine()
+    {
+        $this->withoutExceptionHandling();
 
-            $this->assertDatabaseMissing('machines', $machine->toArray());
-        }
+        $this->actingAs($this->authenticatedUser);
 
-    
+        $machine = factory('App\Machine')->create();
+
+        $this->delete($machine->path())->assertRedirect('/admin/machines');
+
+        $this->assertDatabaseMissing('machines', $machine->toArray());
+    }
 
 
 
@@ -96,7 +94,7 @@ class ManageMachinesTest extends TestCase
         $this->actingAs($this->authenticatedUser);
 
         $attributes = factory('App\Machine')->raw(['name' => '']);
-        
+
         $this->post('admin/machines', $attributes)->assertSessionHasErrors('name');
     }
 

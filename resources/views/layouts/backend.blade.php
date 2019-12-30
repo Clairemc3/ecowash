@@ -20,6 +20,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/backend.css') }}" rel="stylesheet">
 
+    {{-- CKEditor --}}
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/font/ckeditor.js"></script> --}}
 
     {{-- Extra --}}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Material+Icons" />
@@ -29,6 +32,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons-wind.min.css" />
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css" />
+
+
 </head>
 <body>
     <div id="app">

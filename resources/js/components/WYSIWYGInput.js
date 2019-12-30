@@ -1,6 +1,4 @@
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-alert('somethinh');
-console.log('somethin');
 
 ClassicEditor
 .create( document.querySelector( '#ckeditor' ), {

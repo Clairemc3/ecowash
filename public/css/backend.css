@@ -28664,10 +28664,19 @@ form input[type=email] {
 }
 
 form input[type=text]:hover,
-form input[type=text]:hover,
-form input[type=password]:hover {
+form input[type=password]:hover,
+form input[type=email]:hover {
   outline: 0;
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+form input[type=text]:disabled,
+form input[type=email]:disabled,
+form input[type=password]:disabled {
+  outline: 0;
+  box-shadow: none;
+  background-color: #edf2f7;
+  color: #cbd5e0;
 }
 
 form .form-group {
@@ -28698,6 +28707,10 @@ form input[type=checkbox] {
 body {
   background-color: #F4F6F3;
   font: normal 125%/1.4 "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+p {
+  margin-bottom: 2em;
 }
 
 /**

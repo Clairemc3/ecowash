@@ -52,5 +52,6 @@ class AppServiceProvider extends ServiceProvider
     private function registerInputComponents()
     {
         Blade::component('components.inputs.text', 'inputText');
+        Blade::component('components.inputs.wysiwyg', 'inputWysiwyg');
     }
 }
