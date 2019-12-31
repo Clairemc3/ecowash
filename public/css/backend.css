@@ -28709,10 +28709,6 @@ body {
   font: normal 125%/1.4 "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-p {
-  margin-bottom: 2em;
-}
-
 /**
  * Basic typography style for copy text
  */
@@ -28724,18 +28720,24 @@ body {
 h1, h2, h3 {
   margin-top: 0.6em;
   margin-bottom: 0.6em;
-  font-size: 2em;
+  color: #283640;
+}
+
+h1 {
+  font-size: 3em;
 }
 
 h2 {
-  text-transform: uppercase;
-  font-size: 3em;
-  text-shadow: 0 0 6px #707070;
+  font-size: 2em;
 }
 
 h3 {
-  color: #283640;
   font-size: 1.5em;
+}
+
+.p-small {
+  color: #283640;
+  font-size: 0.7em;
 }
 
 .container{

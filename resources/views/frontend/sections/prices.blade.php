@@ -12,6 +12,9 @@
         </div>
     @endforeach
 
-    <p class="uppercase">Tumble drying starts from 50 pence</p>
+
+    <div class=my-6>
+        {!!DisplayContent::bySlug('prices-extra')!!}
+    </div>
 
 </div>

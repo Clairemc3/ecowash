@@ -438,6 +438,11 @@ h3 {
   font-size: 1.5em;
 }
 
+.p-small {
+  color: #283640;
+  font-size: 0.7em;
+}
+
 /**
  * Clear inner floats
  */
