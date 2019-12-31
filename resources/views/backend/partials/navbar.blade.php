@@ -1,4 +1,4 @@
-<nav class="top-0 fixed bg-yellow-bright shadow-small admin-font-family flex flex-wrap items-center md:flex-row md:justify-start flex-no-wrap py-2 px-4 w-full">
+<nav class="top-0 fixed bg-yellow-bright shadow-small admin-font-family flex flex-wrap items-center md:flex-row md:justify-start flex-no-wrap py-2 px-4 w-full z-10">
 
         @auth
             @if ($withAdminSidebar ?? true)
