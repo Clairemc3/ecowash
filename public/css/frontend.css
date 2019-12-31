@@ -27550,15 +27550,27 @@ body {
 .slider__image {
   width: 100%;
   padding-right: 0.7em;
-  padding-bottom: 0;
+  padding-bottom: 0.7em;
   padding-left: 0.7em;
   padding-top: 0.7em;
 }
 
 .slider__text {
   color: #B24240;
-  margin: 0.7em;
   text-align: center;
+  background-color: #F4F6F3;
+  z-index: auto;
+  font-size: 1em;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .slider__text {
+    position: absolute;
+    bottom: 4em;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
 }
 
 .price__item {
