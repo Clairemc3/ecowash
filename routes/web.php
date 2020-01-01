@@ -37,4 +37,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
     Route::put('/content/{content}', 'ContentController@update')->name('content.update');
     Route::delete('/content/{content}', 'ContentController@destroy')->name('content.destroy');
 
+    // Alerts
+    Route::get('/alerts', 'AlertController@index')->name('alert.index');
+    Route::get('/alerts/create', 'AlertController@create')->name('alert.create');
 });

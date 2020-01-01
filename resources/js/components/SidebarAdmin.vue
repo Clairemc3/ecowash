@@ -40,6 +40,7 @@
                 width: 256,
                 items: [
                 { title: 'Dashboard', icon: 'dashboard', href: '/admin' },
+                { title: 'Alerts', icon: 'mdi-alert', href: '/admin/alerts' },
                 { title: 'Machines', icon: 'mdi-washing-machine', href: '/admin/machines' },
                 { title: 'Content', icon: 'mdi-content-copy', href: '/admin/content' },
                 { title: 'Users', icon: 'mdi-account-multiple', href: '/admin/users' },

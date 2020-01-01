@@ -18,8 +18,8 @@ class ManageContentTest extends TestCase
         $content = factory('App\Content')->create();
 
         $this->get('admin/content')->assertRedirect('/login');
-        // $this->get('admin/content/create')->assertRedirect('/login');
-        // $this->post('admin/content', $content->toArray())->assertRedirect('/login');
+        $this->get('admin/content/create')->assertRedirect('/login');
+        $this->post('admin/content', $content->toArray())->assertRedirect('/login');
     }
 
      /**  @test  */
