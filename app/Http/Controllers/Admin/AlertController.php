@@ -26,7 +26,7 @@ class AlertController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.alerts.create');
     }
 
     /**
@@ -37,7 +37,9 @@ class AlertController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Alert::create($request->all());
+
+        return redirect()->route('admin.alert.index');
     }
 
     /**

@@ -17,4 +17,4 @@
 @inputWysiwyg(['name' => 'body',
 'value' => old('name', $content->body ?? '')
 ])
-@endinputText
+@endinputWysiwyg

@@ -34,6 +34,24 @@ class ManageAlertsTest extends TestCase
          $this->get('admin/alerts')->assertSee('Alerts')->assertStatus(200);
      }
 
+         /**  @test  */
+    public function a_user_can_create_an_alert()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->actingAs($this->authenticatedUser);
+
+        $this->get('admin/alerts/create')->assertStatus(200);
+
+        $attributes = factory('App\Alert')->raw();
+
+        $this->post('admin/alerts', $attributes)->assertRedirect('/admin/alerts');
+
+        $this->assertDatabaseHas('alerts', $attributes);
+
+        $this->get('admin/alerts')->assertSee($attributes['short_text']);
+    }
+
 
     // admin can add, edit and delete alerts
     // alerts should have a start and end date

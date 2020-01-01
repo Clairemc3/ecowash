@@ -30,7 +30,7 @@
     'includeActions' => true,
     'headings' => ['Summary', 'Start date', 'End date', 'Is active'],
     'models' => $alerts,
-    'properties' => ['short_text', 'start_date', 'end_date', 'isActive'],
+    'properties' => ['short_text', 'startDateString', 'endDateString', 'isActive'],
     'propertyClass' => ['isActive' => 'text-red'],
 ])
 @endif

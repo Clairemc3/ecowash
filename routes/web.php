@@ -40,4 +40,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
     // Alerts
     Route::get('/alerts', 'AlertController@index')->name('alert.index');
     Route::get('/alerts/create', 'AlertController@create')->name('alert.create');
+    Route::post('/alerts', 'AlertController@store')->name('alert.store');
 });
