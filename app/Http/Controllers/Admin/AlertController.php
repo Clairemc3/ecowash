@@ -59,9 +59,13 @@ class AlertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Alert $alert)
     {
-        //
+        $viewBag = [
+            'alert' => $alert
+        ];
+
+        return view('backend.alerts.edit', $viewBag);
     }
 
     /**
@@ -71,9 +75,11 @@ class AlertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Alert $alert)
     {
-        //
+        $alert->update($request->all());
+
+        return redirect()->route('admin.alert.index');
     }
 
     /**

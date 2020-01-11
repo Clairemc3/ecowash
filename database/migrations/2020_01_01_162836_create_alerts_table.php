@@ -15,8 +15,8 @@ class CreateAlertsTable extends Migration
     {
         Schema::create('alerts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->string('short_text');
             $table->text('long_text');
             $table->timestamps();

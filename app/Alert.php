@@ -11,6 +11,7 @@ class Alert extends Model
 
     protected $dates = ['start_date', 'end_date'];
 
+
     /**
      * Defines the path for this model
      *
