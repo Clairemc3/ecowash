@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
         // Register components and includes
 
         $this->registerInputComponents();
+        $this->registerTableComponents();
 
         // Icons
         Blade::include('icons.hamburger', 'hamburger');
@@ -37,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Resources
         Blade::include('backend.partials.resourceIndexHeader', 'resourceIndexHeader');
-        Blade::include('backend.tables.resourceTable', 'resourceTable');
+        Blade::include('tables.resourceTable', 'resourceTable');
 
         // Menus
         Blade::include('backend.partials.authenticationLinks', 'authenticationLinks');
@@ -54,5 +55,21 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('components.inputs.text', 'inputText');
         Blade::component('components.inputs.wysiwyg', 'inputWysiwyg');
         Blade::component('components.inputs.date', 'inputDate');
+    }
+
+
+    /**
+     * Registers table components
+     *
+     * @return void
+     */
+    private function registerTableComponents()
+    {
+        Blade::component('tables.table', 'tbl');
+        Blade::component('tables.tableHead', 'tblHead');
+        Blade::component('tables.actions', 'tblActions');
+        Blade::component('tables.tableBody', 'tblBody');
+        Blade::component('tables.row', 'tblRow');
+        Blade::component('tables.cell', 'cell');
     }
 }

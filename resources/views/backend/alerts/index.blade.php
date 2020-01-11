@@ -26,13 +26,37 @@
 @if ($alerts->isEmpty())
     <p>No alerts</p>
 @else
-@include('backend.tables.resourceTable', [
-    'includeActions' => true,
-    'headings' => ['Summary', 'Start date', 'End date', 'Is active'],
-    'models' => $alerts,
-    'properties' => ['short_text', 'startDateString', 'endDateString', 'isActive'],
-    'propertyClass' => ['isActive' => 'text-red'],
-])
+    @tbl
+        @tblHead([
+            'headings' => ['Summary', 'Start date', 'End date'],
+        ])
+            @slot('after')
+                @cell @endcell
+                @cell @endcell
+            @endslot
+        @endtblHead
+
+        @tblBody
+            @foreach($alerts as $alert)
+                @tblRow
+                    @cell {{ $alert->short_text }} @endcell
+                    @cell {{ $alert->startDateString  }} @endcell
+                    @cell {{ $alert->endDateString  }} @endcell
+
+                    @cell(['class' => 'text-center'])
+                        @if ($alert->isActive())
+                            <div class="bg-green-500 text-white text-sm rounded-full p-0">
+                                active
+                            </div>
+                        @endif
+                    @endcell
+
+                    @tblActions(['model' => $alert])@endtblActions
+                @endtblRow
+            @endforeach
+        @endtblBody
+    @endtbl
+
 @endif
 
 @endSection

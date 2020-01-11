@@ -13,7 +13,7 @@
 @if ($contentRecords->isEmpty())
     <p>No content records</p>
 @else
-@include('backend.tables.resourceTable', [
+@include('tables.resourceTable', [
     'includeActions' => true,
     'headings' => ['Content location'],
     'models' => $contentRecords,
