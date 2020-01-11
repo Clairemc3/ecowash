@@ -39,8 +39,42 @@ class Alert extends Model
      *
      * @return void
      */
+    public function getStatusAttribute()
+    {
+        if ($this->isActive())
+        {
+            return 'active';
+        }
+         return 'inactive';
+    }
+
+        /**
+     * Return the end date as a string
+     *
+     * @return void
+     */
     public function getEndDateStringAttribute()
     {
         return $this->end_date->format('d-M-Y');
     }
+
+
+
+    /**
+     * Determine if the alert is active
+     *
+     * @return boolean
+     */
+    public function isActive() :bool
+    {
+        $now = now();
+
+        if ($now->between($this->starts_at, $this->ends_at))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }

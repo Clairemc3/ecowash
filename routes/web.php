@@ -43,4 +43,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
     Route::post('/alerts', 'AlertController@store')->name('alert.store');
     Route::get('/alerts/{alert}', 'AlertController@edit')->name('alert.edit');
     Route::put('/alerts/{alert}', 'AlertController@update')->name('alert.update');
+    Route::delete('/alerts/{alert}', 'AlertController@destroy')->name('alert.destroy');
 });

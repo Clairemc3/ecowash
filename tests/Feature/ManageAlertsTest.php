@@ -73,6 +73,21 @@ class ManageAlertsTest extends TestCase
     }
 
 
+    /**  @test  */
+    public function a_user_can_delete_an_alert()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->actingAs($this->authenticatedUser);
+
+        $alert = factory('App\Alert')->create();
+
+        $this->delete($alert->path())->assertRedirect('/admin/alerts');
+
+        $this->assertDatabaseMissing('alerts', $alert->toArray());
+    }
+
+
     // admin can add, edit and delete alerts
     // alerts should have a start and end date
     // alerts should have short and long text
