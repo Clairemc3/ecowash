@@ -27327,6 +27327,10 @@ h3 {
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+.table-header-group {
+  display: table-header-group;
+}
+
 body {
   background-color: #435765;
   font: normal 125%/1.4 "Secular One", "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -39294,6 +39298,10 @@ body {
 }
 
 @media (min-width: 640px){
+  .sm\:table-header-group {
+    display: table-header-group;
+  }
+
   .sm\:sr-only{
     position: absolute;
     width: 1px;
@@ -50838,6 +50846,10 @@ body {
 }
 
 @media (min-width: 768px){
+  .md\:table-header-group {
+    display: table-header-group;
+  }
+
   .md\:sr-only{
     position: absolute;
     width: 1px;
@@ -62382,6 +62394,10 @@ body {
 }
 
 @media (min-width: 1024px){
+  .lg\:table-header-group {
+    display: table-header-group;
+  }
+
   .lg\:sr-only{
     position: absolute;
     width: 1px;
@@ -73926,6 +73942,10 @@ body {
 }
 
 @media (min-width: 1280px){
+  .xl\:table-header-group {
+    display: table-header-group;
+  }
+
   .xl\:sr-only{
     position: absolute;
     width: 1px;

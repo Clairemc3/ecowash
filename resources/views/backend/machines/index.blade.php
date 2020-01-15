@@ -19,7 +19,7 @@
     'includeActions' => true,
     'headings' => ['Name', 'Price'],
     'models' => $machines,
-    'properties' => ['name', 'price']])
+    'properties' => ['name', 'price']],
 @endif
 
 @endSection

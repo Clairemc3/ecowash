@@ -545,3 +545,31 @@ h3 {
 .admin-font-family {
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
+
+.table-header-group {
+  display: table-header-group;
+}
+
+@media (min-width: 640px){
+  .sm\:table-header-group {
+    display: table-header-group;
+  }
+}
+
+@media (min-width: 768px){
+  .md\:table-header-group {
+    display: table-header-group;
+  }
+}
+
+@media (min-width: 1024px){
+  .lg\:table-header-group {
+    display: table-header-group;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:table-header-group {
+    display: table-header-group;
+  }
+}

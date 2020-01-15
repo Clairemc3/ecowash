@@ -22,3 +22,9 @@
 .admin-font-family {
     font-family: $admin-font-stack;
 }
+
+@responsive {
+    .table-header-group {
+      display: table-header-group;
+    }
+  }

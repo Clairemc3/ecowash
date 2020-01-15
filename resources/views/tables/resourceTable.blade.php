@@ -1,8 +1,8 @@
 <div class="mx-auto w-full">
   <div class="bg-white my-4 p-6 rounded-lg">
     <table class="w-full">
-        <thead class="text-left bg-gray-200">
-          <tr>
+        <thead class="text-left bg-gray-200 hidden sm:table-header-group">
+          <tr class="">
               @foreach($headings as $heading)
                 <th scope="col" class="py-4 px-6">{{$heading}}</th>
               @endforeach
