@@ -31,8 +31,8 @@
             'headings' => ['Summary', 'Start date', 'End date'],
         ])
             @slot('after')
-                @cell @endcell
-                @cell @endcell
+                @cell(['heading']) @endcell
+                @cell(['heading', 'class' => 'hidden sm:table-cell']) @endcell
             @endslot
         @endtblHead
 
@@ -43,8 +43,8 @@
                     @cell {{ $alert->startDateString  }} @endcell
                     @cell {{ $alert->endDateString  }} @endcell
 
-                    @cell(['class' => 'text-center'])
-                        @if ($alert->isActive())
+                    @cell(['class' => 'text-center hidden sm:table-cell'])
+                        @if (!$alert->isActive())
                             <div class="bg-green-500 text-white text-sm rounded-full p-0">
                                 active
                             </div>

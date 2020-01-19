@@ -28557,6 +28557,10 @@ li {
   display: table-header-group;
 }
 
+.table-cell {
+  display: table-cell;
+}
+
 .dropdown-toggle > button:focus {
   outline: 0;
 }
@@ -39881,6 +39885,10 @@ h3 {
   font-size: 1rem;
 }
 
+.text-baseLarge{
+  font-size: 1.25rem;
+}
+
 .text-lg{
   font-size: 1.125rem;
 }
@@ -40333,6 +40341,10 @@ h3 {
 @media (min-width: 640px){
   .sm\:table-header-group {
     display: table-header-group;
+  }
+
+  .sm\:table-cell {
+    display: table-cell;
   }
 
   .sm\:sr-only{
@@ -51428,6 +51440,10 @@ h3 {
     font-size: 1rem;
   }
 
+  .sm\:text-baseLarge{
+    font-size: 1.25rem;
+  }
+
   .sm\:text-lg{
     font-size: 1.125rem;
   }
@@ -51881,6 +51897,10 @@ h3 {
 @media (min-width: 768px){
   .md\:table-header-group {
     display: table-header-group;
+  }
+
+  .md\:table-cell {
+    display: table-cell;
   }
 
   .md\:sr-only{
@@ -62976,6 +62996,10 @@ h3 {
     font-size: 1rem;
   }
 
+  .md\:text-baseLarge{
+    font-size: 1.25rem;
+  }
+
   .md\:text-lg{
     font-size: 1.125rem;
   }
@@ -63429,6 +63453,10 @@ h3 {
 @media (min-width: 1024px){
   .lg\:table-header-group {
     display: table-header-group;
+  }
+
+  .lg\:table-cell {
+    display: table-cell;
   }
 
   .lg\:sr-only{
@@ -74524,6 +74552,10 @@ h3 {
     font-size: 1rem;
   }
 
+  .lg\:text-baseLarge{
+    font-size: 1.25rem;
+  }
+
   .lg\:text-lg{
     font-size: 1.125rem;
   }
@@ -74977,6 +75009,10 @@ h3 {
 @media (min-width: 1280px){
   .xl\:table-header-group {
     display: table-header-group;
+  }
+
+  .xl\:table-cell {
+    display: table-cell;
   }
 
   .xl\:sr-only{
@@ -86070,6 +86106,10 @@ h3 {
 
   .xl\:text-base{
     font-size: 1rem;
+  }
+
+  .xl\:text-baseLarge{
+    font-size: 1.25rem;
   }
 
   .xl\:text-lg{
