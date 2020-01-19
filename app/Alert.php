@@ -69,7 +69,8 @@ class Alert extends Model
     {
         $now = now();
 
-        if ($now->between($this->starts_at, $this->ends_at))
+        if ($now->between($this->start_date->startOfDay(),
+            $this->end_date->endOfDay()))
         {
             return true;
         }

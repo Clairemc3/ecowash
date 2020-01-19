@@ -18,4 +18,14 @@ class AlertTest extends TestCase
         $this->assertEquals('/admin/alerts/'. $alert->id, $alert->path());
 
     }
+
+    /** @test */
+    public function is_is_active_based_on_start_and_end_date()
+    {
+        $alert = factory('App\Alert')->create(
+            ['start_date' => now()->toDateString(),
+            'end_date' => now()->toDateString()]);
+
+        $this->assertEquals(true, $alert->isActive());
+    }
 }

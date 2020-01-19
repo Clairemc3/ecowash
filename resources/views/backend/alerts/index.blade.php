@@ -44,7 +44,7 @@
                     @cell {{ $alert->endDateString  }} @endcell
 
                     @cell(['class' => 'text-center hidden sm:table-cell'])
-                        @if (!$alert->isActive())
+                        @if ($alert->isActive())
                             <div class="bg-green-500 text-white text-sm rounded-full p-0">
                                 active
                             </div>
