@@ -7,7 +7,12 @@
     <input required name="{{$name}}" type="text" id="{{$name}}" aria-describedby="{{$name}}"
     @if (isset($placeholder)) placeholder="{{ $placeholder }}" @endif
     value="{{$value}}"
-    @if($disabled ?? false) disabled @endif>
+    @if($disabled ?? false) disabled @endif
+    {{-- Render any attributes --}}
+    @foreach ($attributes as $attributeName => $attributeValue)
+        {{ $attributeName }}="{{ $attributeValue }}"
+    @endforeach
+    >
     @error($name)
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>

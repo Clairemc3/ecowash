@@ -35,7 +35,7 @@ class Alert extends Model
 
 
     /**
-     * Return the end date as a string
+     * Return status of alert
      *
      * @return void
      */
@@ -45,7 +45,33 @@ class Alert extends Model
         {
             return 'active';
         }
-         return 'inactive';
+        // If complete
+
+        if ($this->isComplete())
+        {
+            return 'expired';
+        }
+        return 'inactive';
+    }
+
+    /**
+     * Convert this to a table
+     *
+     * @return void
+     */
+    public function getStatusOrderAttribute()
+    {
+        if ($this->isActive())
+        {
+            return 1;
+        }
+
+        // If expired
+        if ($this->isExpired())
+        {
+            return 3;
+        }
+        return 2;
     }
 
         /**
@@ -58,6 +84,24 @@ class Alert extends Model
         return $this->end_date->format('d-M-Y');
     }
 
+
+
+    /**
+     * Determine if the alert is expired (in the past)
+     *
+     * @return boolean
+     */
+    public function isExpired() :bool
+    {
+        $now = now();
+
+        if ($now->isAfter($this->end_date->endOfDay()))
+        {
+            return true;
+        }
+
+        return false;
+    }
 
 
     /**
@@ -77,5 +121,17 @@ class Alert extends Model
 
         return false;
     }
+
+    /**
+     * Return any alerts which are set to run between these dates
+     */
+    public function scopeInDateRange($query, $startDate, $endDate)
+    {
+
+        return  $query->whereDate('end_date', '>=', $startDate)
+        ->whereDate('start_date', '<=', $endDate );
+
+    }
+
 
 }

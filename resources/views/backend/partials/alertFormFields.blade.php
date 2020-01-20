@@ -20,7 +20,8 @@
 'label' => 'Summary*',
 'value' => old('short_text', $alert->short_text ?? ''),
 'placeholder' => 'e.g. Closing for repairs on 15th December to 16th December',
-'helpText' => 'Add a short summary (max 60 characters)'
+'helpText' => 'Add a short summary (max 60 characters)',
+'attributes' => ['maxLength' => 60],
 ])
 @endinputText
 
@@ -29,6 +30,6 @@
 @inputWysiwyg(['name' => 'long_text',
 'label' => 'Detailed description*',
 'value' => old('long_text', $alert->long_text ?? ''),
-'helpText' => 'Add a more detailed summary here which will appear in the pop up (max 180 characters)'
+'helpText' => 'Add a more detailed summary here which will appear in the pop up (recommended max 180 characters)'
 ])
 @endinputWysiwyg

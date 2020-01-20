@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Support\Str;
 
 class ManageAlertsTest extends TestCase
 {
@@ -17,8 +18,8 @@ class ManageAlertsTest extends TestCase
         $alert = factory('App\Alert')->create();
 
         $this->get('admin/alerts')->assertRedirect('/login');
-        // $this->get('admin/content/create')->assertRedirect('/login');
-        // $this->post('admin/content', $content->toArray())->assertRedirect('/login');
+        $this->get('admin/content/create')->assertRedirect('/login');
+        $this->post('admin/content', $alert->toArray())->assertRedirect('/login');
     }
 
 
@@ -88,14 +89,92 @@ class ManageAlertsTest extends TestCase
     }
 
 
-    // admin can add, edit and delete alerts
-    // alerts should have a start and end date
-    // alerts should have short and long text
-    // short text can be a max of 40 characters
-    // end date must be after the start date
+
+    /**  @test  */
+    public function an_alert_requires_start_and_end_dates()
+    {
+        $this->actingAs($this->authenticatedUser);
+
+        $attributes = factory('App\Alert')->raw([
+            'start_date' => '',
+            'end_date' => '']);
+
+        $this->post('admin/alerts', $attributes)
+            ->assertSessionHasErrors([
+                'start_date',
+                'end_date']);
+    }
+
+    /**  @test  */
+    public function an_alert_end_date_must_be_after_start_date()
+    {
+        $this->actingAs($this->authenticatedUser);
+
+        $attributes = factory('App\Alert')->raw([
+            'start_date' => now(),
+            'end_date' => now()->subDays(1)]);
+
+        $this->post('admin/alerts', $attributes)
+            ->assertSessionHasErrors('end_date');
+    }
+
+    /**  @test  */
+    public function an_alert_requires_short_and_long_text()
+    {
+        $this->actingAs($this->authenticatedUser);
+
+        $attributes = factory('App\Alert')->raw([
+            'short_text' => '',
+            'long_text' => '']);
+
+        $this->post('admin/alerts', $attributes)
+            ->assertSessionHasErrors([
+                'short_text',
+                'long_text']);
+    }
+
+    /**  @test  */
+    public function an_alert_short_text_has_max_chars()
+    {
+        $this->actingAs($this->authenticatedUser);
+
+        // Max 60 chars
+        $attributes = factory('App\Alert')->raw([
+            'short_text' => Str::random(61),
+            ]);
+
+        $this->post('admin/alerts', $attributes)
+            ->assertSessionHasErrors('short_text');
+    }
+
+
+    /**  @test  */
+    public function there_should_only_be_one_active_alert()
+    {
+        $this->actingAs($this->authenticatedUser);
+
+        $existingAlert = factory('App\Alert')->create();
+
+        // Max 60 chars
+        $newAlert = factory('App\Alert')->raw([
+            'start_date' => $existingAlert->start_date,
+            'end_date'
+            ]);
+
+        $this->post('admin/alerts', $newAlert)
+            ->assertSessionHasErrors('short_text');
+    }
+
+
+
+
+
+    // you can only have one active alert at a time
+
+
     // alerts should be displayed on the front end when they are active
     // guests cannot see inactive alerts
-    // you can only have one active alert at a time
+
     // guest users should see a pop up with the long alert message just once
     // admins should have the option to reset alert alerts will be reshown to everyone
 

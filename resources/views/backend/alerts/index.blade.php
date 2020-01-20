@@ -38,7 +38,7 @@
 
         @tblBody
             @foreach($alerts as $alert)
-                @tblRow
+                @tblRow(['class' => $alert->isExpired() ? 'text-gray-500' : ''])
                     @cell {{ $alert->short_text }} @endcell
                     @cell {{ $alert->startDateString  }} @endcell
                     @cell {{ $alert->endDateString  }} @endcell

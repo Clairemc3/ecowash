@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Alert;
 use Illuminate\Http\Request;
 use  App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAlertRequest;
 
 class AlertController extends Controller
 {
@@ -15,7 +16,9 @@ class AlertController extends Controller
      */
     public function index()
     {
-        $alerts = Alert::all();
+        $alerts = Alert::orderBy('start_date', 'asc')
+            ->get()->sortBy('statusOrder');
+
         return view('backend.alerts.index', compact('alerts'));
     }
 
@@ -35,7 +38,7 @@ class AlertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAlertRequest $request)
     {
         Alert::create($request->all());
 
@@ -65,7 +68,7 @@ class AlertController extends Controller
      * @param  Alert $alert
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alert $alert)
+    public function update(StoreAlertRequest $request, Alert $alert)
     {
         $alert->update($request->all());
 
