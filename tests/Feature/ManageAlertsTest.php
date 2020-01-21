@@ -165,15 +165,8 @@ class ManageAlertsTest extends TestCase
             ->assertSessionHasErrors('range');
     }
 
-
-
-
-
-    // you can only have one active alert at a time
-
-
     // alerts should be displayed on the front end when they are active
-    // guests cannot see inactive alerts
+    // guests cannot see inactive or expired alerts
 
     // guest users should see a pop up with the long alert message just once
     // admins should have the option to reset alert alerts will be reshown to everyone
