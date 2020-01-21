@@ -8,10 +8,13 @@
     @if (isset($placeholder)) placeholder="{{ $placeholder }}" @endif
     value="{{$value}}"
     @if($disabled ?? false) disabled @endif
+
     {{-- Render any attributes --}}
-    @foreach ($attributes as $attributeName => $attributeValue)
-        {{ $attributeName }}="{{ $attributeValue }}"
-    @endforeach
+    @if(isset($attributes))
+        @foreach ($attributes as $attributeName => $attributeValue)
+            {{ $attributeName }}="{{ $attributeValue }}"
+        @endforeach
+    @endif
     >
     @error($name)
     <span class="invalid-feedback" role="alert">
