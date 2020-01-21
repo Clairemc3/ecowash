@@ -35,7 +35,6 @@ Vue.use(Modal);
 Vue.component('dropdown', Dropdown);
 Vue.component('confirm-dialog', ConfirmDialog);
 Vue.component('confirm-button', ConfirmButton);
-Vue.component('confirm-button', ConfirmButton);
 Vue.component('sidebar-admin', SidebarAdmin);
 
 

@@ -1,12 +1,13 @@
 @charset 'UTF-8';
 
 @tailwind base;
+
 @import '~vuetify/dist/vuetify.min.css';
 
 @import
   '../abstracts/variables',
-  '../abstracts/functions',
-  '../abstracts/mixins',
+   '../abstracts/functions',
+   '../abstracts/mixins',
   '../base/transitions';
 
 // Base stuff

@@ -14,9 +14,9 @@ const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/frontend/frontend.scss', 'public/css')
     .sass('resources/sass/backend/backend.scss', 'public/css')
+    .sass('resources/sass/app.scss', 'public/css')
     .sourceMaps()
     .options({
         extractVueStyles: true,

@@ -17,6 +17,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+
     <script src="https://kit.fontawesome.com/82ef6072c7.js" crossorigin="anonymous"></script>
 </head>
     <body>

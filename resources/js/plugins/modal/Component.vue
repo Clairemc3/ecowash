@@ -54,6 +54,9 @@ import Modal from './ModalPlugin';
 
 <style type="text/css">
 
+.testing123{
+    display:none;
+}
   .overlay {
         position: absolute;
         top: 0;
@@ -111,6 +114,5 @@ import Modal from './ModalPlugin';
     footer:empty {
         display:none;
     }
-
 
 </style>

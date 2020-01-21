@@ -85,7 +85,6 @@ class Alert extends Model
     }
 
 
-
     /**
      * Determine if the alert is expired (in the past)
      *
@@ -127,10 +126,19 @@ class Alert extends Model
      */
     public function scopeInDateRange($query, $startDate, $endDate)
     {
-
         return  $query->whereDate('end_date', '>=', $startDate)
         ->whereDate('start_date', '<=', $endDate );
+    }
 
+    /**
+     * Return any alerts which are active now
+     */
+    public function scopeActive($query)
+    {
+        $now = now();
+
+        return  $query->whereDate('end_date', '>=', $now)
+        ->whereDate('start_date', '<=', $now );
     }
 
 
