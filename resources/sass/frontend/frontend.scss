@@ -21,6 +21,7 @@
 
   // Front end specific base
   @import 'base/base';
+  @import 'base/typography';
 
 // Layout-related sections
 @import
@@ -29,6 +30,7 @@
 
 // Components
 @import
+ 'components/buttons',
   'components/reviewStars',
   'components/pageSection',
   'components/topline',

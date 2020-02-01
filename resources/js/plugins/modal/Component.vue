@@ -27,7 +27,8 @@ import Modal from './ModalPlugin';
 
        data() {
          return {
-            isOpen: false
+            isOpen: false,
+            disableScroll: false
          }
         },
 
@@ -38,12 +39,22 @@ import Modal from './ModalPlugin';
             Modal.events.$on('open', params => {
                 this.isOpen = true;
             });
-
         },
 
         beforeMount() {
             if (this.openOnLoad) {
                 this.isOpen = true;
+            }
+        },
+
+        watch: {
+            isOpen: function() {
+                if (this.isOpen) {
+                    document.documentElement.style.overflow = 'hidden';
+                    return;
+                }
+                document.documentElement.style.overflow = 'auto';
+
             }
         },
 

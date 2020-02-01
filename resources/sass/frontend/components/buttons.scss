@@ -1,0 +1,22 @@
+.button-group {
+    display: flex;
+}
+
+
+.btn {
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    border-radius: 2px;
+ }
+
+
+
+.btn-teal {
+    color: $cream;
+    background-color: $dark-blue;
+ }

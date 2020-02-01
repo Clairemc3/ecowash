@@ -27340,6 +27340,34 @@ body {
   font: normal 125%/1.4 "Secular One", "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+/**
+ * Basic typography style for copy text
+ */
+
+body {
+  color: #283640;
+}
+
+h1, h2, h3 {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2em;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 3em;
+}
+
+h3 {
+  color: #283640;
+  font-size: 1.5em;
+}
+
 .main-header {
   background-color: #F4F6F3;
   border-bottom: 1px solid #707070;
@@ -27486,6 +27514,27 @@ body {
 .social-icons {
   font-size: 3em;
   color: darkblue;
+}
+
+.button-group {
+  display: -webkit-box;
+  display: flex;
+}
+
+.btn {
+  border: none;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  margin: 4px 2px;
+  border-radius: 2px;
+}
+
+.btn-teal {
+  color: #F4F6F3;
+  background-color: #435765;
 }
 
 .rating {

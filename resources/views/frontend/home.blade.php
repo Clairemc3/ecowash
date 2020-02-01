@@ -12,7 +12,7 @@
 
     @if ($alert)
 
-    <modal open-on-load="true">
+    <modal open-on-load="true" disable-scroll="true">
         <h1>{{$alert->short_text}}</h1>
 
         {!!$alert->long_text!!}
