@@ -10,7 +10,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         $viewBag = [
             'machines' => Machine::all(),
             'alert' => Alert::active()->first()

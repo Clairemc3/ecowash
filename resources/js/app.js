@@ -7,6 +7,7 @@ import ConfirmButton from './components/ConfirmButton';
 import SidebarAdmin from './components/SidebarAdmin';
 import vuetify from './plugins/vuetify';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import VueCookies from 'vue-cookies';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -19,6 +20,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 window.Vue = Vue;
 
 Vue.use(Modal);
+Vue.use(VueCookies)
 
 /**
  * The following block of code may be used to automatically register your
@@ -51,6 +53,9 @@ new Vue({
     methods: {
         confirm(message) {
            this.$modal.dialog(message);
+        },
+        setCookie(key, value, expireAfter = '30d') {
+            Vue.$cookies.set(key,value, expireAfter);
         },
     }
 });
