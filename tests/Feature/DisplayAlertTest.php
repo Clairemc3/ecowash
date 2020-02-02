@@ -8,7 +8,6 @@ use Tests\TestCase;
 
 class DisplayAlertTest extends TestCase
 {
-
     use WithFaker, RefreshDatabase;
 
     /**

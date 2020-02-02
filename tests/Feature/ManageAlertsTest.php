@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 
 class ManageAlertsTest extends TestCase
 {
-
     use WithFaker, RefreshDatabase;
 
     /**  @test  */

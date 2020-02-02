@@ -7,7 +7,7 @@
 
 <modal class="alert__modal"
     @if (Cookie::get('ecowash_alert') != $alert->id )
-    open-on-load="true"
+        open-on-load="true"
     @endif
     disable-scroll="true">
     <h1>{{$alert->short_text}}</h1>

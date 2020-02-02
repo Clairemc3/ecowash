@@ -124,6 +124,10 @@ import Modal from './ModalPlugin';
     }
 
     footer:empty {
+        margin-top: 1em;
+    }
+
+    footer:empty {
         display:none;
     }
 
