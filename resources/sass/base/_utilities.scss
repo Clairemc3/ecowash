@@ -32,3 +32,8 @@
         display: table-cell;
       }
   }
+
+body.no-scroll {
+    height: 100vh;
+    overflow-y: hidden;
+}

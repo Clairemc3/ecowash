@@ -27257,7 +27257,7 @@ h3 {
  */
 
 .container {
-  max-width: 1180px;
+  max-width: 1280px;
   /* 1 */
   margin-left: auto;
   /* 2 */
@@ -27335,6 +27335,11 @@ h3 {
   display: table-cell;
 }
 
+body.no-scroll {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 body {
   background-color: #435765;
   font: normal 125%/1.4 "Secular One", "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -27379,7 +27384,7 @@ h3 {
 
 @media (min-width: 992px) {
   .main-header {
-    max-width: 1180px;
+    max-width: 1280px;
     margin-left: auto;
     /* 2 */
     margin-right: auto;
@@ -27514,6 +27519,16 @@ h3 {
 .social-icons {
   font-size: 3em;
   color: darkblue;
+}
+
+.alert {
+  background-color: #B24240;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.alert__modal h1 {
+  color: #B24240;
 }
 
 .button-group {

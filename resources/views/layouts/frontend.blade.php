@@ -32,6 +32,8 @@
 
 
         <div @auth class="mt-65px" @endauth>
+            {{-- Alert block and modal --}}
+            @includeWhen($alert, 'frontend.partials.alert')
             @section('mainMenu')
                 <header>
                     <div class="main-header">
@@ -57,6 +59,7 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="topline container">
                         <div class="left">Open daily from 7.30am to 8.30pm</div>
                         <div class="right">

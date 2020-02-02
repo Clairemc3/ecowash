@@ -50,10 +50,13 @@ import Modal from './ModalPlugin';
         watch: {
             isOpen: function() {
                 if (this.isOpen) {
-                    document.documentElement.style.overflow = 'hidden';
-                    return;
+                    document.body.classList.add('no-scroll');// style.overflow = 'hidden';
+                //    document.body.style.overflow = 'hidden';
+                  return;
                 }
-                document.documentElement.style.overflow = 'auto';
+                // document.body.style.overflow = 'auto';
+                document.body.classList.remove('no-scroll');
+                // document.documentElement.style.overflow = 'auto';
 
             }
         },
@@ -65,9 +68,6 @@ import Modal from './ModalPlugin';
 
 <style type="text/css">
 
-.testing123{
-    display:none;
-}
   .overlay {
         position: absolute;
         top: 0;
@@ -86,8 +86,9 @@ import Modal from './ModalPlugin';
     }
     .modal {
         position: relative;
-        width: 500px;
-        max-width: 80%;
+        z-index: 10;
+        /* width: 500px; */
+        max-width: 50%;
         background: white;
         border-radius: 4px;
         padding: 2.5em;

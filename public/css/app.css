@@ -1,7 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans|Secular+One&display=swap);@import url(https://fonts.googleapis.com/css?family=Nunito);.testing123{
-  display:none;
-}
-.overlay {
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Secular+One&display=swap);@import url(https://fonts.googleapis.com/css?family=Nunito);.overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -23,8 +20,9 @@
 }
 .modal {
   position: relative;
-  width: 500px;
-  max-width: 80%;
+  z-index: 10;
+  /* width: 500px; */
+  max-width: 50%;
   background: white;
   border-radius: 4px;
   padding: 2.5em;
@@ -1732,7 +1730,7 @@ h3 {
  */
 
 .container {
-  max-width: 1180px;
+  max-width: 1280px;
   /* 1 */
   margin-left: auto;
   /* 2 */
@@ -1808,6 +1806,11 @@ h3 {
 
 .table-cell {
   display: table-cell;
+}
+
+body.no-scroll {
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 @media (min-width: 640px){

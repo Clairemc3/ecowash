@@ -27229,7 +27229,7 @@ li {
  */
 
 .container {
-  max-width: 1180px;
+  max-width: 1280px;
   /* 1 */
   margin-left: auto;
   /* 2 */
@@ -27305,6 +27305,11 @@ li {
 
 .table-cell {
   display: table-cell;
+}
+
+body.no-scroll {
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .dropdown-toggle > button:focus {
