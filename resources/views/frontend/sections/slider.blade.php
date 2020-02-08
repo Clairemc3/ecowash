@@ -9,5 +9,10 @@
 
 
 <div class="section">
-    <carousel></carousel>
+    <carousel :items="[
+        {src: '/images/launderette-slider-1.jpg', text: 'This is a thing'},
+        {src: '/images/launderette-slider-1.jpg', text: 'This is a thing 2'}]">
+    </carousel>
+    {{-- <carousel :items="@json($sliders)">
+    </carousel> --}}
 </div>

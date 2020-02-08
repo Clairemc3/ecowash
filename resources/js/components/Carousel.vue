@@ -8,45 +8,24 @@
                     <div v-if="item.text">
                         <div class="slider__text">{{item.text}}</div>
                     </div>
-                </v-carousel-item>
+            </v-carousel-item>
         </v-carousel>
     </div>
 </template>
 
 <script>
 export default {
-    data () {
-      return {
-        items: [
-          {
-            src: '/images/launderette-slider-1.jpg',
-            text: 'Over 10 dryers available blah blah I am writing loads here because I am excesign in what I write, oh yeah, lallslsls grjhgbrjhgb jhgbrhjgbrhjgb jhrghjtrh'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-          },
-        ],
-      }
+    props: {
+        items: {default: []},
     },
   }
 </script>
 
 <style>
-
-.v-window {
-    padding: 0.75em;
-}
-
-
-.v-window__next {
-    right: 0;
-}
-
-
+    .v-window {
+        padding: 0.75em;
+    }
+    .v-window__next {
+        right: 0;
+    }
 </style>
