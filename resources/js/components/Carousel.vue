@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-carousel hide-delimiters height="100%">
+        <v-carousel hide-delimiters cycle height="100%">
             <v-carousel-item v-for="(item,i) in items" :key="i"
                 :src="item.src"
                  reverse-transition="fade-transition"
@@ -37,21 +37,16 @@ export default {
   }
 </script>
 
-<style lang="scss" scoped>
-
+<style>
 
 .v-window {
     padding: 0.75em;
 }
 
 
-// .v-window__prev {
-//     left: 0;
-// }
-
-// .v-window__next {
-//     right: 0;
-// }
+.v-window__next {
+    right: 0;
+}
 
 
 </style>

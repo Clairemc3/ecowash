@@ -1244,9 +1244,15 @@ footer:empty {
 
 .v-overlay--active {
   pointer-events: auto;
-}.v-window[data-v-fe98726a] {
+}.v-window {
   padding: 0.75em;
-}.v-carousel {
+}
+.v-window__next {
+  right: 0;
+}
+
+
+.v-carousel {
   overflow: hidden;
   position: relative;
   width: 100%;
