@@ -27521,6 +27521,25 @@ h3 {
   color: darkblue;
 }
 
+.modal {
+  width: 90%;
+  padding: 1em;
+}
+
+.modal h1 {
+  font-size: 2em;
+}
+
+@media (min-width: 992px) {
+  .modal {
+    padding: 2.5em;
+  }
+
+  .modal h1 {
+    font-size: 2em;
+  }
+}
+
 .alert {
   background-color: #B24240;
   padding-top: 1em;

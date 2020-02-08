@@ -66,7 +66,7 @@ import Modal from './ModalPlugin';
     }
 </script>
 
-<style type="text/css">
+<style type="text/scss">
 
   .overlay {
         position: absolute;
@@ -79,6 +79,7 @@ import Modal from './ModalPlugin';
         justify-content: center;
         background: rgba(0, 0, 0, .4);
         transition: opacity .7s;
+        z-index: 9;
     }
     .overlay:target {
         visibility: visible;
@@ -87,8 +88,8 @@ import Modal from './ModalPlugin';
     .modal {
         position: relative;
         z-index: 10;
-        /* width: 500px; */
-        max-width: 50%;
+        width: 50%;
+        max-width: 1000px;
         background: white;
         border-radius: 4px;
         padding: 2.5em;

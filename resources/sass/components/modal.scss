@@ -1,0 +1,14 @@
+.modal  {
+    h1 {
+        font-size: 2em
+    }
+    width: 90%;
+    padding: 1em;
+
+    @include mediaQuery(large) {
+        padding: 2.5em;
+        h1 {
+            font-size: 2em;
+        }
+    }
+}

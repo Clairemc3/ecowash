@@ -1201,6 +1201,7 @@
   background: rgba(0, 0, 0, .4);
   -webkit-transition: opacity .7s;
   transition: opacity .7s;
+  z-index: 9;
 }
 .overlay:target {
   visibility: visible;
@@ -1209,8 +1210,8 @@
 .modal {
   position: relative;
   z-index: 10;
-  /* width: 500px; */
-  max-width: 50%;
+  width: 50%;
+  max-width: 1000px;
   background: white;
   border-radius: 4px;
   padding: 2.5em;
