@@ -5,9 +5,11 @@ import Dropdown from './components/Dropdown';
 import ConfirmDialog from './components/ConfirmDialog';
 import ConfirmButton from './components/ConfirmButton';
 import SidebarAdmin from './components/SidebarAdmin';
+import Carousel from './components/Carousel';
 import vuetify from './plugins/vuetify';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import VueCookies from 'vue-cookies';
+
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -38,6 +40,7 @@ Vue.component('dropdown', Dropdown);
 Vue.component('confirm-dialog', ConfirmDialog);
 Vue.component('confirm-button', ConfirmButton);
 Vue.component('sidebar-admin', SidebarAdmin);
+Vue.component('carousel', Carousel);
 
 
 /**

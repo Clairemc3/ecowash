@@ -17,6 +17,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+
 
     <script src="https://kit.fontawesome.com/82ef6072c7.js" crossorigin="anonymous"></script>
 </head>
