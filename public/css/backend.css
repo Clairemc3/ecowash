@@ -27876,7 +27876,8 @@ form {
 
 form input[type=text],
 form input[type=password],
-form input[type=email] {
+form input[type=email],
+form input[type=number] {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -27893,6 +27894,7 @@ form input[type=email] {
 }
 
 form input[type=text]:hover,
+form input[type=number]:hover,
 form input[type=password]:hover,
 form input[type=email]:hover {
   outline: 0;
@@ -27900,6 +27902,7 @@ form input[type=email]:hover {
 }
 
 form input[type=text]:disabled,
+form input[type=number]:disabled,
 form input[type=email]:disabled,
 form input[type=password]:disabled {
   outline: 0;

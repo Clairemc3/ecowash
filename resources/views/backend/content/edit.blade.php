@@ -16,19 +16,11 @@
         </div>
     @endif
 
-
-
     <div class="bg-white rounded">
-
-
     <form action="{{ $content->path() }}" method="POST" class="p-8">
         @csrf
         @method('PUT')
-
         <p>{{ $content->help_text }}</p>
-
-
-
         @include('backend.partials.contentFormFields')
         <div class="button-group">
             <button type="submit" class="btn btn-teal">Submit</button>

@@ -6,6 +6,7 @@ import ConfirmDialog from './components/ConfirmDialog';
 import ConfirmButton from './components/ConfirmButton';
 import SidebarAdmin from './components/SidebarAdmin';
 import Carousel from './components/Carousel';
+import ImageSelect from './components/ImageSelect';
 import vuetify from './plugins/vuetify';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import VueCookies from 'vue-cookies';
@@ -41,6 +42,7 @@ Vue.component('confirm-dialog', ConfirmDialog);
 Vue.component('confirm-button', ConfirmButton);
 Vue.component('sidebar-admin', SidebarAdmin);
 Vue.component('carousel', Carousel);
+Vue.component('image-select', ImageSelect);
 
 
 /**

@@ -8,8 +8,6 @@ class Machine extends Model
 {
     protected $guarded = [];
 
-
-
     /**
      * Defines the path for this model
      *
@@ -20,6 +18,10 @@ class Machine extends Model
         return "/admin/machines/{$this->id}";
     }
 
+    /**
+     * Return a string version of the  resource
+     *
+     */
     public function getModelNameAttribute()
     {
         return 'machine';

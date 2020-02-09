@@ -3,15 +3,19 @@ form {
 
     input[type=text],
     input[type=password],
-    input[type=email] {
+    input[type=email],
+    input[type=number],
+    {
         @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
     }
     input[type=text]:hover,
+    input[type=number]:hover,
     input[type=password]:hover,
     input[type=email]:hover {
         @apply outline-none shadow-outline;
     }
     input[type=text]:disabled,
+    input[type=number]:disabled,
     input[type=email]:disabled,
     input[type=password]:disabled {
         @apply outline-none shadow-none bg-gray-200 text-gray-400;
