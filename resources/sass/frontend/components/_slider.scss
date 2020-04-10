@@ -1,7 +1,13 @@
 .slider {
+    position: relative;
+
+    @include mediaQuery(large) {
+        padding: 0.75em;
+        }
 }
 
 .slider__image {
+    position: relative;
     width: 100%;
     padding-right: 0.7em;
     padding-bottom: 0.7em;
@@ -10,16 +16,17 @@
 }
 
 .slider__text {
-    position: absolute;
+    position: relative;
     color: $red;
     text-align: center;
     background-color: $cream;
     z-index: auto;
     font-size: 1em;
     width: 100%;
-    bottom: 0;
     left:0;
     font-size: 0.75em;
+    margin: auto;
+    padding: 0.5em;
 
     @include mediaQuery(large) {
        position: absolute;
@@ -27,9 +34,6 @@
        padding-top: 1%;
        padding-bottom: 1%;
        font-size: 1em;
+       width: auto;
     }
 }
-
-// .v-window__next {
-//     right: 0;
-// }

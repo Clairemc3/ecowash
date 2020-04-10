@@ -6,10 +6,12 @@ import ConfirmDialog from './components/ConfirmDialog';
 import ConfirmButton from './components/ConfirmButton';
 import SidebarAdmin from './components/SidebarAdmin';
 import Carousel from './components/Carousel';
+import Slider from './components/Slider';
 import ImageSelect from './components/ImageSelect';
 import vuetify from './plugins/vuetify';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import VueCookies from 'vue-cookies';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
 
 /**
@@ -24,6 +26,8 @@ window.Vue = Vue;
 
 Vue.use(Modal);
 Vue.use(VueCookies)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
 /**
  * The following block of code may be used to automatically register your
@@ -43,6 +47,7 @@ Vue.component('confirm-button', ConfirmButton);
 Vue.component('sidebar-admin', SidebarAdmin);
 Vue.component('carousel', Carousel);
 Vue.component('image-select', ImageSelect);
+Vue.component('slider', Slider);
 
 
 /**
