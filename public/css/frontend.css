@@ -28145,6 +28145,7 @@ h3 {
   font-size: 0.75em;
   margin: auto;
   padding: 0.5em;
+  bottom: 0;
 }
 
 @media (min-width: 992px) {

@@ -49,6 +49,7 @@
     font-size: 0.75em;
     margin: auto;
     padding: 0.5em;
+    bottom: 0;
 
     @include mediaQuery(large) {
        position: absolute;
