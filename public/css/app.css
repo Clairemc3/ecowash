@@ -2381,6 +2381,17 @@ footer:empty {
     -webkit-transform: translateX(-8px);
             transform: translateX(-8px);
   }
+}.fade-enter-active[data-v-872262e8], .fade-leave-active[data-v-872262e8] {
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  overflow: hidden;
+  visibility: visible;
+  opacity: 1;
+  position: absolute;
+}
+.fade-enter[data-v-872262e8], .fade-leave-to[data-v-872262e8] {
+  opacity: 0;
+  visibility: hidden;
 }@charset "UTF-8";
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

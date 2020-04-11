@@ -9,9 +9,6 @@
 
 @section('content')
 
-
-
-
     {{-- Slider --}}
     @include('frontend.sections.slider')
 
