@@ -1,13 +1,11 @@
 <template>
     <div class="slider">
         <transition-group name='fade' tag='div'>
-            <div v-for="number in [currentIndex]" :key='number'>
-                <div class="slide" @mouseover="stopRotation" @mouseout="startRotation">
-                    <div class="slider__image">
-                        <img :src="currentSlide.imageSrc" style="width:100%">
-                    </div>
-                    <div class="slider__text"> {{ currentSlide.text }}</div>
+            <div v-for="number in [currentIndex]" :key='number' class="slide">
+                <div class="slider__image">
+                    <img :src="currentSlide.imageSrc" style="width:100%">
                 </div>
+                <div class="slider__text">{{ currentSlide.text }}</div>
             </div>
         </transition-group>
     </div>
@@ -19,7 +17,7 @@
         data() {
             return {
                 slides: [
-                    { 'imageSrc' : "/images/launderette-slider-1.jpg",'text' : "Slide 1" },
+                    { 'imageSrc' : "/images/launderette-slider-1.jpg",'text' : "Slide 1 " },
                     { 'imageSrc' : "/images/launderette-slider-1.jpg",'text' : "this is some othet text" },
                 ],
                 timer: null,
@@ -60,14 +58,13 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 .fade-enter-active, .fade-leave-active {
-    transition: all 0.8s ease;
+    transition: all 2s ease;
     overflow: hidden;
     visibility: visible;
     opacity: 1;
-    position: absolute;
 }
 .fade-enter, .fade-leave-to {
     opacity: 0;

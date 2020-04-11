@@ -28090,15 +28090,31 @@ h3 {
 
 .slider {
   position: relative;
+  height: 220px;
 }
 
 @media (min-width: 992px) {
   .slider {
     padding: 0.75em;
+    height: 650px;
+  }
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 220px;
+}
+
+@media (min-width: 992px) {
+  .slide {
+    height: auto;
   }
 }
 
 .slider__image {
+  height: 180px;
   position: relative;
   width: 100%;
   padding-right: 0.7em;
@@ -28107,8 +28123,18 @@ h3 {
   padding-top: 0.7em;
 }
 
+.slider__image img {
+  height: 100%;
+}
+
+@media (min-width: 992px) {
+  .slider__image {
+    height: 650px;
+  }
+}
+
 .slider__text {
-  position: relative;
+  position: absolute;
   color: #B24240;
   text-align: center;
   background-color: #F4F6F3;
