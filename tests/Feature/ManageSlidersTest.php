@@ -74,18 +74,18 @@ class ManageSlidersTest extends TestCase
 
 
     /**  @test  */
-    // public function a_user_can_delete_a_slider()
-    // {
-    //     $this->withoutExceptionHandling();
+    public function a_user_can_delete_a_slider()
+    {
+        $this->withoutExceptionHandling();
 
-    //     $this->actingAs($this->authenticatedUser);
+        $this->actingAs($this->authenticatedUser);
 
-    //     $alert = factory('App\Alert')->create();
+        $alert = factory('App\Alert')->create();
 
-    //     $this->delete($alert->path())->assertRedirect('/admin/alerts');
+        $this->delete($alert->path())->assertRedirect('/admin/alerts');
 
-    //     $this->assertDatabaseMissing('alerts', $alert->toArray());
-    // }
+        $this->assertDatabaseMissing('alerts', $alert->toArray());
+    }
 
 
 
