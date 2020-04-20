@@ -1,5 +1,5 @@
 {{-- Image --}}
-<image-select></image-select>
+{{-- <image-select></image-select> --}}
 
 {{-- text --}}
 @inputText(['name' => 'text',

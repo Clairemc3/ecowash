@@ -12,14 +12,14 @@ class ManageSlidersTest extends TestCase
     use WithFaker, RefreshDatabase;
 
     /**  @test  */
-    // public function guests_cannnot_manage_sliders()
-    // {
-    //     $alert = factory('App\Alert')->create();
+    public function guests_cannnot_manage_sliders()
+    {
+        $alert = factory('App\Alert')->create();
 
-    //     $this->get('admin/alerts')->assertRedirect('/login');
-    //     $this->get('admin/content/create')->assertRedirect('/login');
-    //     $this->post('admin/content', $alert->toArray())->assertRedirect('/login');
-    // }
+        $this->get('admin/alerts')->assertRedirect('/login');
+        $this->get('admin/content/create')->assertRedirect('/login');
+        $this->post('admin/content', $alert->toArray())->assertRedirect('/login');
+    }
 
 
      /**  @test  */
@@ -67,7 +67,7 @@ class ManageSlidersTest extends TestCase
         // Check the edit route is working
         $this->get($slider->path())->assertStatus(200)->assertSee($slider->text);
 
-        $this->put($slider->path() , $updatedSlider )->assertRedirect('/admin/alerts');
+        $this->put($slider->path() , $updatedSlider )->assertRedirect('/admin/sliders');
 
         $this->assertDatabaseHas('sliders', array_merge(['id' => $slider->id], $updatedSlider ));
     }

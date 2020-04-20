@@ -45,11 +45,11 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
     Route::put('/alerts/{alert}', 'AlertController@update')->name('alert.update');
     Route::delete('/alerts/{alert}', 'AlertController@destroy')->name('alert.destroy');
 
-    // Alerts
+    // Sliders
     Route::get('/sliders', 'SliderController@index')->name('slider.index');
     Route::get('/sliders/create', 'SliderController@create')->name('slider.create');
     Route::post('/sliders', 'SliderController@store')->name('slider.store');
-    Route::get('/sliders/{alert}', 'SliderController@edit')->name('slider.edit');
-    Route::put('/sliders/{alert}', 'SliderController@update')->name('slider.update');
-    Route::delete('/sliders/{alert}', 'SliderController@destroy')->name('slider.destroy');
+    Route::get('/sliders/{slider}', 'SliderController@edit')->name('slider.edit');
+    Route::put('/sliders/{slider}', 'SliderController@update')->name('slider.update');
+    Route::delete('/sliders/{slider}', 'SliderController@destroy')->name('slider.destroy');
 });
