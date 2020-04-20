@@ -8,9 +8,7 @@ use Tests\TestCase;
 
 class ManageContentTest extends TestCase
 {
-
     use WithFaker, RefreshDatabase;
-
 
     /**  @test  */
     public function guests_cannnot_manage_content()
@@ -22,7 +20,7 @@ class ManageContentTest extends TestCase
         $this->post('admin/content', $content->toArray())->assertRedirect('/login');
     }
 
-     /**  @test  */
+    /**  @test  */
     public function a_user_can_view_content_records()
     {
         $this->withoutExceptionHandling();
@@ -52,7 +50,6 @@ class ManageContentTest extends TestCase
         $this->get('admin/content')->assertSee($attributes['help_text']);
     }
 
-
     /**  @test  */
     public function a_user_can_update_a_single_content_record()
     {
@@ -67,11 +64,10 @@ class ManageContentTest extends TestCase
         // Check the edit route is working
         $this->get($content->path())->assertStatus(200)->assertSee($content->help_text);
 
-        $this->put($content->path() , $updatedContent )->assertRedirect('/admin/content');
+        $this->put($content->path(), $updatedContent)->assertRedirect('/admin/content');
 
-        $this->assertDatabaseHas('content', array_merge(['id' => $content->id], $updatedContent ));
+        $this->assertDatabaseHas('content', array_merge(['id' => $content->id], $updatedContent));
     }
-
 
     /**  @test  */
     public function a_user_can_delete_a_content_record()
@@ -86,6 +82,4 @@ class ManageContentTest extends TestCase
 
         $this->assertDatabaseMissing('content', $content->toArray());
     }
-
-
 }

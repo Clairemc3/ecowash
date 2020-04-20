@@ -12,16 +12,14 @@ class HomeController extends Controller
     {
         $viewBag = [
             'machines' => Machine::all(),
-            'alert' => Alert::active()->first()
+            'alert' => Alert::active()->first(),
         ];
 
         return view('frontend.home', $viewBag);
     }
 
-
     public function cssPractice()
     {
         return view('backend.cssPractice');
-
     }
 }

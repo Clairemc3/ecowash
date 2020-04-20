@@ -35,7 +35,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('icons.edit', 'editIcon');
         Blade::include('icons.caret', 'caret');
 
-
         // Resources
         Blade::include('backend.partials.resourceIndexHeader', 'resourceIndexHeader');
         Blade::include('tables.resourceTable', 'resourceTable');
@@ -44,9 +43,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('backend.partials.authenticationLinks', 'authenticationLinks');
     }
 
-
     /**
-     * Registers all input components
+     * Registers all input components.
      *
      * @return void
      */
@@ -58,9 +56,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('components.inputs.date', 'inputDate');
     }
 
-
     /**
-     * Registers table components
+     * Registers table components.
      *
      * @return void
      */

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Alert;
+use App\Http\Controllers\Controller;
+use  App\Http\Requests\StoreAlertRequest;
 use Illuminate\Http\Request;
-use  App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAlertRequest;
 
 class AlertController extends Controller
 {
@@ -45,7 +45,6 @@ class AlertController extends Controller
         return redirect()->route('admin.alert.index');
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -55,7 +54,7 @@ class AlertController extends Controller
     public function edit(Alert $alert)
     {
         $viewBag = [
-            'alert' => $alert
+            'alert' => $alert,
         ];
 
         return view('backend.alerts.edit', $viewBag);

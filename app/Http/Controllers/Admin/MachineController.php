@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMachineRequest;
 use App\Http\Requests\UpdateMachineRequest;
-use App\Machine;
-use  App\Http\Controllers\Controller;
-
+use  App\Machine;
 use Illuminate\Http\Request;
 
 class MachineController extends Controller
 {
     /**
-     * Show all machines
+     * Show all machines.
      *
      * @return void
      */
@@ -24,7 +23,7 @@ class MachineController extends Controller
     }
 
     /**
-     * Create a machines
+     * Create a machines.
      *
      * @return void
      */
@@ -34,35 +33,33 @@ class MachineController extends Controller
     }
 
     /**
-     * Store a machine
+     * Store a machine.
      *
      * @return void
      */
     public function store(StoreMachineRequest $request)
-    {   
+    {
         Machine::create($request->all());
 
         return redirect()->route('admin.machine.index');
-
     }
 
     /**
-     * Update a machine
+     * Update a machine.
      *
      * @return void
      */
     public function edit(Machine $machine)
     {
         $viewBag = [
-            'machine' => $machine
+            'machine' => $machine,
         ];
 
         return view('backend.machines.edit', $viewBag);
     }
 
-
     /**
-     * Update a machine
+     * Update a machine.
      *
      * @return void
      */
@@ -73,9 +70,8 @@ class MachineController extends Controller
         return redirect()->route('admin.machine.index');
     }
 
-
     /**
-     * Destroy a machine
+     * Destroy a machine.
      *
      * @return void
      */
@@ -85,7 +81,4 @@ class MachineController extends Controller
 
         return redirect()->route('admin.machine.index');
     }
-
-
-
 }

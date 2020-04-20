@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Content;
+use App\Http\Controllers\Controller;
 use DisplayContent;
-use Illuminate\Http\Request;
-use  App\Http\Controllers\Controller;
+use  Illuminate\Http\Request;
 
 class ContentController extends Controller
 {
@@ -16,9 +16,9 @@ class ContentController extends Controller
      */
     public function index()
     {
-
         DisplayContent::bySlug('prices-extra');
         $contentRecords = Content::all();
+
         return view('backend.content.index', compact('contentRecords'));
     }
 
@@ -65,7 +65,7 @@ class ContentController extends Controller
     public function edit(Content $content)
     {
         $viewBag = [
-            'content' => $content
+            'content' => $content,
         ];
 
         return view('backend.content.edit', $viewBag);

@@ -15,7 +15,6 @@ class SliderTest extends TestCase
     {
         $sliderRecord = factory('App\Slider')->create();
 
-        $this->assertEquals('/admin/sliders/'. $sliderRecord->id, $sliderRecord->path());
-
+        $this->assertEquals('/admin/sliders/'.$sliderRecord->id, $sliderRecord->path());
     }
 }

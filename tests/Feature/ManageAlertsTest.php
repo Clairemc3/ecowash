@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use Illuminate\Support\Str;
+use Tests\TestCase;
 
 class ManageAlertsTest extends TestCase
 {
@@ -21,20 +21,19 @@ class ManageAlertsTest extends TestCase
         $this->post('admin/content', $alert->toArray())->assertRedirect('/login');
     }
 
+    /**  @test  */
+    public function a_user_can_view_alert_records()
+    {
+        $this->withoutExceptionHandling();
 
-     /**  @test  */
-     public function a_user_can_view_alert_records()
-     {
-         $this->withoutExceptionHandling();
+        $this->actingAs($this->authenticatedUser);
 
-         $this->actingAs($this->authenticatedUser);
+        $alertRecords = factory('App\Alert', 5)->create();
 
-         $alertRecords = factory('App\Alert', 5)->create();
+        $this->get('admin/alerts')->assertSee('Alerts')->assertStatus(200);
+    }
 
-         $this->get('admin/alerts')->assertSee('Alerts')->assertStatus(200);
-     }
-
-         /**  @test  */
+    /**  @test  */
     public function a_user_can_create_an_alert()
     {
         $this->withoutExceptionHandling();
@@ -52,7 +51,6 @@ class ManageAlertsTest extends TestCase
         $this->get('admin/alerts')->assertSee($attributes['short_text']);
     }
 
-
     /**  @test  */
     public function a_user_can_update_an_alert()
     {
@@ -67,11 +65,10 @@ class ManageAlertsTest extends TestCase
         // Check the edit route is working
         $this->get($alert->path())->assertStatus(200)->assertSee($alert->short_text);
 
-        $this->put($alert->path() , $updatedAlert )->assertRedirect('/admin/alerts');
+        $this->put($alert->path(), $updatedAlert)->assertRedirect('/admin/alerts');
 
-        $this->assertDatabaseHas('alerts', array_merge(['id' => $alert->id], $updatedAlert ));
+        $this->assertDatabaseHas('alerts', array_merge(['id' => $alert->id], $updatedAlert));
     }
-
 
     /**  @test  */
     public function a_user_can_delete_an_alert()
@@ -87,8 +84,6 @@ class ManageAlertsTest extends TestCase
         $this->assertDatabaseMissing('alerts', $alert->toArray());
     }
 
-
-
     /**  @test  */
     public function an_alert_requires_start_and_end_dates()
     {
@@ -96,12 +91,12 @@ class ManageAlertsTest extends TestCase
 
         $attributes = factory('App\Alert')->raw([
             'start_date' => null,
-            'end_date' => null]);
+            'end_date' => null, ]);
 
         $this->post('admin/alerts', $attributes)
             ->assertSessionHasErrors([
                 'start_date',
-                'end_date']);
+                'end_date', ]);
     }
 
     /**  @test  */
@@ -111,7 +106,7 @@ class ManageAlertsTest extends TestCase
 
         $attributes = factory('App\Alert')->raw([
             'start_date' => now(),
-            'end_date' => now()->subDays(1)]);
+            'end_date' => now()->subDays(1), ]);
 
         $this->post('admin/alerts', $attributes)
             ->assertSessionHasErrors('end_date');
@@ -124,12 +119,12 @@ class ManageAlertsTest extends TestCase
 
         $attributes = factory('App\Alert')->raw([
             'short_text' => '',
-            'long_text' => '']);
+            'long_text' => '', ]);
 
         $this->post('admin/alerts', $attributes)
             ->assertSessionHasErrors([
                 'short_text',
-                'long_text']);
+                'long_text', ]);
     }
 
     /**  @test  */
@@ -146,7 +141,6 @@ class ManageAlertsTest extends TestCase
             ->assertSessionHasErrors('short_text');
     }
 
-
     /**  @test  */
     public function there_should_only_be_one_active_alert()
     {
@@ -157,7 +151,7 @@ class ManageAlertsTest extends TestCase
         // Max 60 chars
         $newAlert = factory('App\Alert')->raw([
             'start_date' => $existingAlert->start_date,
-            'end_date' => $existingAlert->end_date
+            'end_date' => $existingAlert->end_date,
             ]);
 
         $this->post('admin/alerts', $newAlert)
@@ -169,5 +163,4 @@ class ManageAlertsTest extends TestCase
 
     // guest users should see a pop up with the long alert message just once
     // admins should have the option to reset alert alerts will be reshown to everyone
-
 }

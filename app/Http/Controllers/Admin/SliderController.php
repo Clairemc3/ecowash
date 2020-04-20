@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use  App\Http\Controllers\Controller;
 use App\Slider;
 use Illuminate\Http\Request;
@@ -8,7 +9,7 @@ use Illuminate\Http\Request;
 class SliderController extends Controller
 {
     /**
-     * Display a listing of the resource.P
+     * Display a listing of the resource.P.
      *
      * @return \Illuminate\Http\Response
      */
@@ -49,7 +50,6 @@ class SliderController extends Controller
         return redirect()->route('admin.slider.index');
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,7 +59,7 @@ class SliderController extends Controller
     public function edit(Slider $slider)
     {
         $viewBag = [
-            'slider' => $slider
+            'slider' => $slider,
         ];
 
         return view('backend.sliders.edit', $viewBag);

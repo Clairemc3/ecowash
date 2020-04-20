@@ -15,7 +15,6 @@ class ContentTest extends TestCase
     {
         $contentRecord = factory('App\Content')->create();
 
-        $this->assertEquals('/admin/content/'. $contentRecord->id, $contentRecord->path());
-
+        $this->assertEquals('/admin/content/'.$contentRecord->id, $contentRecord->path());
     }
 }

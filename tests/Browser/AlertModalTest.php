@@ -4,10 +4,10 @@ namespace Tests\Browser;
 
 use App\Alert;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Laravel\Dusk\Browser;
-use Tests\DuskTestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Dusk\Browser;
+use Tests\DuskTestCase;
 
 class AlertModalTest extends DuskTestCase
 {

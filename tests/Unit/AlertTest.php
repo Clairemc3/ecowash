@@ -15,8 +15,7 @@ class AlertTest extends TestCase
     {
         $alert = factory('App\Alert')->create();
 
-        $this->assertEquals('/admin/alerts/'. $alert->id, $alert->path());
-
+        $this->assertEquals('/admin/alerts/'.$alert->id, $alert->path());
     }
 
     /** @test */
@@ -24,7 +23,7 @@ class AlertTest extends TestCase
     {
         $alert = factory('App\Alert')->create(
             ['start_date' => now()->toDateString(),
-            'end_date' => now()->toDateString()]);
+            'end_date' => now()->toDateString(), ]);
 
         $this->assertEquals(true, $alert->isActive());
     }

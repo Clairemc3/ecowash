@@ -3,15 +3,13 @@
 namespace Tests\Unit;
 
 // use PHPUnit\Framework\TestCase;
+use DisplayContent;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-use DisplayContent;
-
 class DisplayContentTest extends TestCase
 {
-
     use RefreshDatabase;
 
     /**
@@ -21,12 +19,11 @@ class DisplayContentTest extends TestCase
     {
         $contentRecord = factory('App\Content')->create();
 
-        $this->assertEquals($contentRecord->body, DisplayContent::bySlug($contentRecord->slug) );
+        $this->assertEquals($contentRecord->body, DisplayContent::bySlug($contentRecord->slug));
     }
 
     /**
      * @test
-     *
      */
     public function it_returns_conftent_body()
     {

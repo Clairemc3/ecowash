@@ -9,7 +9,7 @@ class Slider extends Model
     protected $guarded = [];
 
     /**
-     * Defines the path for this model
+     * Defines the path for this model.
      *
      * @return string
      */
@@ -18,10 +18,8 @@ class Slider extends Model
         return "/admin/sliders/{$this->id}";
     }
 
-
     /**
-     * Return a string version of the  resource
-     *
+     * Return a string version of the  resource.
      */
     public function getModelNameAttribute()
     {

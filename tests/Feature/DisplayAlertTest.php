@@ -24,7 +24,6 @@ class DisplayAlertTest extends TestCase
         $response->assertStatus(200)->assertSeeText($activeAlert->short_text);
     }
 
-
     /**
      * @test
      *

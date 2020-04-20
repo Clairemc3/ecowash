@@ -20,18 +20,17 @@ class ManageSlidersTest extends TestCase
         $this->post('admin/content', $alert->toArray())->assertRedirect('/login');
     }
 
+    /**  @test  */
+    public function a_user_can_view_sliders()
+    {
+        $this->withoutExceptionHandling();
 
-     /**  @test  */
-     public function a_user_can_view_sliders()
-     {
-         $this->withoutExceptionHandling();
+        $this->actingAs($this->authenticatedUser);
 
-         $this->actingAs($this->authenticatedUser);
+        $alertRecords = factory('App\Slider', 3)->create();
 
-         $alertRecords = factory('App\Slider', 3)->create();
-
-         $this->get('admin/sliders')->assertSee('Sliders')->assertStatus(200);
-     }
+        $this->get('admin/sliders')->assertSee('Sliders')->assertStatus(200);
+    }
 
     /**  @test  */
     public function a_user_can_create_a_slider()
@@ -51,7 +50,6 @@ class ManageSlidersTest extends TestCase
         $this->get('admin/sliders')->assertSee($attributes['text']);
     }
 
-
     /**  @test  */
     public function a_user_can_update_an_slider()
     {
@@ -66,11 +64,10 @@ class ManageSlidersTest extends TestCase
         // Check the edit route is working
         $this->get($slider->path())->assertStatus(200)->assertSee($slider->text);
 
-        $this->put($slider->path() , $updatedSlider )->assertRedirect('/admin/sliders');
+        $this->put($slider->path(), $updatedSlider)->assertRedirect('/admin/sliders');
 
-        $this->assertDatabaseHas('sliders', array_merge(['id' => $slider->id], $updatedSlider ));
+        $this->assertDatabaseHas('sliders', array_merge(['id' => $slider->id], $updatedSlider));
     }
-
 
     /**  @test  */
     public function a_user_can_delete_a_slider()
@@ -86,10 +83,7 @@ class ManageSlidersTest extends TestCase
         $this->assertDatabaseMissing('alerts', $alert->toArray());
     }
 
-
-
-   // There can be a max of three sliders at once
+    // There can be a max of three sliders at once
    // A slider must have an image
    // The text must be a max length
-
 }

@@ -9,7 +9,7 @@ class Machine extends Model
     protected $guarded = [];
 
     /**
-     * Defines the path for this model
+     * Defines the path for this model.
      *
      * @return string
      */
@@ -19,8 +19,7 @@ class Machine extends Model
     }
 
     /**
-     * Return a string version of the  resource
-     *
+     * Return a string version of the  resource.
      */
     public function getModelNameAttribute()
     {
