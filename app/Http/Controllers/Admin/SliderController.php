@@ -26,6 +26,13 @@ class SliderController extends Controller
      */
     public function create()
     {
+        // If we have the max of sliders, return with an error message
+
+        if (Slider::count() >= 3) {
+            return redirect()->back()
+                ->with('error', 'The maximum number of sliders is already present');
+        }
+
         return view('backend.sliders.create');
     }
 
