@@ -13,25 +13,24 @@ class ManageSlidersTest extends TestCase
     /**  @test  */
     public function guests_cannnot_manage_sliders()
     {
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->get('admin/alerts')->assertRedirect('/login');
         $this->get('admin/content/create')->assertRedirect('/login');
         $this->post('admin/content', $alert->toArray())->assertRedirect('/login');
     }
 
+    /**  @test  */
+    public function a_user_can_view_sliders()
+    {
+        $this->withoutExceptionHandling();
 
-     /**  @test  */
-     public function a_user_can_view_sliders()
-     {
-         $this->withoutExceptionHandling();
+        $this->actingAs($this->authenticatedUser);
 
-         $this->actingAs($this->authenticatedUser);
+        $alertRecords = factory(\App\Slider::class, 3)->create();
 
-         $alertRecords = factory('App\Slider', 3)->create();
-
-         $this->get('admin/sliders')->assertSee('Sliders')->assertStatus(200);
-     }
+        $this->get('admin/sliders')->assertSee('Sliders')->assertStatus(200);
+    }
 
     /**  @test  */
     public function a_user_can_create_a_slider()
@@ -42,7 +41,7 @@ class ManageSlidersTest extends TestCase
 
         $this->get('admin/sliders/create')->assertStatus(200);
 
-        $attributes = factory('App\Slider')->raw();
+        $attributes = factory(\App\Slider::class)->raw();
 
         $this->post('admin/sliders', $attributes)->assertRedirect('/admin/sliders');
 
@@ -51,7 +50,6 @@ class ManageSlidersTest extends TestCase
         $this->get('admin/sliders')->assertSee($attributes['text']);
     }
 
-
     /**  @test  */
     public function a_user_can_update_an_slider()
     {
@@ -59,18 +57,17 @@ class ManageSlidersTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $slider = factory('App\Slider')->create();
+        $slider = factory(\App\Slider::class)->create();
 
-        $updatedSlider = factory('App\Slider')->raw();
+        $updatedSlider = factory(\App\Slider::class)->raw();
 
         // Check the edit route is working
         $this->get($slider->path())->assertStatus(200)->assertSee($slider->text);
 
-        $this->put($slider->path() , $updatedSlider )->assertRedirect('/admin/sliders');
+        $this->put($slider->path(), $updatedSlider)->assertRedirect('/admin/sliders');
 
-        $this->assertDatabaseHas('sliders', array_merge(['id' => $slider->id], $updatedSlider ));
+        $this->assertDatabaseHas('sliders', array_merge(['id' => $slider->id], $updatedSlider));
     }
-
 
     /**  @test  */
     public function a_user_can_delete_a_slider()
@@ -79,17 +76,14 @@ class ManageSlidersTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->delete($alert->path())->assertRedirect('/admin/alerts');
 
         $this->assertDatabaseMissing('alerts', $alert->toArray());
     }
 
-
-
-   // There can be a max of three sliders at once
+    // There can be a max of three sliders at once
    // A slider must have an image
    // The text must be a max length
-
 }

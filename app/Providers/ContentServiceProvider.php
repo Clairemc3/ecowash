@@ -15,9 +15,8 @@ class ContentServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        App::bind('displayContent', function()
-        {
-             return new DisplayContent;
+        App::bind('displayContent', function () {
+            return new DisplayContent;
         });
     }
 

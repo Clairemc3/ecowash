@@ -4,10 +4,10 @@ namespace Tests\Browser;
 
 use App\Alert;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Laravel\Dusk\Browser;
-use Tests\DuskTestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Dusk\Browser;
+use Tests\DuskTestCase;
 
 class AlertModalTest extends DuskTestCase
 {
@@ -20,7 +20,7 @@ class AlertModalTest extends DuskTestCase
      */
     public function active_alerts_should_be_displayed()
     {
-        $activeAlert = factory('App\Alert')
+        $activeAlert = factory(\App\Alert::class)
         ->create(['start_date' => now()->subDays(2)]);
 
         $this->browse(function (Browser $browser) use ($activeAlert) {

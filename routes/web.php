@@ -17,7 +17,6 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/backend-css', 'HomeController@cssPractice')->name('becss');
 
-
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 
     // Editing machines
@@ -27,7 +26,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
     Route::get('/machines/{machine}', 'MachineController@edit')->name('machine.edit');
     Route::put('/machines/{machine}', 'MachineController@update')->name('machine.update');
     Route::delete('/machines/{machine}', 'MachineController@destroy')->name('machine.destroy');
-
 
     // Editing content
     Route::get('/content', 'ContentController@index')->name('content.index');

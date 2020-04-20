@@ -8,13 +8,11 @@ class Content extends Model
 {
     protected $guarded = [];
 
-
     protected $table = 'content';
     //
 
-
     /**
-     * Defines the path for this model
+     * Defines the path for this model.
      *
      * @return string
      */

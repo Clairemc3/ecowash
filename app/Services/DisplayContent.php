@@ -6,9 +6,8 @@ use App\Content;
 
 class DisplayContent
 {
-
     /**
-     * Return content body to display on the front end
+     * Return content body to display on the front end.
      *
      * @param string $slug
      * @return string

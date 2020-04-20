@@ -35,7 +35,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('icons.edit', 'editIcon');
         Blade::include('icons.caret', 'caret');
 
-
         // Resources
         Blade::include('backend.partials.resourceIndexHeader', 'resourceIndexHeader');
         Blade::include('tables.resourceTable', 'resourceTable');
@@ -44,33 +43,31 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('backend.partials.authenticationLinks', 'authenticationLinks');
     }
 
-
     /**
-     * Registers all input components
+     * Registers all input components.
      *
      * @return void
      */
     private function registerInputComponents()
     {
-        Blade::component('components.inputs.text', 'inputText');
-        Blade::component('components.inputs.number', 'inputNumber');
-        Blade::component('components.inputs.wysiwyg', 'inputWysiwyg');
-        Blade::component('components.inputs.date', 'inputDate');
+        Blade::aliasComponent('components.inputs.text', 'inputText');
+        Blade::aliasComponent('components.inputs.number', 'inputNumber');
+        Blade::aliasComponent('components.inputs.wysiwyg', 'inputWysiwyg');
+        Blade::aliasComponent('components.inputs.date', 'inputDate');
     }
 
-
     /**
-     * Registers table components
+     * Registers table components.
      *
      * @return void
      */
     private function registerTableComponents()
     {
-        Blade::component('tables.table', 'tbl');
-        Blade::component('tables.tableHead', 'tblHead');
-        Blade::component('tables.actions', 'tblActions');
-        Blade::component('tables.tableBody', 'tblBody');
-        Blade::component('tables.row', 'tblRow');
-        Blade::component('tables.cell', 'cell');
+        Blade::aliasComponent('tables.table', 'tbl');
+        Blade::aliasComponent('tables.tableHead', 'tblHead');
+        Blade::aliasComponent('tables.actions', 'tblActions');
+        Blade::aliasComponent('tables.tableBody', 'tblBody');
+        Blade::aliasComponent('tables.row', 'tblRow');
+        Blade::aliasComponent('tables.cell', 'cell');
     }
 }

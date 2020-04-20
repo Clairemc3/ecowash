@@ -28,12 +28,11 @@ class StoreAlertRequest extends FormRequest
     {
         return [
             'start_date' => ['required', 'date'],
-            'end_date' => ['required','date','after_or_equal:start_date'],
+            'end_date' => ['required', 'date', 'after_or_equal:start_date'],
             'short_text' => 'required|string|max:60',
             'long_text' => 'required|string',
         ];
     }
-
 
     /**
      * Configure the validator instance.
@@ -51,28 +50,24 @@ class StoreAlertRequest extends FormRequest
     }
 
     /**
-     * Does an alert already exist in this range
+     * Does an alert already exist in this range.
      *
      * @return bool
      */
     public function alertInDateRange() :bool
     {
-
-        if ( is_null($this->start_date) || is_null($this->end_date) )
-        {
+        if (is_null($this->start_date) || is_null($this->end_date)) {
             return false;
         }
 
-        $alertsInRange  = Alert::inDateRange($this->start_date, $this->end_date);
+        $alertsInRange = Alert::inDateRange($this->start_date, $this->end_date);
 
-        if ($this->alert)
-        {
+        if ($this->alert) {
             $alertsInRange->whereNotIn('id', [$this->alert->id]);
         }
 
         $alertsInRange = $alertsInRange->get();
 
         return $alertsInRange->isNotEmpty();
-
     }
 }

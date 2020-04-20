@@ -6,14 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alert extends Model
 {
-
     protected $guarded = [];
 
     protected $dates = ['start_date', 'end_date'];
 
-
     /**
-     * Defines the path for this model
+     * Defines the path for this model.
      *
      * @return string
      */
@@ -22,9 +20,8 @@ class Alert extends Model
         return "/admin/alerts/{$this->id}";
     }
 
-
     /**
-     * Return the start date as a string
+     * Return the start date as a string.
      *
      * @return void
      */
@@ -33,49 +30,46 @@ class Alert extends Model
         return $this->start_date->format('d-M-Y');
     }
 
-
     /**
-     * Return status of alert
+     * Return status of alert.
      *
      * @return void
      */
     public function getStatusAttribute()
     {
-        if ($this->isActive())
-        {
+        if ($this->isActive()) {
             return 'active';
         }
         // If complete
 
-        if ($this->isComplete())
-        {
+        if ($this->isComplete()) {
             return 'expired';
         }
+
         return 'inactive';
     }
 
     /**
-     * Convert this to a table
+     * Convert this to a table.
      *
      * @return void
      */
     public function getStatusOrderAttribute()
     {
-        if ($this->isActive())
-        {
+        if ($this->isActive()) {
             return 1;
         }
 
         // If expired
-        if ($this->isExpired())
-        {
+        if ($this->isExpired()) {
             return 3;
         }
+
         return 2;
     }
 
-        /**
-     * Return the end date as a string
+    /**
+     * Return the end date as a string.
      *
      * @return void
      */
@@ -84,37 +78,33 @@ class Alert extends Model
         return $this->end_date->format('d-M-Y');
     }
 
-
     /**
-     * Determine if the alert is expired (in the past)
+     * Determine if the alert is expired (in the past).
      *
-     * @return boolean
+     * @return bool
      */
     public function isExpired() :bool
     {
         $now = now();
 
-        if ($now->isAfter($this->end_date->endOfDay()))
-        {
+        if ($now->isAfter($this->end_date->endOfDay())) {
             return true;
         }
 
         return false;
     }
 
-
     /**
-     * Determine if the alert is active
+     * Determine if the alert is active.
      *
-     * @return boolean
+     * @return bool
      */
     public function isActive() :bool
     {
         $now = now();
 
         if ($now->between($this->start_date->startOfDay(),
-            $this->end_date->endOfDay()))
-        {
+            $this->end_date->endOfDay())) {
             return true;
         }
 
@@ -122,24 +112,22 @@ class Alert extends Model
     }
 
     /**
-     * Return any alerts which are set to run between these dates
+     * Return any alerts which are set to run between these dates.
      */
     public function scopeInDateRange($query, $startDate, $endDate)
     {
         return  $query->whereDate('end_date', '>=', $startDate)
-        ->whereDate('start_date', '<=', $endDate );
+        ->whereDate('start_date', '<=', $endDate);
     }
 
     /**
-     * Return any alerts which are active now
+     * Return any alerts which are active now.
      */
     public function scopeActive($query)
     {
         $now = now();
 
         return  $query->whereDate('end_date', '>=', $now)
-        ->whereDate('start_date', '<=', $now );
+        ->whereDate('start_date', '<=', $now);
     }
-
-
 }

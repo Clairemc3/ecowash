@@ -16,7 +16,7 @@ class ContentSeeder extends Seeder
             ['slug' => 'prices-extra'],
             [
             'help_text' => 'Pricing',
-            'body' => 'Tumble drying starts from 50p'
+            'body' => 'Tumble drying starts from 50p',
            ]
         );
 
@@ -32,7 +32,7 @@ class ContentSeeder extends Seeder
                 £8* for ultra large load Duvets
                 <br>
                  £5* first duvet and £3* each additional duvet</p>
-            <p class="lightweight italic">* This is in addition to standard wash & drying costs - see PRICES</p>'
+            <p class="lightweight italic">* This is in addition to standard wash & drying costs - see PRICES</p>',
            ]
         );
 
@@ -44,7 +44,7 @@ class ContentSeeder extends Seeder
                     <p>Get a train from xyy</p>
                     <h3>Car</h3><p>You can get here in this way</p>
                     <h3>Buses</h3>
-                    <p>Get a bus in this way</p>'
+                    <p>Get a bus in this way</p>',
            ]);
     }
 }

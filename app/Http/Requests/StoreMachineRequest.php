@@ -26,7 +26,7 @@ class StoreMachineRequest extends FormRequest
         return [
             'name' => 'required|string',
             'price' => 'required|string',
-            'description' => 'string|nullable'
+            'description' => 'string|nullable',
         ];
     }
 }

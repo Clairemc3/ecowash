@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use Illuminate\Support\Str;
+use Tests\TestCase;
 
 class ManageAlertsTest extends TestCase
 {
@@ -14,27 +14,26 @@ class ManageAlertsTest extends TestCase
     /**  @test  */
     public function guests_cannnot_manage_alerts()
     {
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->get('admin/alerts')->assertRedirect('/login');
         $this->get('admin/content/create')->assertRedirect('/login');
         $this->post('admin/content', $alert->toArray())->assertRedirect('/login');
     }
 
+    /**  @test  */
+    public function a_user_can_view_alert_records()
+    {
+        $this->withoutExceptionHandling();
 
-     /**  @test  */
-     public function a_user_can_view_alert_records()
-     {
-         $this->withoutExceptionHandling();
+        $this->actingAs($this->authenticatedUser);
 
-         $this->actingAs($this->authenticatedUser);
+        $alertRecords = factory(\App\Alert::class, 5)->create();
 
-         $alertRecords = factory('App\Alert', 5)->create();
+        $this->get('admin/alerts')->assertSee('Alerts')->assertStatus(200);
+    }
 
-         $this->get('admin/alerts')->assertSee('Alerts')->assertStatus(200);
-     }
-
-         /**  @test  */
+    /**  @test  */
     public function a_user_can_create_an_alert()
     {
         $this->withoutExceptionHandling();
@@ -43,7 +42,7 @@ class ManageAlertsTest extends TestCase
 
         $this->get('admin/alerts/create')->assertStatus(200);
 
-        $attributes = factory('App\Alert')->raw();
+        $attributes = factory(\App\Alert::class)->raw();
 
         $this->post('admin/alerts', $attributes)->assertRedirect('/admin/alerts');
 
@@ -52,7 +51,6 @@ class ManageAlertsTest extends TestCase
         $this->get('admin/alerts')->assertSee($attributes['short_text']);
     }
 
-
     /**  @test  */
     public function a_user_can_update_an_alert()
     {
@@ -60,18 +58,17 @@ class ManageAlertsTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
-        $updatedAlert = factory('App\Alert')->raw();
+        $updatedAlert = factory(\App\Alert::class)->raw();
 
         // Check the edit route is working
         $this->get($alert->path())->assertStatus(200)->assertSee($alert->short_text);
 
-        $this->put($alert->path() , $updatedAlert )->assertRedirect('/admin/alerts');
+        $this->put($alert->path(), $updatedAlert)->assertRedirect('/admin/alerts');
 
-        $this->assertDatabaseHas('alerts', array_merge(['id' => $alert->id], $updatedAlert ));
+        $this->assertDatabaseHas('alerts', array_merge(['id' => $alert->id], $updatedAlert));
     }
-
 
     /**  @test  */
     public function a_user_can_delete_an_alert()
@@ -80,28 +77,26 @@ class ManageAlertsTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->delete($alert->path())->assertRedirect('/admin/alerts');
 
         $this->assertDatabaseMissing('alerts', $alert->toArray());
     }
 
-
-
     /**  @test  */
     public function an_alert_requires_start_and_end_dates()
     {
         $this->actingAs($this->authenticatedUser);
 
-        $attributes = factory('App\Alert')->raw([
+        $attributes = factory(\App\Alert::class)->raw([
             'start_date' => null,
-            'end_date' => null]);
+            'end_date' => null, ]);
 
         $this->post('admin/alerts', $attributes)
             ->assertSessionHasErrors([
                 'start_date',
-                'end_date']);
+                'end_date', ]);
     }
 
     /**  @test  */
@@ -109,9 +104,9 @@ class ManageAlertsTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $attributes = factory('App\Alert')->raw([
+        $attributes = factory(\App\Alert::class)->raw([
             'start_date' => now(),
-            'end_date' => now()->subDays(1)]);
+            'end_date' => now()->subDays(1), ]);
 
         $this->post('admin/alerts', $attributes)
             ->assertSessionHasErrors('end_date');
@@ -122,14 +117,14 @@ class ManageAlertsTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $attributes = factory('App\Alert')->raw([
+        $attributes = factory(\App\Alert::class)->raw([
             'short_text' => '',
-            'long_text' => '']);
+            'long_text' => '', ]);
 
         $this->post('admin/alerts', $attributes)
             ->assertSessionHasErrors([
                 'short_text',
-                'long_text']);
+                'long_text', ]);
     }
 
     /**  @test  */
@@ -138,7 +133,7 @@ class ManageAlertsTest extends TestCase
         $this->actingAs($this->authenticatedUser);
 
         // Max 60 chars
-        $attributes = factory('App\Alert')->raw([
+        $attributes = factory(\App\Alert::class)->raw([
             'short_text' => Str::random(61),
             ]);
 
@@ -146,18 +141,17 @@ class ManageAlertsTest extends TestCase
             ->assertSessionHasErrors('short_text');
     }
 
-
     /**  @test  */
     public function there_should_only_be_one_active_alert()
     {
         $this->actingAs($this->authenticatedUser);
 
-        $existingAlert = factory('App\Alert')->create();
+        $existingAlert = factory(\App\Alert::class)->create();
 
         // Max 60 chars
-        $newAlert = factory('App\Alert')->raw([
+        $newAlert = factory(\App\Alert::class)->raw([
             'start_date' => $existingAlert->start_date,
-            'end_date' => $existingAlert->end_date
+            'end_date' => $existingAlert->end_date,
             ]);
 
         $this->post('admin/alerts', $newAlert)
@@ -169,5 +163,4 @@ class ManageAlertsTest extends TestCase
 
     // guest users should see a pop up with the long alert message just once
     // admins should have the option to reset alert alerts will be reshown to everyone
-
 }

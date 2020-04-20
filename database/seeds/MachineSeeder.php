@@ -16,7 +16,7 @@ class MachineSeeder extends Seeder
             ['name' => 'Small machines'],
             [
             'price' => '£4.00 for a 20lb wash',
-            'description' => 'suitable for large bag of mixed clothes or small Duvet'
+            'description' => 'suitable for large bag of mixed clothes or small Duvet',
            ]
         );
 
@@ -24,7 +24,7 @@ class MachineSeeder extends Seeder
             ['name' => 'Large machines'],
             [
             'price' => '£5.60 for a 35lb wash',
-            'description' => 'suitable for heavy duvets, family wash, curtains & medium rugs'
+            'description' => 'suitable for heavy duvets, family wash, curtains & medium rugs',
            ]
         );
 
@@ -32,7 +32,7 @@ class MachineSeeder extends Seeder
             ['name' => 'Ex-Large machines'],
             [
             'price' => '£6.80 with extra large door for a 40lb wash',
-            'description' => 'suitable for King Size duvets, Very Large family wash, Sofa Covers etc'
+            'description' => 'suitable for King Size duvets, Very Large family wash, Sofa Covers etc',
            ]
         );
 
@@ -40,7 +40,7 @@ class MachineSeeder extends Seeder
             ['name' => 'Ultra-Large machines'],
             [
             'price' => '£7.60 with extra large door for a 45lb wash',
-            'description' => 'suitable for King Size duvets, Very Large family wash, Sofa Covers etc'
+            'description' => 'suitable for King Size duvets, Very Large family wash, Sofa Covers etc',
            ]
         );
     }
