@@ -14,7 +14,7 @@ class ManageAlertsTest extends TestCase
     /**  @test  */
     public function guests_cannnot_manage_alerts()
     {
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->get('admin/alerts')->assertRedirect('/login');
         $this->get('admin/content/create')->assertRedirect('/login');
@@ -28,7 +28,7 @@ class ManageAlertsTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alertRecords = factory('App\Alert', 5)->create();
+        $alertRecords = factory(\App\Alert::class, 5)->create();
 
         $this->get('admin/alerts')->assertSee('Alerts')->assertStatus(200);
     }
@@ -42,7 +42,7 @@ class ManageAlertsTest extends TestCase
 
         $this->get('admin/alerts/create')->assertStatus(200);
 
-        $attributes = factory('App\Alert')->raw();
+        $attributes = factory(\App\Alert::class)->raw();
 
         $this->post('admin/alerts', $attributes)->assertRedirect('/admin/alerts');
 
@@ -58,9 +58,9 @@ class ManageAlertsTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
-        $updatedAlert = factory('App\Alert')->raw();
+        $updatedAlert = factory(\App\Alert::class)->raw();
 
         // Check the edit route is working
         $this->get($alert->path())->assertStatus(200)->assertSee($alert->short_text);
@@ -77,7 +77,7 @@ class ManageAlertsTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->delete($alert->path())->assertRedirect('/admin/alerts');
 
@@ -89,7 +89,7 @@ class ManageAlertsTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $attributes = factory('App\Alert')->raw([
+        $attributes = factory(\App\Alert::class)->raw([
             'start_date' => null,
             'end_date' => null, ]);
 
@@ -104,7 +104,7 @@ class ManageAlertsTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $attributes = factory('App\Alert')->raw([
+        $attributes = factory(\App\Alert::class)->raw([
             'start_date' => now(),
             'end_date' => now()->subDays(1), ]);
 
@@ -117,7 +117,7 @@ class ManageAlertsTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $attributes = factory('App\Alert')->raw([
+        $attributes = factory(\App\Alert::class)->raw([
             'short_text' => '',
             'long_text' => '', ]);
 
@@ -133,7 +133,7 @@ class ManageAlertsTest extends TestCase
         $this->actingAs($this->authenticatedUser);
 
         // Max 60 chars
-        $attributes = factory('App\Alert')->raw([
+        $attributes = factory(\App\Alert::class)->raw([
             'short_text' => Str::random(61),
             ]);
 
@@ -146,10 +146,10 @@ class ManageAlertsTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $existingAlert = factory('App\Alert')->create();
+        $existingAlert = factory(\App\Alert::class)->create();
 
         // Max 60 chars
-        $newAlert = factory('App\Alert')->raw([
+        $newAlert = factory(\App\Alert::class)->raw([
             'start_date' => $existingAlert->start_date,
             'end_date' => $existingAlert->end_date,
             ]);

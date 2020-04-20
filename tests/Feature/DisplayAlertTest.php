@@ -17,7 +17,7 @@ class DisplayAlertTest extends TestCase
      */
     public function show_active_alert()
     {
-        $activeAlert = factory('App\Alert')
+        $activeAlert = factory(\App\Alert::class)
             ->create(['start_date' => now()]);
         $response = $this->get('/');
 
@@ -31,7 +31,7 @@ class DisplayAlertTest extends TestCase
      */
     public function inactive_alerts_should_not_show()
     {
-        $inactiveAlert = factory('App\Alert')
+        $inactiveAlert = factory(\App\Alert::class)
             ->create(['start_date' => now()->addDays(10)]);
         $response = $this->get('/');
 

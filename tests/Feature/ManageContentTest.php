@@ -13,7 +13,7 @@ class ManageContentTest extends TestCase
     /**  @test  */
     public function guests_cannnot_manage_content()
     {
-        $content = factory('App\Content')->create();
+        $content = factory(\App\Content::class)->create();
 
         $this->get('admin/content')->assertRedirect('/login');
         $this->get('admin/content/create')->assertRedirect('/login');
@@ -27,7 +27,7 @@ class ManageContentTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $contentRecords = factory('App\Content', 5)->create();
+        $contentRecords = factory(\App\Content::class, 5)->create();
 
         $this->get('admin/content')->assertSee('Content')->assertStatus(200);
     }
@@ -41,7 +41,7 @@ class ManageContentTest extends TestCase
 
         $this->get('admin/content/create')->assertStatus(200);
 
-        $attributes = factory('App\Content')->raw();
+        $attributes = factory(\App\Content::class)->raw();
 
         $this->post('admin/content', $attributes)->assertRedirect('/admin/content');
 
@@ -57,9 +57,9 @@ class ManageContentTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $content = factory('App\Content')->create();
+        $content = factory(\App\Content::class)->create();
 
-        $updatedContent = factory('App\Content')->raw();
+        $updatedContent = factory(\App\Content::class)->raw();
 
         // Check the edit route is working
         $this->get($content->path())->assertStatus(200)->assertSee($content->help_text);
@@ -76,7 +76,7 @@ class ManageContentTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $content = factory('App\Content')->create();
+        $content = factory(\App\Content::class)->create();
 
         $this->delete($content->path())->assertRedirect('/admin/content');
 

@@ -13,7 +13,7 @@ class ManageMachinesTest extends TestCase
     /**  @test  */
     public function guests_cannnot_manage_machines()
     {
-        $machine = factory('App\Machine')->create();
+        $machine = factory(\App\Machine::class)->create();
 
         $this->get('admin/machines')->assertRedirect('/login');
         $this->get('admin/machines/create')->assertRedirect('/login');
@@ -25,7 +25,7 @@ class ManageMachinesTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        factory('App\Machine', 5)->create();
+        factory(\App\Machine::class, 5)->create();
 
         $this->get('admin/machines')->assertSee('Machines')->assertStatus(200);
     }
@@ -39,7 +39,7 @@ class ManageMachinesTest extends TestCase
 
         $this->get('admin/machines/create')->assertStatus(200);
 
-        $attributes = factory('App\Machine')->raw();
+        $attributes = factory(\App\Machine::class)->raw();
 
         $this->post('admin/machines', $attributes)->assertRedirect('/admin/machines');
 
@@ -55,9 +55,9 @@ class ManageMachinesTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $machine = factory('App\Machine')->create();
+        $machine = factory(\App\Machine::class)->create();
 
-        $updatedMachine = factory('App\Machine')->raw();
+        $updatedMachine = factory(\App\Machine::class)->raw();
 
         // Check the edit route is working
         $this->get($machine->path())->assertStatus(200);
@@ -74,7 +74,7 @@ class ManageMachinesTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $machine = factory('App\Machine')->create();
+        $machine = factory(\App\Machine::class)->create();
 
         $this->delete($machine->path())->assertRedirect('/admin/machines');
 
@@ -86,7 +86,7 @@ class ManageMachinesTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $attributes = factory('App\Machine')->raw(['name' => '']);
+        $attributes = factory(\App\Machine::class)->raw(['name' => '']);
 
         $this->post('admin/machines', $attributes)->assertSessionHasErrors('name');
     }
@@ -96,7 +96,7 @@ class ManageMachinesTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $attributes = factory('App\Machine')->raw(['price' => '']);
+        $attributes = factory(\App\Machine::class)->raw(['price' => '']);
 
         $this->post('admin/machines', $attributes)->assertSessionHasErrors('price');
     }
@@ -106,7 +106,7 @@ class ManageMachinesTest extends TestCase
     {
         $this->actingAs($this->authenticatedUser);
 
-        $machines = factory('App\Machine', 5)->create();
+        $machines = factory(\App\Machine::class, 5)->create();
 
         $homePage = $this->get('/');
 

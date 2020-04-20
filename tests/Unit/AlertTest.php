@@ -13,7 +13,7 @@ class AlertTest extends TestCase
     /** @test */
     public function it_has_a_path()
     {
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->assertEquals('/admin/alerts/'.$alert->id, $alert->path());
     }
@@ -21,7 +21,7 @@ class AlertTest extends TestCase
     /** @test */
     public function it_is_active_based_on_start_and_end_date()
     {
-        $alert = factory('App\Alert')->create(
+        $alert = factory(\App\Alert::class)->create(
             ['start_date' => now()->toDateString(),
             'end_date' => now()->toDateString(), ]);
 

@@ -13,7 +13,7 @@ class ManageSlidersTest extends TestCase
     /**  @test  */
     public function guests_cannnot_manage_sliders()
     {
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->get('admin/alerts')->assertRedirect('/login');
         $this->get('admin/content/create')->assertRedirect('/login');
@@ -27,7 +27,7 @@ class ManageSlidersTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alertRecords = factory('App\Slider', 3)->create();
+        $alertRecords = factory(\App\Slider::class, 3)->create();
 
         $this->get('admin/sliders')->assertSee('Sliders')->assertStatus(200);
     }
@@ -41,7 +41,7 @@ class ManageSlidersTest extends TestCase
 
         $this->get('admin/sliders/create')->assertStatus(200);
 
-        $attributes = factory('App\Slider')->raw();
+        $attributes = factory(\App\Slider::class)->raw();
 
         $this->post('admin/sliders', $attributes)->assertRedirect('/admin/sliders');
 
@@ -57,9 +57,9 @@ class ManageSlidersTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $slider = factory('App\Slider')->create();
+        $slider = factory(\App\Slider::class)->create();
 
-        $updatedSlider = factory('App\Slider')->raw();
+        $updatedSlider = factory(\App\Slider::class)->raw();
 
         // Check the edit route is working
         $this->get($slider->path())->assertStatus(200)->assertSee($slider->text);
@@ -76,7 +76,7 @@ class ManageSlidersTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alert = factory('App\Alert')->create();
+        $alert = factory(\App\Alert::class)->create();
 
         $this->delete($alert->path())->assertRedirect('/admin/alerts');
 

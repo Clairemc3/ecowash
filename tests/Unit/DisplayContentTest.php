@@ -17,7 +17,7 @@ class DisplayContentTest extends TestCase
      */
     public function it_returns_content_body()
     {
-        $contentRecord = factory('App\Content')->create();
+        $contentRecord = factory(\App\Content::class)->create();
 
         $this->assertEquals($contentRecord->body, DisplayContent::bySlug($contentRecord->slug));
     }

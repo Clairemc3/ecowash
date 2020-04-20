@@ -13,7 +13,7 @@ class SliderTest extends TestCase
     /** @test */
     public function it_has_a_path()
     {
-        $sliderRecord = factory('App\Slider')->create();
+        $sliderRecord = factory(\App\Slider::class)->create();
 
         $this->assertEquals('/admin/sliders/'.$sliderRecord->id, $sliderRecord->path());
     }
