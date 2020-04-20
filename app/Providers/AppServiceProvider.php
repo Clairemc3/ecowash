@@ -50,10 +50,10 @@ class AppServiceProvider extends ServiceProvider
      */
     private function registerInputComponents()
     {
-        Blade::component('components.inputs.text', 'inputText');
-        Blade::component('components.inputs.number', 'inputNumber');
-        Blade::component('components.inputs.wysiwyg', 'inputWysiwyg');
-        Blade::component('components.inputs.date', 'inputDate');
+        Blade::aliasComponent('components.inputs.text', 'inputText');
+        Blade::aliasComponent('components.inputs.number', 'inputNumber');
+        Blade::aliasComponent('components.inputs.wysiwyg', 'inputWysiwyg');
+        Blade::aliasComponent('components.inputs.date', 'inputDate');
     }
 
     /**
@@ -63,11 +63,11 @@ class AppServiceProvider extends ServiceProvider
      */
     private function registerTableComponents()
     {
-        Blade::component('tables.table', 'tbl');
-        Blade::component('tables.tableHead', 'tblHead');
-        Blade::component('tables.actions', 'tblActions');
-        Blade::component('tables.tableBody', 'tblBody');
-        Blade::component('tables.row', 'tblRow');
-        Blade::component('tables.cell', 'cell');
+        Blade::aliasComponent('tables.table', 'tbl');
+        Blade::aliasComponent('tables.tableHead', 'tblHead');
+        Blade::aliasComponent('tables.actions', 'tblActions');
+        Blade::aliasComponent('tables.tableBody', 'tblBody');
+        Blade::aliasComponent('tables.row', 'tblRow');
+        Blade::aliasComponent('tables.cell', 'cell');
     }
 }
