@@ -1,5 +1,7 @@
 {{-- Image --}}
-{{-- <image-select></image-select> --}}
+<label>Select an image</label>
+<image-select :images=@json(Storage::disk('public')->files('slider-images'))>
+</image-select>
 
 {{-- text --}}
 @inputText(['name' => 'text',

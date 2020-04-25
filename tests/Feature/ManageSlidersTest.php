@@ -76,14 +76,14 @@ class ManageSlidersTest extends TestCase
 
         $this->actingAs($this->authenticatedUser);
 
-        $alert = factory(\App\Alert::class)->create();
+        $slider = factory(\App\Slider::class)->create();
 
-        $this->delete($alert->path())->assertRedirect('/admin/alerts');
+        $this->delete($slider->path())->assertRedirect('/admin/sliders');
 
-        $this->assertDatabaseMissing('alerts', $alert->toArray());
+        $this->assertDatabaseMissing('sliders', $slider->toArray());
     }
 
     // There can be a max of three sliders at once
    // A slider must have an image
-   // The text must be a max length
+   // The text must be a max length (must not go over two lines in mobile view)
 }

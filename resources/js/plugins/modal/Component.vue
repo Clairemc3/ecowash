@@ -94,6 +94,8 @@ import Modal from './ModalPlugin';
         border-radius: 4px;
         padding: 2.5em;
         box-shadow: 0 5px 11px rgba(36, 37, 38, 0.08);
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
     }
     .modal .close {
         position: absolute;
@@ -120,9 +122,6 @@ import Modal from './ModalPlugin';
 
     }
 
-    .overlay .btn:nth-child(2n) {
-        margin-left: 2em;
-    }
 
     footer:empty {
         margin-top: 1em;

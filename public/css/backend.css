@@ -33058,6 +33058,14 @@ h3 {
   margin-left: -65px;
 }
 
+.max-h-0{
+  max-height: 0;
+}
+
+.max-h-350{
+  max-height: 350px;
+}
+
 .max-h-full{
   max-height: 100%;
 }
@@ -44611,6 +44619,14 @@ h3 {
 
   .sm\:-ml-65px{
     margin-left: -65px;
+  }
+
+  .sm\:max-h-0{
+    max-height: 0;
+  }
+
+  .sm\:max-h-350{
+    max-height: 350px;
   }
 
   .sm\:max-h-full{
@@ -56169,6 +56185,14 @@ h3 {
     margin-left: -65px;
   }
 
+  .md\:max-h-0{
+    max-height: 0;
+  }
+
+  .md\:max-h-350{
+    max-height: 350px;
+  }
+
   .md\:max-h-full{
     max-height: 100%;
   }
@@ -67725,6 +67749,14 @@ h3 {
     margin-left: -65px;
   }
 
+  .lg\:max-h-0{
+    max-height: 0;
+  }
+
+  .lg\:max-h-350{
+    max-height: 350px;
+  }
+
   .lg\:max-h-full{
     max-height: 100%;
   }
@@ -79279,6 +79311,14 @@ h3 {
 
   .xl\:-ml-65px{
     margin-left: -65px;
+  }
+
+  .xl\:max-h-0{
+    max-height: 0;
+  }
+
+  .xl\:max-h-350{
+    max-height: 350px;
   }
 
   .xl\:max-h-full{

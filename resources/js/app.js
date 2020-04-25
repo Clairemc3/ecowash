@@ -11,7 +11,7 @@ import ImageSelect from './components/ImageSelect';
 import vuetify from './plugins/vuetify';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import VueCookies from 'vue-cookies';
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+// import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
 
 /**
@@ -26,8 +26,8 @@ window.Vue = Vue;
 
 Vue.use(Modal);
 Vue.use(VueCookies)
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
+// Vue.use(BootstrapVue)
+// Vue.use(IconsPlugin)
 
 /**
  * The following block of code may be used to automatically register your
