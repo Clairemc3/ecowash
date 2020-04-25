@@ -20,7 +20,7 @@
             'headings' => ['Order', 'Image', 'Description'],
         ])
             @slot('after')
-                @cell(['heading', 'class' => 'hidden sm:table-cell']) @endcell
+                @cell(['heading', 'class' => 'sm:table-cell']) @endcell
             @endslot
         @endtblHead
 
@@ -28,7 +28,7 @@
             @foreach($sliders as $slider)
                 @tblRow()
                     @cell {{ $slider->order }} @endcell
-                    @cell {{ $slider->image_source }} @endcell
+                    @cell <x-image-thumbnail size="table" :imageUrl="$slider->image_source"/> @endcell
                     @cell {{ $slider->text  }} @endcell
                     @tblActions(['model' => $slider])@endtblActions
                 @endtblRow
