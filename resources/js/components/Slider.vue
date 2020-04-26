@@ -3,7 +3,7 @@
         <transition-group name='fade' tag='div'>
             <div v-for="number in [currentIndex]" :key='number' class="slide">
                 <div class="slider__image">
-                    <img :src="currentSlide.imageSrc" style="width:100%">
+                    <img :src="currentSlide.image_source" style="width:100%">
                 </div>
                 <div class="slider__text">{{ currentSlide.text }}</div>
             </div>
@@ -14,12 +14,16 @@
 <script>
     export default {
 
+
+        props: {
+            slides: {
+                type: Array,
+                required: true
+            },
+        },
+
         data() {
             return {
-                slides: [
-                    { 'imageSrc' : "/images/launderette-slider-1.jpg",'text' : "Slide 1 " },
-                    { 'imageSrc' : "/images/launderette-slider-1.jpg",'text' : "this is some othet text" },
-                ],
                 timer: null,
                 currentIndex: 0
             };

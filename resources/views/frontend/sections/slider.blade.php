@@ -1,4 +1,4 @@
 <div class="section">
-    <slider>
+    <slider :slides="{{$slides}}">
     </slider>
 </div>
