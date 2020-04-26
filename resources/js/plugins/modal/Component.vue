@@ -51,7 +51,7 @@ import Modal from './ModalPlugin';
             isOpen: function() {
                 if (this.isOpen) {
                     document.body.classList.add('no-scroll');// style.overflow = 'hidden';
-                //    document.body.style.overflow = 'hidden';
+                    this.$modal.open();
                   return;
                 }
                 // document.body.style.overflow = 'auto';

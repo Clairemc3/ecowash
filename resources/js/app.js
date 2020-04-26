@@ -11,6 +11,7 @@ import ImageSelect from './components/ImageSelect';
 import vuetify from './plugins/vuetify';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import VueCookies from 'vue-cookies';
+import axios from 'axios'
 // import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
 
@@ -23,6 +24,7 @@ import VueCookies from 'vue-cookies';
 // require('./bootstrap');
 
 window.Vue = Vue;
+Vue.prototype.$http = axios;
 
 Vue.use(Modal);
 Vue.use(VueCookies)

@@ -50,4 +50,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
     Route::get('/sliders/{slider}', 'SliderController@edit')->name('slider.edit');
     Route::put('/sliders/{slider}', 'SliderController@update')->name('slider.update');
     Route::delete('/sliders/{slider}', 'SliderController@destroy')->name('slider.destroy');
+
+
+    // Images
+    // Returns json
+    Route::get('/images/{folder}', 'ImageController@index')->name('images.index');
+
 });

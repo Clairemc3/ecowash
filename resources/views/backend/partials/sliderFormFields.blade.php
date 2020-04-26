@@ -1,6 +1,6 @@
 {{-- Image --}}
 <label>Select an image</label>
-<image-select :images=@json(Storage::disk('public')->files('slider-images'))>
+<image-select existing-image="{{ $slider->image_source }}" image-api-url="{{ route('admin.images.index', ['folder' => 'slider-images'])}}">
 </image-select>
 
 {{-- text --}}
