@@ -122,6 +122,9 @@ import Modal from './ModalPlugin';
 
     }
 
+    .modal h1 {
+        margin-top: 0;
+    }
 
     footer:empty {
         margin-top: 1em;
