@@ -1,6 +1,6 @@
 {{-- Image --}}
 <label>Select an image</label>
-<image-select existing-image="{{ $slider->image_source }}" image-api-url="{{ route('admin.images.index', ['folder' => 'slider-images'])}}">
+<image-select existing-image="{{ $slider->image_source ?? null }}" image-api-url="{{ route('admin.images.index', ['folder' => 'slider-images'])}}">
 </image-select>
 
 {{-- text --}}

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Slider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,11 +14,11 @@ class ManageSlidersTest extends TestCase
     /**  @test  */
     public function guests_cannnot_manage_sliders()
     {
-        $alert = factory(\App\Alert::class)->create();
+        $slider = factory(\App\Slider::class)->create();
 
-        $this->get('admin/alerts')->assertRedirect('/login');
-        $this->get('admin/content/create')->assertRedirect('/login');
-        $this->post('admin/content', $alert->toArray())->assertRedirect('/login');
+        $this->get('admin/sliders')->assertRedirect('/login');
+        $this->get('admin/sliders/create')->assertRedirect('/login');
+        $this->post('admin/sliders', $slider->toArray())->assertRedirect('/login');
     }
 
     /**  @test  */
@@ -83,7 +84,22 @@ class ManageSlidersTest extends TestCase
         $this->assertDatabaseMissing('sliders', $slider->toArray());
     }
 
-    // There can be a max of three sliders at once
+    /**  @test  */
+    public function users_can_only_create_three_sliders()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->actingAs($this->authenticatedUser);
+
+        factory(\App\Slider::class, 3)->create();
+
+        $this->get('/admin/sliders/create')->assertStatus(302)
+            ->assertSessionHas('error');
+
+    }
+
+
+
    // A slider must have an image
    // The text must be a max length (must not go over two lines in mobile view)
 }
