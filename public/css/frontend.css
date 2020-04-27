@@ -27962,7 +27962,7 @@ h3 {
 }
 
 .modal h1 {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 @media (min-width: 992px) {
@@ -27972,6 +27972,7 @@ h3 {
 
   .modal h1 {
     font-size: 2em;
+    margin-top: 0;
   }
 }
 

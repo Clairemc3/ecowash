@@ -5,13 +5,20 @@
                  <img class="w-1/2 sm:w-1/3 md:w-1/4 m-3" v-else :src="defaultImage" >
                  <input v-if="selectedImage" name="image_source" type="hidden" :value="selectedImage">
             </template>
-            <h1 class="font-bold">Select an image for the slider</h1>
+
+             <template v-slot:header>
+                <h1 class="font-bold">Select an image for the slider</h1>
+            </template>
+
+            <!-- Main slot content -->
             <p v-if="apiError">There was a problem fetching the images</p>
-                <div class="flex flex-wrap border-none overflow-y-auto max-h-350">
+                <div class="flex flex-wrap border-none modal-content">
                     <div class="w-full sm:w-1/2 md:w-1/3 m-3" v-for="image in imageUrls" :key="image" :class="{ active: image === activeImage}">
                         <img @click="activateImage(image)" :src="imageUrl(image)">
                     </div>
                 </div>
+            <!-- End of main slot content -->
+
             <template v-slot:footer>
                 <div class="button-group">
                     <button @click.prevent=selectImage class="btn btn-teal">Select</button>
