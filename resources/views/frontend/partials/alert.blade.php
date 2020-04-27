@@ -10,13 +10,15 @@
         open-on-load="true"
     @endif
     disable-scroll="true">
-    <h1>{{$alert->short_text}}</h1>
+    <template v-slot:header>
+        <h1>{{$alert->short_text}}</h1>
+    </template>
 
     {!!$alert->long_text!!}
 
     <template v-slot:footer>
         <div class="button-group">
-            <button @click="$modal.close(); setCookie('ecowash_alert', {{ $alert->id }})" class="btn btn-teal">Okay</button>
+            <button @click="$modal.close(); setCookie('ecowash_alert', {{ $alert->id }}, '10s')" class="btn btn-teal">Okay</button>
         </div>
     </template>
 
