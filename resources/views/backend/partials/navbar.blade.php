@@ -9,13 +9,13 @@
                 </button>
             @endif
         @endauth
-    <div class="container flex flex-row justify-between no-wrap">
+    <div class="container flex flex-col md:flex-row justify-between no-wrap">
         <a class="text-grey-900 inline-block text-lg" href="{{ url('/admin') }}">
             {{ config('app.name', 'Ecowash') . ' admin' }}
         </a>
-        <div class="md:flex collapse" id="navBarToggleable">
+        <div class="md:flex collapse mt-2fl" id="navBarToggleable">
             <!-- Right Side Of Navbar -->
-            <ul class="md:flex text-grey-400 navbar-nav ml-auto text-base">
+            <ul class="md:flex text-grey-400 navbar-nav ml-auto text-base mb-0">
                 <!-- Authentication Links -->
                 @auth
                     @authenticationLinks

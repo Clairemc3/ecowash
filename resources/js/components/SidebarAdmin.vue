@@ -17,7 +17,7 @@
             <v-divider></v-divider>
 
             <v-list dense>
-                <v-list-item v-for="item in items" :key="item.title" link :href="item.href" >
+                <v-list-item v-for="item in items" :key="item.title" link :href="item.href" class="mt-4" >
 
                     <v-list-item-icon>
                         <v-icon>{{ item.icon }}</v-icon>
