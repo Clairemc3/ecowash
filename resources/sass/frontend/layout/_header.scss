@@ -25,32 +25,52 @@
    margin-right: auto;
    img {
       width: 80%;
+
+      @include mediaQuery(large) {
+        margin: auto;
+    }
+
    }
+
+   @include mediaQuery(large) {
+        margin: auto;
+    }
 }
 
 .main-header__tagline {
-   display: block;
-   color: $black;
-   opacity: 0.8;
-   font-size: 13px;
-   margin-top: 0px;
-   margin-left: 0;
+    display: block;
+    color: $black;
+    opacity: 0.8;
+    font-size: 13px;
+    margin-top: 0;
+    margin-left: 0;
+
+    @include mediaQuery(large) {
+        margin: auto;
+        text-align: center;
+    }
 }
 
 .main-header__top{
    margin-bottom: 1em;
-   @include flexy( 
+
+   @include flexy(
       $dir: row,
       $justify: space-between
   );
-  align-items: center;
+
+    align-items: center;
 }
 
 .main-header__navigation{
-   max-height: 0;            
+   max-height: 0;
    overflow-y: hidden;
    transition: max-height 0.5s ease-in-out;
    text-align: center;
+
+   @include mediaQuery(large) {
+        max-height: 10em;
+    }
 
    ul {
       margin-top: .5em;
@@ -65,19 +85,57 @@
       @include on-event {
          background-color: $red;
        }
+
+       @include mediaQuery(large) {
+            background-color: transparent;
+
+            @include on-event {
+                background-color: transparent;
+            }
+       }
    }
    li a {
-      display: block;
-      color: $cream;
-      text-transform: uppercase;
-      transition: font-size .5s;
-      transition-timing-function: ease-in-out;
-      @include on-event {
-         font-size: 1.5em;
-        }
+        padding: 0.25em 0;
+        display: block;
+        color: $cream;
+        text-transform: uppercase;
+        transition: font-size .5s;
+        transition-timing-function: ease-in-out;
+
+        @include mediaQuery(large) {
+            color: $dark-blue;
+            font-size: 1.5em;
+
+            @include on-event {
+                color: $red;
+            }
+       }
    }
 }
 
 .main-header__navigation-visible {
    max-height: 10em;
 }
+
+.main-nav__links {
+
+    @include mediaQuery(large) {
+        border-top: dotted $red 4px;
+        border-bottom: dotted $red 4px;
+
+        @include flexy(
+            $dir: row,
+            $justify: space-evenly
+        );
+    }
+
+}
+
+
+#menuToggle {
+    @include mediaQuery(large) {
+        display: none;
+    }
+
+}
+

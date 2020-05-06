@@ -5,7 +5,9 @@
                 <div class="slider__image">
                     <img :src="currentSlide.image_source" style="width:100%">
                 </div>
-                <div class="slider__text">{{ currentSlide.text }}</div>
+                <div class='slider_text_group'>
+                    <div class="slider__text">{{ currentSlide.text }}</div>
+                </div>
             </div>
         </transition-group>
     </div>
@@ -30,7 +32,9 @@
         },
 
         mounted() {
-            this.startRotation();
+            if (this.slides.length > 1) {
+                this.startRotation();
+            }
         },
 
         computed: {
@@ -65,14 +69,22 @@
 <style>
 
 .fade-enter-active, .fade-leave-active {
-    transition: all 2s ease;
+    transition: opacity 2s cubic-bezier(0,1,1,1) , visibility 2s cubic-bezier(0,1,1,1);
     overflow: hidden;
     visibility: visible;
     opacity: 1;
 }
+
 .fade-enter, .fade-leave-to {
     opacity: 0;
     visibility: hidden;
+    position: absolute;
 }
+
+.slider_text_group {
+    position: relative;
+}
+
+
 
 </style>
