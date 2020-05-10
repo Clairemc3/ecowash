@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMachineRequest;
 use App\Http\Requests\UpdateMachineRequest;
-use  App\Machine;
+use App\Machine;
 use Illuminate\Http\Request;
 
 class MachineController extends Controller

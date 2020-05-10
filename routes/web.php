@@ -19,37 +19,56 @@ Route::get('/backend-css', 'HomeController@cssPractice')->name('becss');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 
-    // Editing machines
-    Route::get('/machines', 'MachineController@index')->name('machine.index');
-    Route::get('/machines/create', 'MachineController@create')->name('machine.create');
-    Route::post('/machines', 'MachineController@store')->name('machine.store');
-    Route::get('/machines/{machine}', 'MachineController@edit')->name('machine.edit');
-    Route::put('/machines/{machine}', 'MachineController@update')->name('machine.update');
-    Route::delete('/machines/{machine}', 'MachineController@destroy')->name('machine.destroy');
 
-    // Editing content
-    Route::get('/content', 'ContentController@index')->name('content.index');
-    Route::get('/content/create', 'ContentController@create')->name('content.create');
-    Route::post('/content', 'ContentController@store')->name('content.store');
-    Route::get('/content/{content}', 'ContentController@edit')->name('content.edit');
-    Route::put('/content/{content}', 'ContentController@update')->name('content.update');
-    Route::delete('/content/{content}', 'ContentController@destroy')->name('content.destroy');
+    // Machines
+    Route::prefix('machines')->name('machine.')->group(function() {
+        Route::get('/', 'MachineController@index')->name('index');
+        Route::get('/create', 'MachineController@create')->name('create');
+        Route::post('/', 'MachineController@store')->name('store');
+        Route::get('/{machine}', 'MachineController@edit')->name('edit');
+        Route::put('/{machine}', 'MachineController@update')->name('update');
+        Route::delete('/{machine}', 'MachineController@destroy')->name('destroy');
+    });
+
+    // Content
+    Route::prefix('content')->name('content.')->group(function() {
+        Route::get('/', 'ContentController@index')->name('index');
+        Route::get('/create', 'ContentController@create')->name('create');
+        Route::post('/', 'ContentController@store')->name('store');
+        Route::get('/{content}', 'ContentController@edit')->name('edit');
+        Route::put('/{content}', 'ContentController@update')->name('update');
+        Route::delete('/{content}', 'ContentController@destroy')->name('destroy');
+    });
 
     // Alerts
-    Route::get('/alerts', 'AlertController@index')->name('alert.index');
-    Route::get('/alerts/create', 'AlertController@create')->name('alert.create');
-    Route::post('/alerts', 'AlertController@store')->name('alert.store');
-    Route::get('/alerts/{alert}', 'AlertController@edit')->name('alert.edit');
-    Route::put('/alerts/{alert}', 'AlertController@update')->name('alert.update');
-    Route::delete('/alerts/{alert}', 'AlertController@destroy')->name('alert.destroy');
+    Route::prefix('alerts')->name('alert.')->group(function() {
+        Route::get('/', 'AlertController@index')->name('index');
+        Route::get('/create', 'AlertController@create')->name('create');
+        Route::post('/', 'AlertController@store')->name('store');
+        Route::get('/{alert}', 'AlertController@edit')->name('edit');
+        Route::put('/{alert}', 'AlertController@update')->name('update');
+        Route::delete('/{alert}', 'AlertController@destroy')->name('destroy');
+    });
 
     // Sliders
-    Route::get('/sliders', 'SliderController@index')->name('slider.index');
-    Route::get('/sliders/create', 'SliderController@create')->name('slider.create');
-    Route::post('/sliders', 'SliderController@store')->name('slider.store');
-    Route::get('/sliders/{slider}', 'SliderController@edit')->name('slider.edit');
-    Route::put('/sliders/{slider}', 'SliderController@update')->name('slider.update');
-    Route::delete('/sliders/{slider}', 'SliderController@destroy')->name('slider.destroy');
+    Route::prefix('sliders')->name('slider.')->group(function() {
+        Route::get('/', 'SliderController@index')->name('index');
+        Route::get('/create', 'SliderController@create')->name('create');
+        Route::post('/', 'SliderController@store')->name('store');
+        Route::get('/{slider}', 'SliderController@edit')->name('edit');
+        Route::put('/{slider}', 'SliderController@update')->name('update');
+        Route::delete('/{slider}', 'SliderController@destroy')->name('destroy');
+    });
+
+    // Promotions
+    Route::prefix('promotions')->name('promotion.')->group(function() {
+        Route::get('/', 'PromotionController@index')->name('index');
+        Route::get('/create', 'PromotionController@create')->name('create');
+        // Route::post('/', 'SliderController@store')->name('store');
+        // Route::get('/{slider}', 'SliderController@edit')->name('edit');
+        // Route::put('/{slider}', 'SliderController@update')->name('update');
+        // Route::delete('/{slider}', 'SliderController@destroy')->name('destroy');
+    });
 
 
     // Images
