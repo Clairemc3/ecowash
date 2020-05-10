@@ -17,7 +17,7 @@
 @endif
 
   <div class="bg-white rounded">
-    <form action={{ route('admin.content.store')}} method="POST" class="p-8">
+    <form action="{{ route('admin.content.store')}}" method="POST" class="p-8">
         @csrf
         @include('backend.partials.contentFormFields')
         <div class="button-group">

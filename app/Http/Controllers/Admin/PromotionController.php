@@ -27,6 +27,47 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.promotions.create');
+    }
+
+
+    /**
+     * Store a machine.
+     *
+     * @return void
+     */
+    public function store(Request $request)
+    {
+        Promotion::create($request->all());
+
+        return redirect()->route('admin.promotion.index');
+    }
+
+
+    /**
+     * Edit a promotion
+     *
+     * @return void
+     */
+    public function edit(Promotion $promotion)
+    {
+        $viewBag = [
+            'promotion' => $promotion,
+        ];
+
+        return view('backend.promotions.edit', $viewBag);
+    }
+
+
+    /**
+     * Update a promotion.
+     *
+     * @return void
+     */
+    public function update(Request $request, Promotion $promotion)
+    {
+        $promotion->update($request->all());
+
+        return redirect()->route('admin.promotion.index');
     }
 }

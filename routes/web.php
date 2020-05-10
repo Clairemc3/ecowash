@@ -64,9 +64,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
     Route::prefix('promotions')->name('promotion.')->group(function() {
         Route::get('/', 'PromotionController@index')->name('index');
         Route::get('/create', 'PromotionController@create')->name('create');
-        // Route::post('/', 'SliderController@store')->name('store');
-        // Route::get('/{slider}', 'SliderController@edit')->name('edit');
-        // Route::put('/{slider}', 'SliderController@update')->name('update');
+        Route::post('/', 'PromotionController@store')->name('store');
+        Route::get('/{promotion}', 'PromotionController@edit')->name('edit');
+        Route::put('/{promotion}', 'PromotionController@update')->name('update');
         // Route::delete('/{slider}', 'SliderController@destroy')->name('destroy');
     });
 

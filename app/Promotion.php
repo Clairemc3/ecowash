@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Promotion extends Model
 {
+
+    protected $guarded = [];
+
     /**
      * Defines the path for this model.
      *

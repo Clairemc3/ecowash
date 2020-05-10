@@ -11,5 +11,6 @@ $factory->define(Promotion::class, function (Faker $faker) {
         'body' => $faker->paragraph(),
         'help_text' => $faker->sentence(),
         'active' => $faker->boolean(100),
+        'theme' => $faker->randomElement(['green', 'red']),
     ];
 });

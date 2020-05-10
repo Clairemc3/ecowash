@@ -9,6 +9,9 @@
 
 @section('content')
 
+    {{-- Promotion 1 --}}
+    @include('frontend.sections.promotion')
+
     {{-- Slider --}}
     @include('frontend.sections.slider')
 

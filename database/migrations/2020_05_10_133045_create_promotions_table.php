@@ -19,6 +19,7 @@ class CreatePromotionsTable extends Migration
             $table->string('position')->unique();
             $table->boolean('active');
             $table->text('help_text');
+            $table->string('theme');
             $table->timestamps();
         });
     }
