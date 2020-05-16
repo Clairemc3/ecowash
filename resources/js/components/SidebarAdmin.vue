@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-navigation-drawer v-model="drawer" absolute temporary>
+        <v-navigation-drawer class="fixed" v-model="drawer" absolute temporary>
             <v-list-item class="navbar__item bg-yellow-bright pb-2">
                 <v-list-item-content>
                     <div  @click.stop="drawer = !drawer" class="change inline flex-none pr-3 mt-4 cursor-pointer">
