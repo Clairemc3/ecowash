@@ -7,9 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Promotion::class, function (Faker $faker) {
     return [
-        'position' => $faker->slug(2),
+        'slug' => $faker->slug(2),
+        'name' => $faker->words(3, true),
         'body' => $faker->paragraph(),
-        'help_text' => $faker->sentence(),
         'active' => $faker->boolean(100),
         'theme' => $faker->randomElement(['green', 'red']),
     ];

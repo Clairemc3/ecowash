@@ -40,7 +40,7 @@
                 width: 256,
                 items: [
                 { title: 'Dashboard', icon: 'dashboard', href: '/admin' },
-                { title: 'Promotions', icon: 'mdi-content-copy', href: '/admin/promotions' },
+                { title: 'Promotions', icon: 'mdi-cash-multiple', href: '/admin/promotions' },
                 { title: 'Sliders', icon: 'mdi-content-copy', href: '/admin/sliders' },
                 { title: 'Alerts', icon: 'mdi-alert', href: '/admin/alerts' },
                 { title: 'Machines', icon: 'mdi-washing-machine', href: '/admin/machines' },

@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Resources
         Blade::include('backend.partials.resourceIndexHeader', 'resourceIndexHeader');
-        Blade::include('tables.resourceTable', 'resourceTable');
+        Blade::include('components.table.resourceTable', 'resourceTable');
 
         // Menus
         Blade::include('backend.partials.authenticationLinks', 'authenticationLinks');
@@ -63,11 +63,11 @@ class AppServiceProvider extends ServiceProvider
      */
     private function registerTableComponents()
     {
-        Blade::aliasComponent('tables.table', 'tbl');
-        Blade::aliasComponent('tables.tableHead', 'tblHead');
-        Blade::aliasComponent('tables.actions', 'tblActions');
-        Blade::aliasComponent('tables.tableBody', 'tblBody');
-        Blade::aliasComponent('tables.row', 'tblRow');
-        Blade::aliasComponent('tables.cell', 'cell');
+        Blade::aliasComponent('components.table.table', 'tbl');
+        Blade::aliasComponent('components.table.head', 'tblHead');
+        Blade::aliasComponent('components.table.actions', 'tblActions');
+        Blade::aliasComponent('components.table.body', 'tblBody');
+        Blade::aliasComponent('components.table.row', 'tblRow');
+        Blade::aliasComponent('components.table.cell', 'cell');
     }
 }

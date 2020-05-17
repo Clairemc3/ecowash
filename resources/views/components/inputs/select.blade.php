@@ -1,4 +1,4 @@
-<div class="mb-4 {{ $display ?? 'block'}}" {{ $attributes }}>
+<div class="mb-4 w-full lg:w-1/2 {{ $display ?? 'block'}}" {{ $attributes }}>
     <label class="inline-block mr-4 items-center my-1 mb-2" for="{{ $name }}">{{ $label }}</label>
 
     @if (isset($helpText))

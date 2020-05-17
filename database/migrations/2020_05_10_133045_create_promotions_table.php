@@ -15,10 +15,10 @@ class CreatePromotionsTable extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->bigIncrements('id');
+	        $table->string('slug')->unique();
+	        $table->string('name')->unique();
             $table->text('body');
-            $table->string('position')->unique();
             $table->boolean('active');
-            $table->text('help_text');
             $table->string('theme');
             $table->timestamps();
         });

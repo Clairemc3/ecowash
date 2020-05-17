@@ -1,0 +1,1 @@
+<span class="text-white text-sm rounded-full bg-green-500 px-4">active</span>

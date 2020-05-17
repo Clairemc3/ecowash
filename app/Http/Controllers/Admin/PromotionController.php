@@ -70,4 +70,17 @@ class PromotionController extends Controller
 
         return redirect()->route('admin.promotion.index');
     }
+
+
+	/**
+	 * Update a promotion.
+	 *
+	 * @return void
+	 */
+	public function destroy( Promotion $promotion)
+	{
+		$promotion->delete();
+
+		return redirect()->route('admin.promotion.index');
+	}
 }

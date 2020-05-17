@@ -43,9 +43,7 @@
                     <x-table.cell
                             class="text-center hidden sm:table-cell">
                         @if ($alert->isActive())
-                            <div class="bg-green-500 text-white text-sm rounded-full p-0">
-                                active
-                            </div>
+                            <x-active-flag/>
                         @endif
                     </x-table.cell>
 
