@@ -26,36 +26,34 @@
 @if ($alerts->isEmpty())
     <p>No alerts</p>
 @else
-    @tbl
-        @tblHead([
-            'headings' => ['Summary', 'Start date', 'End date'],
-        ])
-            @slot('after')
-                @cell(['heading']) @endcell
-                @cell(['heading', 'class' => 'hidden sm:table-cell']) @endcell
-            @endslot
-        @endtblHead
+    <x-table.table>
+        <x-table.head :headings="['Summary', 'Start date', 'End date']">
+            <x-slot name="after">
+                <x-table.cell type="heading"></x-table.cell>
+                <x-table.cell type="heading" class="hidden sm:table-cell"></x-table.cell>
+            </x-slot>
+        </x-table.head>
 
-        @tblBody
+        <x-table.body>
             @foreach($alerts as $alert)
-                @tblRow(['class' => $alert->isExpired() ? 'text-gray-500' : ''])
-                    @cell {{ $alert->short_text }} @endcell
-                    @cell {{ $alert->startDateString  }} @endcell
-                    @cell {{ $alert->endDateString  }} @endcell
-
-                    @cell(['class' => 'text-center hidden sm:table-cell'])
+                <x-table.row :class="$alert->isExpired() ? 'text-gray-500' : ''">
+                    <x-table.cell>{{ $alert->short_text }} </x-table.cell>
+                    <x-table.cell>{{ $alert->startDateString }} </x-table.cell>
+                    <x-table.cell>{{ $alert->endDateString }} </x-table.cell>
+                    <x-table.cell
+                            class="text-center hidden sm:table-cell">
                         @if ($alert->isActive())
                             <div class="bg-green-500 text-white text-sm rounded-full p-0">
                                 active
                             </div>
                         @endif
-                    @endcell
+                    </x-table.cell>
 
-                    @tblActions(['model' => $alert])@endtblActions
-                @endtblRow
+                    <x-table.actions :model="$alert"></x-table.actions>
+                </x-table.row>
             @endforeach
-        @endtblBody
-    @endtbl
+        </x-table.body>
+    </x-table.table>
 
 @endif
 
