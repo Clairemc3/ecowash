@@ -25,13 +25,14 @@
 ])
 @endinputText
 
+<wysiwyg value="{{ old('body', $promotion->body ?? '')}}" name="Body"></wysiwyg>
 {{-- Body--}}
-@inputWysiwyg(['name' => 'body',
-    'label' => 'Promotion content',
-    'helpText' => 'Max chars xyz',
-    'value' => old('name', $promotion->body ?? '')
-])
-@endinputWysiwyg
+{{--@inputWysiwyg(['name' => 'body',--}}
+{{--    'label' => 'Promotion content',--}}
+{{--    'helpText' => 'Max chars xyz',--}}
+{{--    'value' => old('name', $promotion->body ?? '')--}}
+{{--])--}}
+{{--@endinputWysiwyg--}}
 
 <x-inputs.select name="theme" label="Select a colour theme">
         <x-slot name="options">

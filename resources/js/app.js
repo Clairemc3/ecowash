@@ -2,6 +2,7 @@ import Vue from 'vue';
 
 import Modal from './plugins/modal/ModalPlugin';
 import Dropdown from './components/Dropdown';
+import Wysiwyg from './components/WYSIWYGEditor';
 import ConfirmDialog from './components/ConfirmDialog';
 import ConfirmButton from './components/ConfirmButton';
 import SidebarAdmin from './components/SidebarAdmin';
@@ -9,7 +10,7 @@ import Carousel from './components/Carousel';
 import Slider from './components/Slider';
 import ImageSelect from './components/ImageSelect';
 import vuetify from './plugins/vuetify';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import CKEditor from '@ckeditor/ckeditor5-vue';
 import VueCookies from 'vue-cookies';
 import axios from 'axios'
 // import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
@@ -28,6 +29,7 @@ Vue.prototype.$http = axios;
 
 Vue.use(Modal);
 Vue.use(VueCookies)
+Vue.use( CKEditor );
 // Vue.use(BootstrapVue)
 // Vue.use(IconsPlugin)
 
@@ -50,6 +52,7 @@ Vue.component('sidebar-admin', SidebarAdmin);
 Vue.component('carousel', Carousel);
 Vue.component('image-select', ImageSelect);
 Vue.component('slider', Slider);
+Vue.component('wysiwyg', Wysiwyg);
 
 
 /**
