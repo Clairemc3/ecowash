@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\DisplayContent;
+use App\Services\ContentBlock;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,8 +15,8 @@ class ContentServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        App::bind('displayContent', function () {
-            return new DisplayContent;
+        App::bind('contentBlock', function () {
+            return new ContentBlock();
         });
     }
 

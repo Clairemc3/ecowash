@@ -229,7 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         // App services
-        'DisplayContent' => App\Services\Facades\DisplayContentFacade::class,
+        'ContentBlock' => App\Services\Facades\ContentBlockFacade::class,
     ],
 
 ];

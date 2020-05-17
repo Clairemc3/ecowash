@@ -6,6 +6,6 @@
     </iframe>
     </div>
     <div class="my-8">
-         {!!DisplayContent::bySlug('find-us')!!}
+         {!!ContentBlock::getContent('find-us')!!}
     </div>
 </div>

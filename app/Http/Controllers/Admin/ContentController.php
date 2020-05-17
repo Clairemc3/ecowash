@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Content;
 use App\Http\Controllers\Controller;
-use DisplayContent;
 use  Illuminate\Http\Request;
 
 class ContentController extends Controller
@@ -16,9 +15,7 @@ class ContentController extends Controller
      */
     public function index()
     {
-        DisplayContent::bySlug('prices-extra');
         $contentRecords = Content::all();
-
         return view('backend.content.index', compact('contentRecords'));
     }
 
@@ -45,16 +42,6 @@ class ContentController extends Controller
         return redirect()->route('admin.content.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Content  $content
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Content $content)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

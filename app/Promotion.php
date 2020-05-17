@@ -19,4 +19,5 @@ class Promotion extends Model
         return "/admin/promotions/{$this->id}";
     }
 
+
 }

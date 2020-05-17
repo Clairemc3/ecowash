@@ -14,7 +14,7 @@
 
 
     <div class=my-6>
-        {!!DisplayContent::bySlug('prices-extra')!!}
+        {!!ContentBlock::getContent('prices-extra')!!}
     </div>
 
 </div>

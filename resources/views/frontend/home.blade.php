@@ -9,8 +9,8 @@
 
 @section('content')
 
-    {{-- Promotion 1 --}}
-    @include('frontend.sections.promotion')
+    {{-- Promotion Top --}}
+    <x-promotion slug="top"></x-promotion>
 
     {{-- Slider --}}
     @include('frontend.sections.slider')
@@ -18,14 +18,14 @@
     {{-- Prices --}}
     @include('frontend.sections.prices')
 
-    {{-- Promotion 1 --}}
-    @include('frontend.sections.promotion')
+    {{-- Promotion middle --}}
+    <x-promotion slug="middle"></x-promotion>
 
     {{-- Service washes --}}
     @include('frontend.sections.serviceWashes')
 
-    {{-- Promotion 2 --}}
-    @include('frontend.sections.promotion2')
+    {{-- Promotion bottom --}}
+    <x-promotion slug="bottom"></x-promotion>
 
     {{-- Find us --}}
     @include('frontend.sections.findUs')

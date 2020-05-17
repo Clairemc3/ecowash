@@ -3,19 +3,21 @@
 namespace App\Services;
 
 use App\Content;
+use App\Promotion;
 
-class DisplayContent
+class ContentBlock
 {
     /**
-     * Return content body to display on the front end.
+     * Return a body from a Content record
      *
      * @param string $slug
      * @return string
      */
-    public function bySlug(string $slug) :string
+    public function getContent(string $slug) :string
     {
         $content = Content::where('slug', $slug)->first();
 
         return $content->body ?? '';
     }
+
 }
