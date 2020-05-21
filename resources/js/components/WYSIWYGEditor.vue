@@ -33,11 +33,37 @@
                     },
                     heading: {
                         options: [
-                            { model: 'paragraph', view: 'p.medium', title: 'Text small', class: 'ck-paragraph_small' },
-                            { model: 'paragraph', title: 'Text medium', class: 'ck-paragraph_medium' },
-                            { model: 'paragraph', title: 'Text large', class: 'ck-paragraph_large' },
-                            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                            { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                            {
+                                model: 'paragraphSmall',
+                                view:{ name:'p', classes: 'small'},
+                                title: 'Text small',
+                                class: 'ck-paragraph__small',
+                                converterPriority: 'high'
+                            },
+                            {
+                                model: 'paragraphMedium',
+                                view:{ name:'p', classes: 'medium'},
+                                title: 'Text medium',
+                                class: 'ck-paragraph__medium',
+                                converterPriority: 'high'
+                            },
+                            {
+                                model: 'paragraphLarge',
+                                view:{ name:'p', classes: 'large'},
+                                title: 'Text large',
+                                class: 'ck-paragraph__large',
+                                converterPriority: 'high'},
+                            {
+                                model: 'heading3',
+                                view: 'h3',
+                                title: 'Heading',
+                                class: 'ck-heading_heading3' },
+                            {
+                                model: 'heading2',
+                                view: 'h2',
+                                title: 'Heading large',
+                                class: 'ck-heading_heading2'
+                            }
                         ]
                     }
                 }

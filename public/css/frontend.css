@@ -27660,7 +27660,6 @@ h1, h2, h3 {
 }
 
 h2 {
-  text-transform: uppercase;
   font-size: 3em;
 }
 
@@ -28265,17 +28264,30 @@ h3 {
   font-size: 2em;
 }
 
-.promotion .title {
+.promotion h2, .promotion h3 {
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
   letter-spacing: 1px;
+}
+
+.promotion h2 {
+  font-size: 1.75em;
+}
+
+@media (min-width: 992px) {
+  .promotion h2 {
+    font-size: 2.25em;
+  }
+}
+
+.promotion h3 {
   font-size: 1em;
 }
 
 @media (min-width: 992px) {
-  .promotion .title {
-    font-size: 1.5em;
+  .promotion h3 {
+    font-size: 1.25em;
   }
 }
 
