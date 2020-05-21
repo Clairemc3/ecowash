@@ -3,7 +3,7 @@
 @section('title', 'Machines')
 
 @section('content')
-  <h1>Add a machine type</h1>
+  <h1>Add a content block</h1>
 
 {{--  These need styling --}}
 @if ($errors->any())

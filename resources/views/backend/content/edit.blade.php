@@ -3,8 +3,7 @@
 @section('title', 'Machines')
 
 @section('content')
-
-    <h1>Edit this machine</h1>
+    <h1>Edit this content block</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
