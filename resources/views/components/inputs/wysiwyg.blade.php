@@ -7,6 +7,6 @@
     @endif
 
         {{-- Vue component --}}
-        <wysiwyg value="{{ $inputValue }}" name="{{ $inputName }}"></wysiwyg>
+        <wysiwyg value="{{ $value }}" name="{{ $name }}"></wysiwyg>
 
 </div>

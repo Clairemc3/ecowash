@@ -25,7 +25,7 @@
 ])
 @endinputText
 
-<wysiwyg value="{{ old('body', $promotion->body ?? '')}}" name="Body"></wysiwyg>
+<wysiwyg value="{{ old('body', $promotion->body ?? '')}}" name="Body" configuration="promotion"></wysiwyg>
 {{-- Body--}}
 {{--@inputWysiwyg(['name' => 'body',--}}
 {{--    'label' => 'Promotion content',--}}
