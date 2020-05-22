@@ -91,6 +91,7 @@ import Modal from './ModalPlugin';
         opacity: 1;
     }
     .modal {
+        color: #283640;
         position: relative;
         z-index: 10;
         width: 50%;
