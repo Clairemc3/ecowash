@@ -72,6 +72,9 @@ import Modal from './ModalPlugin';
 </script>
 
 <style type="text/scss">
+    [v-cloak] {
+        display: none;
+    }
 
   .overlay {
         position: absolute;

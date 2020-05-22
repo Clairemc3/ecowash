@@ -5,7 +5,7 @@
     </a>
 </div>
 
-<modal class="alert__modal"
+<modal v-cloak class="alert__modal"
     @if (Cookie::get('ecowash_alert') != $alert->id )
         open-on-load="true"
     @endif
