@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="card mx-auto">
+    <div class="card mx-auto w-1/2">
         <div class="card-content">
             <div class="card-header">{{ __('Login') }}</div>
                 <form method="POST" action="{{ route('login') }}">
