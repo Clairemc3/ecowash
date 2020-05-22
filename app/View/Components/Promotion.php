@@ -28,7 +28,7 @@ class Promotion extends Component
      */
     public function render()
     {
-    	if ($this->promotion->active)
+    	if ($this->visible())
 	    {
 		    return view('components.promotion');
 	    }
@@ -37,5 +37,14 @@ class Promotion extends Component
     private function setPromotion(string $slug)
     {
     	$this->promotion = \App\Promotion::where('slug', $slug)->first();
+    }
+
+
+	/**
+	 * @return bool
+	 */
+    private function visible(): bool
+    {
+    	return $this->promotion && $this->promotion->active;
     }
 }
