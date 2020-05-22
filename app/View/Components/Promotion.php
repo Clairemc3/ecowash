@@ -28,7 +28,10 @@ class Promotion extends Component
      */
     public function render()
     {
-        return view('components.promotion');
+    	if ($this->promotion->active)
+	    {
+		    return view('components.promotion');
+	    }
     }
 
     private function setPromotion(string $slug)

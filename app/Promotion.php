@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Promotion extends Model
 {
 
-    protected $guarded = [];
+    protected $guarded = [
+    	'active'
+    ];
+
+    protected $casts = [
+    	'active' => 'boolean'
+    ];
 
     /**
      * Defines the path for this model.

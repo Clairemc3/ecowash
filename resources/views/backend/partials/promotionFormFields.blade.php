@@ -1,12 +1,11 @@
-{{--Active--}}
-<x-inputs.radio
+
+<x-inputs.switch
         name="active"
-        label="Is this promotion active"
-        help-text="This setting controls whether the promotion is visible to visitors">
-    <x-slot name="options">
-        <x-inputs.radio-option name="active" value="1" label="Active"/>
-    </x-slot>
-</x-inputs.radio>
+        :value="old('active', $promotion->active ?? false)"
+        label="Is this promotion active?"
+        help-text="This setting controls whether the promotion is visible to visitors"
+        />
+
 
 
 {{-- Slug--}}
