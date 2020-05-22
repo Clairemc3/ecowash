@@ -2408,7 +2408,10 @@ footer:empty {
 
 .active[data-v-3b80219c] {
   outline: 3px solid #2F67CA;
-}/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+}.switch[type=checkbox] + label[data-v-45f8a0db] {
+  font-size: 0.75rem;
+}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -2795,6 +2798,10 @@ template {
 
 html {
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
 }
 
 /**
