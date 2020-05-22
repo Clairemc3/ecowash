@@ -13,30 +13,33 @@ class PromotionsSeeder extends Seeder
     public function run()
     {
         Promotion::updateOrCreate(
-            ['position' => 'top'],
+            ['slug' => 'top'],
             [
             'name' => 'Top',
             'body' => '<p>Tumble drying starts from 50p</p>',
             'active' => false,
+            'theme' => 'red'
            ]
         );
 
         Promotion::updateOrCreate(
-            ['position' => 'middle'],
+            ['slug' => 'middle'],
             [
             'name' => 'Middle',
             'body' => '<p>Tumble drying starts from 50p</p>',
             'active' => false,
+            'theme' => 'green'
            ]
         );
 
 
         Promotion::updateOrCreate(
-            ['position' => 'bottom'],
+            ['slug' => 'bottom'],
             [
             'name' => 'Bottom',
             'body' => '<p>Tumble drying starts from 50p</p>',
             'active' => false,
+            'theme' => 'red'
            ]
         );
     }
