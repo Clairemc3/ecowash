@@ -19,6 +19,8 @@ Route::get('/backend-css', 'HomeController@cssPractice')->name('becss');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 
+	// Dashboard
+	Route::get('/', 'DashboardController@show')->name('dashboard');
 
     // Machines
     Route::prefix('machines')->name('machine.')->group(function() {

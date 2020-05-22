@@ -1,5 +1,6 @@
 .card {
-    @apply bg-white max-w-sm rounded overflow-hidden shadow-lg;
+    @apply bg-white max-w-md rounded overflow-hidden shadow-lg;
+    margin: 1em;
 
     .card-header {
         @apply font-bold text-xl mb-2;
@@ -7,6 +8,15 @@
 
     .card-content {
         @apply px-6 py-4;
-    }    
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+}
+
+
+.card-group .card {
+    flex: 1 1 0%;
+    min-width: 30%;
+    max-width: 100%;
 }

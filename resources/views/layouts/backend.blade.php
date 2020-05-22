@@ -36,7 +36,7 @@
         @include('backend.partials.navbar', ['withAdminSidebar' => true])
 
 
-        <div class="mt-10">
+        <div class="mt-16">
 
         <main class="py-4 container">
             @if ($message = Session::get('success'))
