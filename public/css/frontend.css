@@ -28019,7 +28019,10 @@ h3 {
 
 .social-icons {
   font-size: 3em;
-  color: darkblue;
+}
+
+.fa-facebook {
+  color: blue;
 }
 
 .modal {
@@ -28050,7 +28053,6 @@ h3 {
 
 .alert__modal h1 {
   color: #B24240;
-    text-align: center;
 }
 
 .button-group {

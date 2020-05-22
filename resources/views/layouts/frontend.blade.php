@@ -90,7 +90,7 @@
                         <div class="footer__container">
 
                             <div class="social-icons">
-                                <i class="fab fa-facebook"></i>
+                                <a href="https://www.facebook.com/Farncombe.Surrey" target="_blank"><i class="fab fa-facebook"></i></a>
                             </div>
 
                             <div class="footer__address">
