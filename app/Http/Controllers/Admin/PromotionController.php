@@ -38,7 +38,9 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        Promotion::create($request->all());
+        $promotion = Promotion::create($request->all());
+	    $promotion->active = $request->active;
+	    $promotion->save();
 
         return redirect()->route('admin.promotion.index');
     }
@@ -66,7 +68,7 @@ class PromotionController extends Controller
      */
     public function update(Request $request, Promotion $promotion)
     {
-    	$promotion->active= $request->active;
+    	$promotion->active = $request->active;
     	$promotion->save;
         $promotion->update($request->all());
 
