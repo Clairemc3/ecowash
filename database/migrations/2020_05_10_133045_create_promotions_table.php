@@ -18,7 +18,7 @@ class CreatePromotionsTable extends Migration
 	        $table->string('slug')->unique();
 	        $table->string('name')->unique();
             $table->text('body');
-            $table->boolean('active');
+            $table->boolean('active')->default(0);
             $table->string('theme');
             $table->timestamps();
         });

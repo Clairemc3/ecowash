@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
+
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles;
+    use Notifiable, HasRolesAndAbilities;
 
     /**
      * The attributes that are mass assignable.
@@ -37,4 +38,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+	/**
+	 * Defines the path for this model.
+	 *
+	 * @return string
+	 */
+	public function path()
+	{
+		return "/admin/users/{$this->id}";
+	}
 }
