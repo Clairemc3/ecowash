@@ -15,7 +15,15 @@ Auth::routes(['register' => false]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/backend-css', 'HomeController@cssPractice')->name('becss');
+// Guest routes
+Route::namespace('Auth')->middleware(['guest'])->group(function () {
+	Route::get('/activate/{token}', 'ActivationController@showActivationForm')
+		->where('token', '[A-z1-9]{40}')
+		->name('activation.showForm');
+//	Route::post('/activate/{token}', 'Auth\ActivationController@activate')
+//		->where('token', '[A-z1-9]{32}')
+//		->name('activation.activate');
+});
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
 
@@ -71,6 +79,23 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
         Route::put('/{promotion}', 'PromotionController@update')->name('update');
          Route::delete('/{promotion}', 'PromotionController@destroy')->name('destroy');
     });
+
+
+	// Users
+	Route::prefix('users')->name('user.')->group(function() {
+
+		//Inviting a user
+		Route::get('/invite', 'InvitationController@create')->name('invitation');
+		Route::post('/invite', 'InvitationController@store')->name('invitation.store');
+
+		// Managing a user
+		Route::get('/', 'UserController@index')->name('index');
+		Route::get('/{user}', 'UserController@edit')->name('edit');
+		Route::put('/{user}', 'UserController@update')->name('update');
+		Route::delete('/{user}', 'UserController@destroy')->name('destroy');
+
+
+	});
 
 
     // Images

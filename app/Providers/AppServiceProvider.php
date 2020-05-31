@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+    	// Register obserers
         // Register components and includes
 
         $this->registerInputComponents();
