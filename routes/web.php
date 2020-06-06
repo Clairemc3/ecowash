@@ -17,12 +17,12 @@ Route::get('/', 'HomeController@index')->name('home');
 
 // Guest routes
 Route::namespace('Auth')->middleware(['guest'])->group(function () {
-	Route::get('/activate/{token}', 'ActivationController@showActivationForm')
-		->where('token', '[A-z1-9]{40}')
+	Route::get('/activate/{token}/{email}', 'ActivationController@showActivationForm')
+		->where('token', '[A-z0-9]{40}')
 		->name('activation.showForm');
-	Route::post('/activate/{token}', 'Auth\ActivationController@activate')
-		->where('token', '[A-z1-9]{32}')
-		->name('activation.complete');
+	Route::post('/activate/{token}/{email}', 'ActivationController@activate')
+		->where('token', '[A-z0-9]{40}')
+		->name('activation.activate');
 });
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {

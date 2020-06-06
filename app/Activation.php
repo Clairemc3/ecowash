@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App;
 
 use App\User;
 use Carbon\Carbon;
@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class ActivationRepository
+class Activation
 {
 	public $table = 'activations';
 
 	public $expires = 24; // Hours
+
+	private $activation;
 
 	public function create(User  $user): string
 	{
@@ -26,7 +28,36 @@ class ActivationRepository
 		DB::table($this->table)->insert($this->getPayload($user, $token));
 
 		return $token;
+	}
 
+	public function user()
+	{
+		return User::find($this->activation->user_id);
+	}
+
+	/**
+	 * @param string $email
+	 * @param string $token
+	 */
+	public function findByEmail(string $email)
+	{
+		$user = User::where('email', $email)->first();
+
+		// Get the active record
+		$this->activation = DB::table($this->table)
+			->where('user_id', $user->id)
+			->whereNull('completed_at')->first();
+
+		return $this;
+
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function get()
+	{
+		return $this->activation;
 	}
 
 	/**
@@ -41,27 +72,15 @@ class ActivationRepository
 
 
 	/**
-	 * @param User $user
+	 * @param string $token
+	 * @return bool
 	 */
-	public function valid(string $email, string $token): bool
+	public function isValid(string $token): bool
 	{
-		$user = User::where('email', $email)->first();
-
-		// If no user with this email, return false;
-		if (!$user)
-		{
-			return false;
-		}
-
-		// Get the active record
-		$activation = DB::table($this->table)
-			->where('user_id', $user->id)
-			->where('completed', 0)->get();
-
 		// If activation exists, token is valid and is not expired return true
-		if ($activation &&
-			!$this->expired($activation->created_at) &&
-			Hash::check($token, $activation->token))
+		if ($this->activation &&
+			!$this->expired($this->activation->created_at) &&
+			Hash::check($token, $this->activation->token))
 		{
 			return true;
 		}
@@ -75,7 +94,7 @@ class ActivationRepository
 	 * @param  string  $token
 	 * @return array
 	 */
-	protected function getPayload(User $user, $token)
+	protected  function getPayload(User $user, $token)
 	{
 		return [
 			'user_id' => $user->id,

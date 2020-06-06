@@ -33,26 +33,6 @@ class ManageUsersTest extends TestCase
 
 
 	/**  @test  */
-	public function a_user_can_invite_a_user()
-	{
-		$this->withoutExceptionHandling();
-
-		$this->actingAs($this->authenticatedUser);
-
-		$this->get('admin/users/create')->assertStatus(200);
-
-		$attributes = factory(\App\User::class)->raw();
-
-		$this->post('admin/users/invite', $attributes)->assertRedirect('/admin/users');
-
-		$this->assertDatabaseHas('users', $attributes);
-
-		$this->get('admin/users')->assertSee($attributes['email']);
-
-	}
-
-
-	/**  @test  */
 	public function a_user_can_delete_a_user()
 	{
 		$this->actingAs($this->authenticatedUser);

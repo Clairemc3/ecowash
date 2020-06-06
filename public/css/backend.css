@@ -28762,6 +28762,10 @@ body {
   font: normal 125%/1.4 "Segoe UI", "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+form p {
+  margin-bottom: 0.75em;
+}
+
 /**
  * Basic typography style for copy text
  */

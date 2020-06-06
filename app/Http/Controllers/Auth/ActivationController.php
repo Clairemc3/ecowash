@@ -2,25 +2,59 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Repositories\ActivationRepository;
-use Illuminate\Http\Request;
+use App\Activation;
+use App\Http\Requests\ActivateUserRequest;
 use App\Http\Controllers\Controller;
+use App\UserStatus;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ActivationController extends Controller
 {
 
-	public function showActivationForm(Request $request,  $token)
+
+	/**
+	 * Where to redirect users after activation.
+	 *
+	 * @var string
+	 */
+	protected $redirectTo = '/admin';
+
+
+	public function showActivationForm($token, $email)
 	{
-		$email = $request->email;
+		$activation = new Activation();
 
-		$activation = new ActivationRepository();
-
-		if ($activation->valid($email, $token ))
-			return view('activations.activate')->with(
+		if ($activation->findByEmail($email)->isValid($token))
+		{
+			return view('backend.activations.activate')->with(
 				['token' => $token, 'email' => $email]
 			);
-
-		return view('activations.failed',
-			['errorMessage' => 'Sorry, your activation token is not valid. Please request a new token']);
+		}
+		else
+		{
+			return view('backend.activations.failed')
+				->with('warning', 'Sorry, your activation token is not valid. Please request a new token');
+		}
     }
+
+	/**
+	 * @param ActivateUserRequest $request
+	 */
+	public function activate(ActivateUserRequest  $request)
+	{
+		$user = $request->activation->user();
+		$user->password = Hash::make($request->password);
+		$user->status = UserStatus::ACTIVE;
+		$user->save();
+
+		Auth::login($user);
+
+		session()->flash('success', 'Congratulations, your account has been activated');
+
+		return redirect($this->redirectTo);
+
+	}
+
+
 }

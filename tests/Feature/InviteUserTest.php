@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Activation;
 use App\Events\UserInvited;
 use App\Notifications\UserInvitation;
-use App\Repositories\ActivationRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -69,23 +69,24 @@ class InviteUserTest extends TestCase {
 	 *
 	 * @return void
 	 */
-	public function an_invited_user_can_activate_their_account()
+	public function an_user_can_activate_their_account()
 	{
 		$this->withoutExceptionHandling();
 
 		$user = factory(\App\User::class)->state('invited')->create();
 
-		$activationRepository = new ActivationRepository();
+		$activation = new Activation();
 
-		$token = $activationRepository->create($user);
+		$token = $activation->create($user);
 
-		$route = "/activate/{$token}?email={$user->email}";
+		$route = "/activate/{$token}/{$user->email}";
 
 		$this->get($route)->assertStatus(200);
 
 //		$this->post($route, ['password' => 'password',
-//		                     'password_confirmation' => 'password']);
+//		                     'password_confirmation' => 'password'])->assertRedirect('admin');
 
+//		$this->assertEquals($user->status, 'Active');
 
 	}
 }

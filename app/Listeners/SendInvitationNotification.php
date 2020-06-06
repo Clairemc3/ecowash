@@ -4,7 +4,6 @@ namespace App\Listeners;
 
 use App\Activation;
 use App\Notifications\UserInvitation;
-use App\Repositories\ActivationRepository;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -16,9 +15,9 @@ class SendInvitationNotification
 
 	/**
 	 * SendInvitationNotification constructor.
-	 * @param ActivationRepository $activation
+	 * @param Activation $activation
 	 */
-    public function __construct(ActivationRepository $activation)
+    public function __construct(Activation $activation)
     {
 		$this->activation = $activation;
     }

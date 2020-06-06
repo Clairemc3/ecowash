@@ -6,7 +6,7 @@
     @endif
     <input required name="{{$name}}" type="text" id="{{$name}}" aria-describedby="{{$name}}"
     @if (isset($placeholder)) placeholder="{{ $placeholder }}" @endif
-    value="{{$value}}"
+    value="{{ old($name) ?? $value}}"
     @if($disabled ?? false) disabled @endif
 
     {{-- Render any attributes --}}
