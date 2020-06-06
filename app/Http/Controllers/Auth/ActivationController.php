@@ -13,7 +13,6 @@ class ActivationController extends Controller
 	{
 		$email = $request->email;
 
-
 		$activation = new ActivationRepository();
 
 		if ($activation->valid($email, $token ))

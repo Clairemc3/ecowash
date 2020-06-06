@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,11 +14,8 @@ class ManageUsersTest extends TestCase
 	/**  @test  */
 	public function guests_cannnot_manage_users()
 	{
-		$machine = factory(\App\User::class)->create();
-
 		$this->get('admin/users')->assertRedirect('/login');
-		$this->get('admin/users/create')->assertRedirect('/login');
-		$this->post('admin/users', $machine->toArray())->assertRedirect('/login');
+		$this->get('admin/users/invite')->assertRedirect('/login');
 	}
 
 
@@ -28,14 +26,14 @@ class ManageUsersTest extends TestCase
 
 		$this->actingAs($this->authenticatedUser);
 
-		$users = factory(\App\User::class, 3)->create();
+		factory(\App\User::class, 3)->create();
 
 		$this->get('admin/users')->assertSee('Users')->assertStatus(200);
 	}
 
 
 	/**  @test  */
-	public function a_user_can_invite_a_userr()
+	public function a_user_can_invite_a_user()
 	{
 		$this->withoutExceptionHandling();
 
@@ -45,13 +43,38 @@ class ManageUsersTest extends TestCase
 
 		$attributes = factory(\App\User::class)->raw();
 
-		$this->post('admin/users', $attributes)->assertRedirect('/admin/users');
+		$this->post('admin/users/invite', $attributes)->assertRedirect('/admin/users');
 
 		$this->assertDatabaseHas('users', $attributes);
 
 		$this->get('admin/users')->assertSee($attributes['email']);
 
+	}
 
-		// An invitation email should ne sent
+
+	/**  @test  */
+	public function a_user_can_delete_a_user()
+	{
+		$this->actingAs($this->authenticatedUser);
+
+		$user = factory(\App\User::class)->create();
+
+		$this->delete($user->path());
+
+		$this->assertDatabaseMissing('users', $user->toArray());
+	}
+
+
+	/**  @test  */
+	public function a_user_cannot_delete_themself()
+	{
+		$this->withoutExceptionHandling();
+
+		$this->expectException(AuthorizationException::class);
+
+		$this->actingAs($this->authenticatedUser);
+
+		$this->delete($this->authenticatedUser->path());
+
 	}
 }

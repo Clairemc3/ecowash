@@ -16,6 +16,16 @@ class UserController extends Controller
 		return view('backend.users.index', compact('users'));
 	}
 
+
+	public function destroy(User $user)
+	{
+		$this->authorize('delete', $user);
+
+		$user->delete();
+
+		return redirect()->back()->with('User  has been deleted');
+	}
+
 	public function edit()
 	{
 		return;

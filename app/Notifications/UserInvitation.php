@@ -43,7 +43,7 @@ class UserInvitation extends Notification
      */
     public function toMail($notifiable)
     {
-    	$url = route(activate, ['token' => $token, 'email' => $notifiable->email]);
+    	$url = route('activation.complete', ['token' => $this->token, 'email' => $notifiable->email]);
 
         return (new MailMessage)
 	                ->subject('Set up your Ecowash account')
