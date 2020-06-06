@@ -87,6 +87,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth'])
 		//Inviting a user
 		Route::get('/invite', 'InvitationController@create')->name('invitation');
 		Route::post('/invite', 'InvitationController@store')->name('invitation.store');
+		Route::post('/resend-invite/{user}', 'InvitationController@resend')->name('invitation.resend');
 
 		// Managing a user
 		Route::get('/', 'UserController@index')->name('index');

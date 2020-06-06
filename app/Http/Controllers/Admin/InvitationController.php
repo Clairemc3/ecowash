@@ -37,4 +37,15 @@ class InvitationController extends Controller
 
 		return redirect()->route('admin.user.index');
 	}
+
+	public function resend(User $user)
+	{
+		event( new UserInvited($user));
+
+		session()->flash('success', 'Invitation has been resent to ' . $user->email );
+
+		return redirect()->back();
+
+
+	}
 }
