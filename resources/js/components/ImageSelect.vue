@@ -37,7 +37,7 @@ import Modal from '../plugins/modal/ModalPlugin';
                 imageUrls: null,
                 activeImage: null,
                 selectedImage: null,
-                defaultImage: '/storage/slider-images/slider-default.jpg',
+                defaultImage: '/storage/image-placeholder.jpg',
                 apiError: false,
             }
         },
