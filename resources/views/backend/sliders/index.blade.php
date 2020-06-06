@@ -6,6 +6,7 @@
 
 {{-- Resource index header --}}
 @resourceIndexHeader([
+    'modelClass' => App\Slider::class,
     'title' => 'Sliders',
     'createRoute' => route('admin.slider.create'),
     'addResourceText' => 'Add a slider'])

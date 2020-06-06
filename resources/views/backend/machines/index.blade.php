@@ -6,6 +6,7 @@
 
 {{-- Resource index header --}}
 @resourceIndexHeader([
+    'modelClass' => App\Machine::class,
     'title' => 'Machines',
     'createRoute' => route('admin.machine.create'),
     'addResourceText' => 'Add a machine'])

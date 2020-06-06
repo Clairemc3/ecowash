@@ -30,6 +30,9 @@ class InvitationController extends Controller
 	{
 		$user = User::create($request->all());
 
+		// For now - all users are admins
+		$user->assign('admin');
+
 		event( new UserInvited($user));
 
 		return redirect()->route('admin.user.index');

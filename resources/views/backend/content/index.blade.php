@@ -6,6 +6,7 @@
 
 {{-- Resource index header --}}
 @resourceIndexHeader([
+    'modelClass' => App\Content::class,
     'title' => 'Content',
     'createRoute' => route('admin.content.create'),
     'addResourceText' => 'Add content'])

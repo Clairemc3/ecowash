@@ -6,6 +6,7 @@
 
 {{-- Resource index header --}}
 @resourceIndexHeader([
+    'modelClass' => App\Promotion::class,
     'title' => 'Promotions',
     'createRoute' => route('admin.promotion.create'),
     'addResourceText' => 'Add a promotion block'])

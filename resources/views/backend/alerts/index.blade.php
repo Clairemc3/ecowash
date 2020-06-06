@@ -6,6 +6,7 @@
 
 {{-- Resource index header --}}
 @resourceIndexHeader([
+    'modelClass' => App\Alert::class,
     'title' => 'Alerts',
     'createRoute' => route('admin.alert.create'),
     'addResourceText' => 'Add an alert'])

@@ -3,7 +3,7 @@
 @section('title', 'Machines')
 
 @section('content')
-  <h1>Add a promotion</h1>
+  <h1>Update a promotion</h1>
 
 {{--  These need styling --}}
 @if ($errors->any())

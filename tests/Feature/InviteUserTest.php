@@ -83,10 +83,10 @@ class InviteUserTest extends TestCase {
 
 		$this->get($route)->assertStatus(200);
 
-//		$this->post($route, ['password' => 'password',
-//		                     'password_confirmation' => 'password'])->assertRedirect('admin');
+		$this->post($route, ['password' => 'password',
+		                     'password_confirmation' => 'password'])->assertRedirect('admin');
 
-//		$this->assertEquals($user->status, 'Active');
+		$this->assertEquals($user->status, 'active');
 
 	}
 }

@@ -4,9 +4,9 @@
 
 class UserStatus {
 
-	const ACTIVE = 'Active';
-	const INACTIVE = 'Inactive';
-	const INVITED = 'Invited';
+	const ACTIVE = 'active';
+	const INACTIVE = 'inactive';
+	const INVITED = 'invited';
 
 
 	/**

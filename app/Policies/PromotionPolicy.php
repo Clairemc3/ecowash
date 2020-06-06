@@ -2,22 +2,19 @@
 
 namespace App\Policies;
 
+use App\Promotion;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class PromotionPolicy
 {
     use HandlesAuthorization;
 
 
 	public function before($user, $ability)
 	{
-		if ($ability != 'delete')
-		{
-			if ($user->isA('super-admin'))
-			{
-				return true;
-			}
+		if ($user->isA('super-admin')) {
+			return true;
 		}
 	}
 
@@ -36,12 +33,12 @@ class UserPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
-     * @param  \App\User  $model
+     * @param  \App\Promotion  $promotion
      * @return mixed
      */
-    public function view(User $user, User $model)
+    public function view(User $user, Promotion $promotion)
     {
-        //
+        return true;
     }
 
     /**
@@ -59,35 +56,34 @@ class UserPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
-     * @param  \App\User  $model
+     * @param  \App\Promotion  $promotion
      * @return mixed
      */
-    public function update(User $user, User $model)
+    public function update(User $user, Promotion $promotion)
     {
-        //
+    	return true;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\User  $model
+     * @param  \App\Promotion  $promotion
      * @return mixed
      */
-    public function delete(User $user, User $model)
+    public function delete(User $user, Promotion $promotion)
     {
-    	// Users cannot delete themselves
-        return $model->isNotA('super-admin') &&  $user->id !== $model->id;
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
-     * @param  \App\User  $model
+     * @param  \App\Promotion  $promotion
      * @return mixed
      */
-    public function restore(User $user, User $model)
+    public function restore(User $user, Promotion $promotion)
     {
         //
     }
@@ -96,10 +92,10 @@ class UserPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\User  $model
+     * @param  \App\Promotion  $promotion
      * @return mixed
      */
-    public function forceDelete(User $user, User $model)
+    public function forceDelete(User $user, Promotion $promotion)
     {
         //
     }
