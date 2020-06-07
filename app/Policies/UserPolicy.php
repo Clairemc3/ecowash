@@ -77,7 +77,7 @@ class UserPolicy
     public function delete(User $user, User $model)
     {
     	// Users cannot delete themselves
-        return $model->isNotA('super-admin') &&  $user->id !== $model->id;
+	    return $user->id !== $model->id && $model->isNotA('super-admin');
     }
 
     /**

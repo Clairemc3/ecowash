@@ -17,7 +17,8 @@ class UsersTableSeeder extends Seeder
        $user = User::updateOrCreate(
             ['email' => 'clairemc3@gmail.com'],
             ['name' => 'claire',
-            'password' => Hash::make('password'), ]);
+            'password' => Hash::make('password'),
+             'status' => 'Active']);
 
 
 	   Bouncer::assign('super-admin')->to($user);
