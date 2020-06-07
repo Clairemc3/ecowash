@@ -70,7 +70,7 @@ class PromotionController extends Controller
     public function update(UpdatePromotionRequest $request, Promotion $promotion)
     {
     	$promotion->active = $request->active;
-    	$promotion->save;
+    	$promotion->save();
         $promotion->update($request->all());
 
         return redirect()->route('admin.promotion.index');
