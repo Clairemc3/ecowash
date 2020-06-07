@@ -14,17 +14,30 @@ h1, h2, h3 {
 }
 
 h1 {
+  font-size: 2em;
+
+  @include mediaQuery(medium) {
     font-size: 3em;
   }
 
+}
+
 
 h2 {
-  font-size: 2em;
+  font-size: 1.75em;
+
+  @include mediaQuery(medium) {
+    font-size: 2em;
+  }
 }
 
 
 h3 {
-  font-size: 1.5em;
+  font-size: 1.25em;
+
+  @include mediaQuery(medium) {
+    font-size: 1.5em;
+  }
 }
 
 p {

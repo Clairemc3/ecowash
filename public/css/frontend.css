@@ -27650,6 +27650,10 @@ li {
   margin-left: 2em;
 }
 
+button a {
+  display: block;
+}
+
 /**
  * Basic typography style for copy text
  */
@@ -28031,7 +28035,7 @@ h3 {
 }
 
 .modal h1 {
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 @media (min-width: 992px) {
@@ -28043,6 +28047,10 @@ h3 {
     font-size: 2em;
     margin-top: 0;
   }
+}
+
+.image-select .modal {
+  max-height: calc(100vh - 50px);
 }
 
 .alert {

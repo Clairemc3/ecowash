@@ -87,7 +87,7 @@ import Modal from './ModalPlugin';
         justify-content: center;
         background: rgba(0, 0, 0, .4);
         transition: opacity .7s;
-        z-index: 9;
+        z-index: 12;
     }
     .overlay:target {
         visibility: visible;
@@ -134,7 +134,7 @@ import Modal from './ModalPlugin';
         flex-grow: 1;
         text-align: center;
         min-width: 40%;
-        margin-top: 1em;
+        /*margin-top: 1em;*/
 
     }
 

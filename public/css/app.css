@@ -16,7 +16,7 @@
   background: rgba(0, 0, 0, .4);
   -webkit-transition: opacity .7s;
   transition: opacity .7s;
-  z-index: 9;
+  z-index: 12;
 }
 .overlay:target {
   visibility: visible;
@@ -64,7 +64,7 @@
           flex-grow: 1;
   text-align: center;
   min-width: 40%;
-  margin-top: 1em;
+  /*margin-top: 1em;*/
 }
 footer:empty {
   margin-top: 1em;
@@ -2412,6 +2412,9 @@ footer:empty {
 
 .active[data-v-3b80219c] {
   outline: 3px solid #2F67CA;
+}
+.modal[data-v-3b80219c] {
+  max-height: calc(100vh - 50px);
 }.switch[type=checkbox] + label[data-v-45f8a0db] {
   font-size: 0.75rem;
 }
@@ -2849,6 +2852,10 @@ ul {
 
 li {
   margin-left: 2em;
+}
+
+button a {
+  display: block;
 }
 
 /**

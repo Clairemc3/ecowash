@@ -1,5 +1,5 @@
 <template>
-        <modal>
+        <modal class="image-select">
             <template v-slot:trigger>
                  <img class="w-1/2 sm:w-1/3 md:w-1/4 m-3" v-if="selectedImage" :src="selectedImage" >
                  <img class="w-1/2 sm:w-1/3 md:w-1/4 m-3" v-else :src="defaultImage" >
@@ -104,6 +104,9 @@ import Modal from '../plugins/modal/ModalPlugin';
 
 .active  {
     outline: 3px solid #2F67CA;
+}
+.modal {
+    max-height: calc(100vh - 50px);
 }
 
 </style>

@@ -29,17 +29,18 @@
 
 
 .button-group {
-    margin-top: 2em;
+    margin-top: 1em;
     @include flexy( 
         $dir: column,
         $justify: center,
     );
     button {
         margin: 0.2em 0;
-        padding: 1em 0;
+        //padding: 1em 0;
     }
 
     @include mediaQuery(large) {
+        margin-top: 2em;
         flex-direction: row;
         justify-content: flex-start;
 

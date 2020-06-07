@@ -1,6 +1,6 @@
 .modal  {
     h1 {
-        font-size: 1.5em
+        font-size: 1em
     }
     width: 90%;
     padding: 1em;
@@ -12,4 +12,9 @@
             margin-top: 0;
         }
     }
+}
+
+
+.image-select .modal{
+    max-height: calc(100vh - 50px);
 }
