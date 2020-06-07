@@ -17,7 +17,9 @@
 @endif
 
     <x-form action="{{ route('admin.promotion.update', ['promotion' => $promotion ])}}" method="PUT">
+
         @include('backend.partials.promotionFormFields')
+
         <div class="button-group">
             <button type="submit" class="btn btn-teal">Submit</button>
             <button class="btn btn-white"> <a href="{{route('admin.promotion.index')}}">Cancel</a></button>
