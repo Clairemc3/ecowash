@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdatePromotionRequest;
 use App\Promotion;
 use Illuminate\Http\Request;
 
@@ -66,7 +67,7 @@ class PromotionController extends Controller
      *
      * @return void
      */
-    public function update(Request $request, Promotion $promotion)
+    public function update(UpdatePromotionRequest $request, Promotion $promotion)
     {
     	$promotion->active = $request->active;
     	$promotion->save;
