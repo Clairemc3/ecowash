@@ -1,6 +1,7 @@
 .card {
     @apply bg-white rounded overflow-hidden shadow-lg;
-    margin: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 
     .card-header {
         @apply font-bold text-xl mb-2;
