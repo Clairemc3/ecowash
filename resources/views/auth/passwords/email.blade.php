@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="my-auto mx-auto w-1/2">
+        <div class="my-auto mx-auto w-full sm:w-1/2">
             <x-card>
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
