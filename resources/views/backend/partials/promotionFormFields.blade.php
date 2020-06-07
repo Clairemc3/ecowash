@@ -28,7 +28,7 @@
         />
 
 
-<wysiwyg value="{{ old('body', $promotion->body ?? '')}}" name="Body" configuration="promotion"></wysiwyg>
+<wysiwyg value="{{ old('body', $promotion->body ?? '')}}" name="body" configuration="promotion"></wysiwyg>
 
 <x-inputs.select name="theme" label="Select a colour theme">
         <x-slot name="options">
