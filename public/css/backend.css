@@ -28689,6 +28689,13 @@ body.no-scroll {
   max-width: 100%;
 }
 
+@media (min-width: 768px) {
+  .card-group .card {
+    margin-right: 0.75em;
+    margin-left: 0.75em;
+  }
+}
+
 form {
   background-color: #fff;
   border-radius: 0.25rem;

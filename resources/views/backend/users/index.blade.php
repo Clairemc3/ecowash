@@ -11,13 +11,16 @@
     'createRoute' => route('admin.user.invitation'),
     'addResourceText' => 'Add a new user'])
 
-
     @if ($users->isEmpty())
         <p>There are no users</p>
     @else
         <x-table.table>
-            <x-table.head :headings="['Name', 'Email', 'Status', 'Roles']">
+            <x-table.head :headings="['Email', 'Status']">
+                <x-slot name="before">
+                    <x-table.cell hideOnMobile type="heading">Name</x-table.cell>
+                </x-slot>
                 <x-slot name="after">
+                    <x-table.cell hideOnMobile type="heading">Roles</x-table.cell>
                     <x-table.cell type="heading"></x-table.cell>
                 </x-slot>
             </x-table.head>
@@ -25,7 +28,7 @@
             <x-table.body>
                 @foreach($users as $user)
                     <x-table.row>
-                        <x-table.cell>{{ $user->name }} </x-table.cell>
+                        <x-table.cell hideOnMobile>{{ $user->name }} </x-table.cell>
                         <x-table.cell>{{ $user->email }} </x-table.cell>
                         <x-table.cell>
                             @if ($user->status === \App\UserStatus::INVITED)
@@ -42,7 +45,7 @@
                                 {{ ucfirst($user->status) }}
                             @endif
                         </x-table.cell>
-                        <x-table.cell>
+                        <x-table.cell hideOnMobile>
                            @foreach( $user->roles as $role)
                                 {{ $role->title }}
                                 @if (!$loop->last)

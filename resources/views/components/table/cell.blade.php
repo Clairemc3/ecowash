@@ -1,7 +1,8 @@
 @php($type = $type ?? 'cell')
-
+@php($class = 'py-2 px-4 sm:py-4' . ($class ?? '') )
+@php($class = ( isset($hideOnMobile) ? 'hidden sm:table-cell ' : '') . $class )
 @if ($type === 'heading' ?? false)
-    <th class="py-2 px-4 sm:py-4 sm:px-6 {{$class ?? ''}}"> {{ $slot }}</th>
+    <th class="{{ $class }}"> {{ $slot }}</th>
 @else
-    <td class=" py-2 px-4 sm:py-4 sm:px-6 {{$class ?? ''}}"> {{ $slot }}</td>
+    <td class="{{ $class }}"> {{ $slot }}</td>
 @endif
