@@ -43,10 +43,17 @@ class Activation
 	{
 		$user = User::where('email', $email)->first();
 
-		// Get the active record
-		$this->activation = DB::table($this->table)
-			->where('user_id', $user->id)
-			->whereNull('completed_at')->first();
+		if ($user)
+		{
+			// Get the active record
+			$this->activation = DB::table($this->table)
+				->where('user_id', $user->id)
+				->whereNull('completed_at')->first();
+		}
+		else
+		{
+			$this->activation = null;
+		}
 
 		return $this;
 

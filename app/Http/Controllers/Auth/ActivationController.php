@@ -34,7 +34,7 @@ class ActivationController extends Controller
 		else
 		{
 			return view('backend.activations.failed')
-				->with('warning', 'Sorry, your activation token is not valid. Please request a new token');
+				->with('error', 'Sorry, your activation token is not valid. Please request a new token');
 		}
     }
 

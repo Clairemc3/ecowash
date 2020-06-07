@@ -6,8 +6,6 @@
     <h1>Activate your account</h1>
 
     <x-card>
-
-        {{ $errorMessage }}
-
+        {{ $error }}
     </x-card>
 @endSection
