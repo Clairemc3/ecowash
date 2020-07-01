@@ -27584,6 +27584,10 @@ p.large, .ck-paragraph__large {
   font-size: 2em;
 }
 
+.ck-editor__editable a {
+  text-decoration: underline;
+}
+
 @-webkit-keyframes spinAround {
   from {
     -webkit-transform: rotate(0deg);

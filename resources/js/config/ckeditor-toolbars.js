@@ -58,7 +58,8 @@ config.basic = {
             'heading',
             'bold',
             'italic',
-            'bulletedList'
+            'bulletedList',
+            'link'
         ],
     },
     heading: {
