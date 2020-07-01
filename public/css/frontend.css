@@ -28101,6 +28101,11 @@ h3 {
   text-align: center;
 }
 
+.section p a {
+  color: #435765;
+  text-decoration: underline;
+}
+
 .section__page {
   margin: 3% 0;
   padding: 1em;

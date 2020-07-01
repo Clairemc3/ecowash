@@ -8,8 +8,13 @@
     margin: 1.5em 0;
     padding: 1px;
     text-align: center;
+
+    p a {
+        color: $dark-blue;
+        text-decoration: underline;
+    }
   }
-  
+
   // Main page sections
   .section__page {
     margin: 3% 0;
