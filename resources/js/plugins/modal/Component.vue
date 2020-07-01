@@ -111,6 +111,7 @@ import Modal from './ModalPlugin';
 
     .modal-content {
         overflow: auto;
+        margin-bottom: 0.5em;
     }
 
     .modal .close {
