@@ -97,6 +97,7 @@
                                 <span>Farncombe Street,</span>
                                 <span>near Godalming,</span>
                                 <span>GU7 3AZ</span>
+                                <span>Tel: 07547 774630</span>
                                 <span>Tel: 01483 415149</span>
                                 <span>Email: ecowash@btinternet.com</span>
                             </div>
