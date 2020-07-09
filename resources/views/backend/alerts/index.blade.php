@@ -28,7 +28,7 @@
     <p>No alerts</p>
 @else
     <x-table.table>
-        <x-table.head :headings="['Summary', 'Start date', 'End date']">
+        <x-table.head :headings="['Summary', 'Starts at', 'Ends at']">
             <x-slot name="after">
                 <x-table.cell type="heading"></x-table.cell>
                 <x-table.cell type="heading" class="hidden sm:table-cell"></x-table.cell>
