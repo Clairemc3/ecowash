@@ -2,7 +2,7 @@
 @inputDateTime(['name' => 'starts_at',
 'label' => 'Starts at*',
 'value' => old('starts_at', isset($alert) ? $alert->starts_at->format('Y-m-d\TH:i') : ''),
-'helpText' => 'Select the date you would like the alert to start appearing',
+'helpText' => 'Select the date and time you would like the alert to start appearing',
 ])
 @endinputDateTime
 
@@ -10,7 +10,7 @@
 @inputDateTime(['name' => 'ends_at',
 'label' => 'Ends at*',
 'value' =>  old('ends_at', isset($alert) ? $alert->ends_at->format('Y-m-d\TH:i') : ''),
-'helpText' => 'Select the date you would like the alert to stop appearing',
+'helpText' => 'Select the date and time you would like the alert to stop appearing',
 ])
 @endinputDateTime
 
