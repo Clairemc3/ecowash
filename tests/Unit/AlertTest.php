@@ -22,8 +22,8 @@ class AlertTest extends TestCase
     public function it_is_active_based_on_start_and_end_date()
     {
         $alert = factory(\App\Alert::class)->create(
-            ['start_date' => now()->toDateString(),
-            'end_date' => now()->toDateString(), ]);
+            ['starts_at' => now()->toDateTimeString(),
+            'ends_at' => now()->toDateTimeString(), ]);
 
         $this->assertEquals(true, $alert->isActive());
     }

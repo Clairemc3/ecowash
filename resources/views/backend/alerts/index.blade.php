@@ -39,8 +39,8 @@
             @foreach($alerts as $alert)
                 <x-table.row :class="$alert->isExpired() ? 'text-gray-500' : ''">
                     <x-table.cell>{{ $alert->short_text }} </x-table.cell>
-                    <x-table.cell>{{ $alert->startDateString }} </x-table.cell>
-                    <x-table.cell>{{ $alert->endDateString }} </x-table.cell>
+                    <x-table.cell>{{ $alert->startsAtString }} </x-table.cell>
+                    <x-table.cell>{{ $alert->endsAtString }} </x-table.cell>
                     <x-table.cell
                             class="text-center hidden sm:table-cell">
                         @if ($alert->isActive())

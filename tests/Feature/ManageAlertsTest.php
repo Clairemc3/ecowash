@@ -90,13 +90,13 @@ class ManageAlertsTest extends TestCase
         $this->actingAs($this->authenticatedUser);
 
         $attributes = factory(\App\Alert::class)->raw([
-            'start_date' => null,
-            'end_date' => null, ]);
+            'starts_at' => null,
+            'ends_at' => null, ]);
 
         $this->post('admin/alerts', $attributes)
             ->assertSessionHasErrors([
-                'start_date',
-                'end_date', ]);
+                'starts_at',
+                'ends_at', ]);
     }
 
     /**  @test  */
@@ -105,11 +105,11 @@ class ManageAlertsTest extends TestCase
         $this->actingAs($this->authenticatedUser);
 
         $attributes = factory(\App\Alert::class)->raw([
-            'start_date' => now(),
-            'end_date' => now()->subDays(1), ]);
+            'starts_at' => now(),
+            'ends_at' => now()->subDays(1), ]);
 
         $this->post('admin/alerts', $attributes)
-            ->assertSessionHasErrors('end_date');
+            ->assertSessionHasErrors('ends_at');
     }
 
     /**  @test  */
@@ -150,8 +150,8 @@ class ManageAlertsTest extends TestCase
 
         // Max 60 chars
         $newAlert = factory(\App\Alert::class)->raw([
-            'start_date' => $existingAlert->start_date,
-            'end_date' => $existingAlert->end_date,
+            'starts_at' => $existingAlert->starts_at,
+            'ends_at' => $existingAlert->ends_at,
             ]);
 
         $this->post('admin/alerts', $newAlert)

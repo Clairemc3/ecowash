@@ -56,6 +56,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::aliasComponent('components.inputs.number', 'inputNumber');
         Blade::aliasComponent('components.inputs.wysiwyg', 'inputWysiwyg');
         Blade::aliasComponent('components.inputs.date', 'inputDate');
+        Blade::aliasComponent('components.inputs.dateTime', 'inputDateTime');
     }
 
     /**

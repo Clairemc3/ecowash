@@ -8,7 +8,7 @@ class Alert extends Model
 {
     protected $guarded = [];
 
-    protected $dates = ['start_date', 'end_date'];
+    protected $dates = ['starts_at', 'ends_at'];
 
     /**
      * Defines the path for this model.
@@ -25,9 +25,20 @@ class Alert extends Model
      *
      * @return void
      */
-    public function getStartDateStringAttribute()
+    public function getStartsAtStringAttribute()
     {
-        return $this->start_date->format('d-M-Y');
+        return $this->starts_at->format('d-M-Y, H:i');
+    }
+
+
+    /**
+     * Return the end date as a string.
+     *
+     * @return void
+     */
+    public function getEndsAtStringAttribute()
+    {
+        return $this->ends_at->format('d-M-Y, H:i');
     }
 
     /**
@@ -68,15 +79,6 @@ class Alert extends Model
         return 2;
     }
 
-    /**
-     * Return the end date as a string.
-     *
-     * @return void
-     */
-    public function getEndDateStringAttribute()
-    {
-        return $this->end_date->format('d-M-Y');
-    }
 
     /**
      * Determine if the alert is expired (in the past).
@@ -87,7 +89,7 @@ class Alert extends Model
     {
         $now = now();
 
-        if ($now->isAfter($this->end_date->endOfDay())) {
+        if ($now->isAfter($this->ends_at)) {
             return true;
         }
 
@@ -103,8 +105,8 @@ class Alert extends Model
     {
         $now = now();
 
-        if ($now->between($this->start_date->startOfDay(),
-            $this->end_date->endOfDay())) {
+        if ($now->between($this->starts_at,
+            $this->ends_at)) {
             return true;
         }
 
@@ -114,10 +116,10 @@ class Alert extends Model
     /**
      * Return any alerts which are set to run between these dates.
      */
-    public function scopeInDateRange($query, $startDate, $endDate)
+    public function scopeInDateRange($query, $startsAt, $endsAt)
     {
-        return  $query->whereDate('end_date', '>=', $startDate)
-        ->whereDate('start_date', '<=', $endDate);
+        return  $query->where('ends_at', '>=', $startsAt)
+        ->where('starts_at', '<=', $endsAt);
     }
 
     /**
@@ -127,7 +129,7 @@ class Alert extends Model
     {
         $now = now();
 
-        return  $query->whereDate('end_date', '>=', $now)
-        ->whereDate('start_date', '<=', $now);
+        return  $query->where('ends_at', '>=', $now)
+        ->where('starts_at', '<=', $now);
     }
 }

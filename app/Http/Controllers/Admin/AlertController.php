@@ -16,7 +16,7 @@ class AlertController extends Controller
      */
     public function index()
     {
-        $alerts = Alert::orderBy('start_date', 'asc')
+        $alerts = Alert::orderBy('starts_at', 'asc')
             ->get()->sortBy('statusOrder');
 
         return view('backend.alerts.index', compact('alerts'));

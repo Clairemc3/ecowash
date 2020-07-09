@@ -1,18 +1,18 @@
 {{-- Start date --}}
-@inputDate(['name' => 'start_date',
+@inputDateTime(['name' => 'starts_at',
 'label' => 'Start date*',
-'value' => old('start_date', isset($alert) ? $alert->start_date->format('Y-m-d') : ''),
+'value' => old('starts_at', isset($alert) ? $alert->starts_at->format('Y-m-d') : ''),
 'helpText' => 'Select the date you would like the alert to start appearing',
 ])
-@endinputDate
+@endinputDateTime
 
-{{-- Start date --}}
-@inputDate(['name' => 'end_date',
+{{-- End date --}}
+@inputDateTime(['name' => 'ends_at',
 'label' => 'End date date*',
-'value' =>  old('end_date', isset($alert) ? $alert->end_date->format('Y-m-d') : ''),
+'value' =>  old('ends_at', isset($alert) ? $alert->ends_at->format('Y-m-d') : ''),
 'helpText' => 'Select the date you would like the alert to stop appearing',
 ])
-@endinputDate
+@endinputDateTime
 
 
 {{-- short text --}}

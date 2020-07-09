@@ -27,8 +27,8 @@ class StoreAlertRequest extends FormRequest
     public function rules()
     {
         return [
-            'start_date' => ['required', 'date'],
-            'end_date' => ['required', 'date', 'after_or_equal:start_date'],
+            'starts_at' => ['required', 'date'],
+            'ends_at' => ['required', 'date', 'after_or_equal:starts_at'],
             'short_text' => 'required|string|max:60',
             'long_text' => 'required|string',
         ];
@@ -56,11 +56,11 @@ class StoreAlertRequest extends FormRequest
      */
     public function alertInDateRange() :bool
     {
-        if (is_null($this->start_date) || is_null($this->end_date)) {
+        if (is_null($this->starts_at) || is_null($this->ends_at)) {
             return false;
         }
 
-        $alertsInRange = Alert::inDateRange($this->start_date, $this->end_date);
+        $alertsInRange = Alert::inDateRange($this->starts_at, $this->ends_at);
 
         if ($this->alert) {
             $alertsInRange->whereNotIn('id', [$this->alert->id]);

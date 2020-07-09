@@ -21,7 +21,7 @@ class AlertModalTest extends DuskTestCase
     public function active_alerts_should_be_displayed()
     {
         $activeAlert = factory(\App\Alert::class)
-        ->create(['start_date' => now()->subDays(2)]);
+        ->create(['starts_at' => now()->subDays(2)]);
 
         $this->browse(function (Browser $browser) use ($activeAlert) {
             $browser->visit('/')
