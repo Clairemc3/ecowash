@@ -13,93 +13,96 @@ use Illuminate\Support\Facades\Event;
 
 class InviteUserTest extends TestCase {
 
-	use WithFaker, RefreshDatabase;
+    use WithFaker, RefreshDatabase;
 
-	/** @test
-	 * A basic feature test example.
-	 *
-	 * @return void
-	 */
-	public function a_user_can_invite_a_new_user()
-	{
-		Event::fake(UserInvited::class);
+    /** @test
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function a_user_can_invite_a_new_user()
+    {
+        Event::fake(UserInvited::class);
 
-		$this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
 
-		$this->actingAs($this->authenticatedUser);
+        $this->actingAs($this->authenticatedUser);
 
-		$this->get('admin/users/invite')->assertStatus(200);
+        $this->get('admin/users/invite')->assertStatus(200);
 
-		$attributes = factory(\App\User::class)->raw();
+        $attributes = factory(\App\User::class)->raw();
 
-		$this->post('admin/users/invite', $attributes)->assertRedirect('/admin/users');
+        $this->post('admin/users/invite', $attributes)->assertRedirect('/admin/users');
 
-		$this->assertDatabaseHas('users', $attributes);
+        $this->assertDatabaseHas('users', $attributes);
 
-		// Assert that the UserInvited event was dispatched
-		Event::assertDispatched(UserInvited::class);
+        // Assert that the UserInvited event was dispatched
+        Event::assertDispatched(UserInvited::class);
 
-	}
+    }
 
-	/**
-	 * A basic feature test example.
-	 *
-	 * @return void
-	 */
-	public function an_invited_user_receives_an_activation_email_with_an_activation_link()
-	{
-		Notification::fake();
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function an_invited_user_receives_an_activation_email_with_an_activation_link()
+    {
+        Notification::fake();
 
-		$user = factory(\App\User::class)->state('invited')->create();
+        $user = factory(\App\User::class)->state('invited')->create();
 
-		event(new UserInvited($user));
+        event(new UserInvited($user));
 
-		// Assert an activation exists for this user
-		$this->assertDatabaseHas('activations', ['user_id' => $user->id, 'completed_at' => 0]);
+        // Assert an activation exists for this user
+        $this->assertDatabaseHas('activations', ['user_id' => $user->id, 'completed_at' => 0]);
 
-		// Assert a notification was sent to the given users with an activation link
-		Notification::assertSentTo(
-			[$user], UserInvitation::class
-		);
+        // Assert a notification was sent to the given users with an activation link
+        Notification::assertSentTo(
+            [$user], UserInvitation::class
+        );
 
-	}
+    }
 
-	/** @test
-	 * A basic feature test example.
-	 *
-	 * @return void
-	 */
-	public function an_user_can_activate_their_account()
-	{
-		$this->withoutExceptionHandling();
+    /** @test
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function an_user_can_activate_their_account()
+    {
+        $this->withoutExceptionHandling();
 
-		$user = factory(\App\User::class)->state('invited')->create();
+        $user = factory(\App\User::class)->state('invited')->create();
 
-		$activation = new Activation();
+        $activation = new Activation();
 
-		$token = $activation->create($user);
+        $token = $activation->create($user);
 
-		$route = "/activate/{$token}/{$user->email}";
+        $route = "/activate/{$token}/{$user->email}";
 
-		$this->get($route)->assertStatus(200);
+        $this->get($route)->assertStatus(200);
 
-		$this->post($route, ['password' => 'password',
-		                     'password_confirmation' => 'password'])->assertRedirect('admin');
+        $this->post($route, ['password' => 'password',
+                             'password_confirmation' => 'password'])->assertRedirect('admin');
 
-		$this->assertEquals($user->status, 'active');
+        $this->assertDatabaseHas('users', [
+        'id' => $user->id,
+        'status' => 'active'
+        ]);
 
-	}
+    }
 }
 
    // An existing user can invite a new user// new user should be created with invited status
-	   // The new user should receive a new user email
-	   //   A
-	   //
+       // The new user should receive a new user email
+       //   A
+       //
 // An invited user can activate their account
-	// - token link should work
-	//  - user can set their password
-	// user should be come active
-	// user should be able to login with the password they set
+    // - token link should work
+    //  - user can set their password
+    // user should be come active
+    // user should be able to login with the password they set
 
 // An invited user cant login
 // a user with an expired token cant activate their account
