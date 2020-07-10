@@ -1,13 +1,22 @@
 .alert {
-    background-color: $red;
+    background-color: $warning-red;
+    color: white;
+
+    // border-bottom: 3px solid $red;
     padding-top: 1em;
+    padding-right: 0.5em;
     padding-bottom: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 
 }
 
 .alert__modal {
     h1 {
         color:$red;
+    }
+    .modal-content {
+        overflow: hidden;
     }
 }
 
