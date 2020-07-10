@@ -63,8 +63,8 @@
                     </div>
 
                     <div class="topline container">
-                        <div class="left">Open daily from 7.30am to 8.30pm</div>
-                        <div class="right">
+                        <div class="topline__left">Open daily from 7.30am to 8.30pm</div>
+                        <div class="topline__right">
                             <span class="review-text">Rated 4.7 by our customers</span>
                             <div class="rating">
                                 <i class="fas fa-star"></i>

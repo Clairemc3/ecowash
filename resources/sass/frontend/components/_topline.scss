@@ -1,5 +1,5 @@
 .topline {
-    @include flexy( 
+    @include flexy(
         $dir: row,
         $justify: center,
         $align: center,
@@ -9,16 +9,20 @@
         justify-content: space-between;
         flex-grow: 1;
     }
-    
+
 }
 
-.left, .right {
+.topline__left, .topline__right {
     color: $cream;
     font-size: 1.25em;
     margin-top: .5em;
 }
 
-.right {
+.topline__left {
+    text-align: center;
+}
+
+.topline__right {
     display: none;
 
     @include mediaQuery(large) {
