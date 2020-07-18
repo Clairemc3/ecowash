@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 
-@section('title', 'Laundertte in Godalming')
+@section('title', 'Launderette in Godalming')
 
 @section('mainMenu')
     @parent
