@@ -5,8 +5,9 @@
 
 {{-- text --}}
 @inputText(['name' => 'text',
-'label' => 'Text',
+'label' => 'Text (optional)',
 'value' => old('text', $slider->text ?? ''),
+'required' => false
 ])
 @endinputText
 

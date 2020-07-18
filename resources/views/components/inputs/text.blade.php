@@ -4,7 +4,11 @@
     @if (isset($helpText))
         <div id="{{$name}}Help" class="input-help text-xs mb-1">{!! $helpText !!}</div>
     @endif
-    <input required name="{{$name}}" type="text" id="{{$name}}" aria-describedby="{{$name}}"
+    <input
+        {{ isset($required) && $required ?'required' : '' }}
+        name="{{$name}}"
+        type="text" id="{{$name}}"
+        aria-describedby="{{$name}}"
     @if (isset($placeholder)) placeholder="{{ $placeholder }}" @endif
     value="{{ old($name) ?? $value}}"
     @if($disabled ?? false) disabled @endif
