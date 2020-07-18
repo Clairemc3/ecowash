@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use LengthException;
 
 class Slider extends Model
 {
@@ -24,5 +25,17 @@ class Slider extends Model
     public function getModelNameAttribute()
     {
         return 'slider';
+    }
+
+    /**
+     * Return a string version of the  resource.
+     */
+    public function getTruncatedTextAttribute()
+    {
+        if ($this->text && strlen($this->text) > 50)
+        {
+            return substr($this->text, 0, 50) . '...';
+        }
+        return $this->text;
     }
 }

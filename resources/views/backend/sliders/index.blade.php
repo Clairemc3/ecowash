@@ -18,9 +18,10 @@
 @else
     @tbl
         @tblHead([
-            'headings' => ['Order', 'Image', 'Description'],
+            'headings' => ['Order', 'Image'],
         ])
             @slot('after')
+                <x-table.cell type="heading" class="hidden sm:table-cell">Text</x-table.cell>
                 @cell(['heading', 'class' => 'sm:table-cell']) @endcell
             @endslot
         @endtblHead
@@ -30,7 +31,10 @@
                 @tblRow()
                     @cell {{ $slider->order }} @endcell
                     @cell <x-image-thumbnail size="table" :imageUrl="$slider->image_source"/> @endcell
-                    @cell {{ $slider->text  }} @endcell
+                    <x-table.cell
+                    class="text-center hidden sm:table-cell">
+                    {{ $slider->truncatedText  }}
+                     </x-table.cell>
                     @tblActions(['model' => $slider])@endtblActions
                 @endtblRow
             @endforeach
