@@ -5,7 +5,7 @@
                 <div class="slider__image">
                     <img :src="currentSlide.image_source" style="width:100%">
                 </div>
-                <div class='slider_text_group'>
+                <div v-if="currentSlide.text" class='slider_text_group'>
                     <div class="slider__text">{{ currentSlide.text }}</div>
                 </div>
             </div>
