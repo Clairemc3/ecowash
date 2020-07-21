@@ -28138,6 +28138,12 @@ h3 {
   text-align: center;
 }
 
+@media (min-width: 992px) {
+  .topline__left {
+    text-align: left;
+  }
+}
+
 .topline__right {
   display: none;
 }

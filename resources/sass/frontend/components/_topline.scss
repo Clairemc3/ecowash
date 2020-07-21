@@ -20,6 +20,10 @@
 
 .topline__left {
     text-align: center;
+
+    @include mediaQuery(large) {
+        text-align: left;
+    }
 }
 
 .topline__right {
