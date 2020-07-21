@@ -1,5 +1,5 @@
-<div class="alert text-center w-full alert text-white">
-    {{$alert->short_text}}
+<div class="alert text-center w-full alert">
+   <span class="uppercase text-3xl"> {{$alert->short_text}}</span>
     <a class="text-sm" @click.prevent @click=$modal.open() href="#">
          more info...
     </a>
