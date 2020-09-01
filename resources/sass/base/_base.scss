@@ -57,3 +57,10 @@ li {
 button a {
   display: block;
 }
+
+// Style safari detecting telephone numbers
+a[href^=tel] {
+    text-decoration:inherit;
+    text-decoration:underline;
+    color: inherit;
+ }
